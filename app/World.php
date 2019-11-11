@@ -845,22 +845,22 @@ abstract class World
                     }
                 });
             }
-            foreach ($this->getShops() as $shop) {
-                if ($shop->getActive()) {
-                    $shop_data = [
-                        'location' => $shop->getName(),
-                        'type' => $shop instanceof Shop\TakeAny ? 'Take Any' : 'Shop',
-                    ];
-                    foreach ($shop->getInventory() as $slot => $item) {
-                        $shop_data["item_$slot"] = [
-                            'item' => $item['item']->getName(),
-                            'price' => $item['price'],
-                        ];
-                    }
-                    $this->spoiler['Shops'][] = $shop_data;
-                }
-            }
-            $this->spoiler['playthrough'] = (new PlaythroughService)->getPlayThrough($this);
+            //foreach ($this->getShops() as $shop) {
+            //    if ($shop->getActive()) {
+            //        $shop_data = [
+            //            'location' => $shop->getName(),
+            //            'type' => $shop instanceof Shop\TakeAny ? 'Take Any' : 'Shop',
+            //        ];
+            //        foreach ($shop->getInventory() as $slot => $item) {
+            //            $shop_data["item_$slot"] = [
+            //                'item' => $item['item']->getName(),
+            //                'price' => $item['price'],
+            //            ];
+            //        }
+            //        $this->spoiler['Shops'][] = $shop_data;
+            //    }
+            //}
+            //$this->spoiler['playthrough'] = (new PlaythroughService)->getPlayThrough($this);
         }
 
         $this->spoiler['meta'] = array_merge($this->spoiler['meta'] ?? [], $meta, [
@@ -889,24 +889,24 @@ abstract class World
             'enemizer.enemy_health' => $this->config('enemizer.enemyHealth'),
         ]);
 
-        $this->spoiler['Bosses'] = [
-            "Eastern Palace" => $this->getRegion('Eastern Palace')->getBoss('')->getName(),
-            "Desert Palace" => $this->getRegion('Desert Palace')->getBoss('')->getName(),
-            "Tower Of Hera" => $this->getRegion('Tower of Hera')->getBoss('')->getName(),
-            "Hyrule Castle" => "Agahnim",
-            "Palace Of Darkness" => $this->getRegion('Palace of Darkness')->getBoss('')->getName(),
-            "Swamp Palace" => $this->getRegion('Swamp Palace')->getBoss('')->getName(),
-            "Skull Woods" => $this->getRegion('Skull Woods')->getBoss('')->getName(),
-            "Thieves Town" => $this->getRegion('Thieves Town')->getBoss('')->getName(),
-            "Ice Palace" => $this->getRegion('Ice Palace')->getBoss('')->getName(),
-            "Misery Mire" => $this->getRegion('Misery Mire')->getBoss('')->getName(),
-            "Turtle Rock" => $this->getRegion('Turtle Rock')->getBoss('')->getName(),
-            "Ganons Tower Basement" => $this->getRegion('Ganons Tower')->getBoss('bottom')->getName(),
-            "Ganons Tower Middle" => $this->getRegion('Ganons Tower')->getBoss('middle')->getName(),
-            "Ganons Tower Top" => $this->getRegion('Ganons Tower')->getBoss('top')->getName(),
-            "Ganons Tower" => "Agahnim 2",
-            "Ganon" => "Ganon"
-        ];
+        //$this->spoiler['Bosses'] = [
+        //    "Eastern Palace" => $this->getRegion('Eastern Palace')->getBoss('')->getName(),
+        //    "Desert Palace" => $this->getRegion('Desert Palace')->getBoss('')->getName(),
+        //    "Tower Of Hera" => $this->getRegion('Tower of Hera')->getBoss('')->getName(),
+        //    "Hyrule Castle" => "Agahnim",
+        //    "Palace Of Darkness" => $this->getRegion('Palace of Darkness')->getBoss('')->getName(),
+        //    "Swamp Palace" => $this->getRegion('Swamp Palace')->getBoss('')->getName(),
+        //    "Skull Woods" => $this->getRegion('Skull Woods')->getBoss('')->getName(),
+        //    "Thieves Town" => $this->getRegion('Thieves Town')->getBoss('')->getName(),
+        //    "Ice Palace" => $this->getRegion('Ice Palace')->getBoss('')->getName(),
+        //    "Misery Mire" => $this->getRegion('Misery Mire')->getBoss('')->getName(),
+        //    "Turtle Rock" => $this->getRegion('Turtle Rock')->getBoss('')->getName(),
+        //    "Ganons Tower Basement" => $this->getRegion('Ganons Tower')->getBoss('bottom')->getName(),
+        //    "Ganons Tower Middle" => $this->getRegion('Ganons Tower')->getBoss('middle')->getName(),
+        //    "Ganons Tower Top" => $this->getRegion('Ganons Tower')->getBoss('top')->getName(),
+        //    "Ganons Tower" => "Agahnim 2",
+        //    "Ganon" => "Ganon"
+        //];
 
         if ($this->config('rom.HardMode') !== null) {
             $this->spoiler['meta']['difficulty_mode'] = $this->config('rom.HardMode', 0);
