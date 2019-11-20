@@ -819,12 +819,12 @@ abstract class World
                     }
 
                     $location = sprintf("Equipment Slot %s", ++$i);
-                    $this->spoiler['Equipped'][$location] = $item->getTarget()->getName();
+                    $this->spoiler['Equipped'][$location] = $item->getTarget()->getSpoilerName();
                 }
             }
 
             foreach ($this->getRegions() as $region) {
-                $name = $region->getName();
+                $name = $region->getSpoilerName();
                 if (!isset($this->spoiler[$name])) {
                     $this->spoiler[$name] = [];
                 }
@@ -837,11 +837,11 @@ abstract class World
                     }
                     if ($location->hasItem()) {
                         $item = $location->getItem();
-                        $this->spoiler[$name][$location->getName()] = $this->config('rom.genericKeys', false) && $item instanceof Item\Key
+                        $this->spoiler[$name][$location->getSpoilerName()] = $this->config('rom.genericKeys', false) && $item instanceof Item\Key
                             ? 'Key'
-                            : $item->getTarget()->getName();
+                            : $item->getTarget()->getSpoilerName();
                     } else {
-                        $this->spoiler[$name][$location->getName()] = 'Nothing';
+                        $this->spoiler[$name][$location->getSpoilerName()] = 'Nothing';
                     }
                 });
             }
