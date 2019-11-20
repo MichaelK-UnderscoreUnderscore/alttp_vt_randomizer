@@ -21,6 +21,7 @@ class Shop
     protected $writes = [];
     protected $active = false;
     protected $inventory = [];
+    protected $vanilla = true;
 
     /**
      * Create a new Shop
@@ -94,6 +95,21 @@ class Shop
         return $this->active;
     }
 
+    /**
+     * Set or determine whether or not the shop has its vanilla contents
+     * This is used when determining whether to put a shop in the spoiler
+     */
+    public function setVanilla(bool $vanilla): self
+    {
+        $this->vanilla = $vanilla;
+
+        return $this;
+    }
+
+    public function getVanilla(): bool
+    {
+        return $this->vanilla;
+    }
     public function setShopkeeper(string $shopkeeper): self
     {
         switch ($shopkeeper) {

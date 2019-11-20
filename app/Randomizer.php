@@ -699,6 +699,7 @@ class Randomizer implements RandomizerContract
                 return $shop instanceof Shop\TakeAny;
             })->randomCollection(4)->each(function ($shop) use ($world) {
                 $shop->setActive(true);
+                $shop->setVanilla(false);
                 $shop->setShopkeeper('old_man');
                 $shop->addInventory(0, Item::get('BluePotion', $world), 0);
                 $shop->addInventory(1, Item::get('BossHeartContainer', $world), 0);
@@ -710,6 +711,7 @@ class Randomizer implements RandomizerContract
             })->random();
 
             $old_man->setActive(true);
+            $old_man->setVanilla(false);
             $old_man->setShopkeeper('old_man');
             $old_man->addInventory(0, ($world->config('mode.weapons') == 'swordless') ? Item::get('ThreeHundredRupees', $world)
                 : Item::get('ProgressiveSword', $world), 0);
@@ -721,6 +723,7 @@ class Randomizer implements RandomizerContract
                 && (!$world instanceof \ALttP\World\Inverted || $shop->getName() != "Dark World Lake Hylia Shop");
         })->randomCollection(5)->each(function ($shop) use ($world) {
             $shop->setActive(true);
+            $shop->setVanilla(false);
             if ($world->config('rom.rupeeBow', false)) {
                 $shop->addInventory(0, Item::get('ShopArrow', $world), 80);
             }
@@ -734,6 +737,7 @@ class Randomizer implements RandomizerContract
             // One shop has arrows for sale, we need to set the price correct for
             $dw_shop = $world->getShop("Dark World Forest Shop");
             $dw_shop->setActive(true);
+            $dw_shop->setVanilla(false);
             foreach ($dw_shop->getInventory() as $slot => $data) {
                 if ($data['item'] instanceof Item\Arrow) {
                     $dw_shop->addInventory((int) $slot, Item::get('ShopArrow', $world), 80);

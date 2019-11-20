@@ -845,21 +845,21 @@ abstract class World
                     }
                 });
             }
-            //foreach ($this->getShops() as $shop) {
-            //    if ($shop->getActive()) {
-            //        $shop_data = [
-            //            'location' => $shop->getName(),
-            //            'type' => $shop instanceof Shop\TakeAny ? 'Take Any' : 'Shop',
-            //        ];
-            //        foreach ($shop->getInventory() as $slot => $item) {
-            //            $shop_data["item_$slot"] = [
-            //                'item' => $item['item']->getName(),
-            //                'price' => $item['price'],
-            //            ];
-            //        }
-            //        $this->spoiler['Shops'][] = $shop_data;
-            //    }
-            //}
+            foreach ($this->getShops() as $shop) {
+                if ($shop->getActive() && !$shop->getVanilla()) {
+                    $shop_data = [
+                        'location' => $shop->getName(),
+                        'type' => $shop instanceof Shop\TakeAny ? 'Take Any' : 'Shop',
+                    ];
+                    foreach ($shop->getInventory() as $slot => $item) {
+                        $shop_data["item_$slot"] = [
+                            'item' => $item['item']->getName(),
+                            'price' => $item['price'],
+                        ];
+                    }
+                    $this->spoiler['Shops'][] = $shop_data;
+                }
+            }
             //$this->spoiler['playthrough'] = (new PlaythroughService)->getPlayThrough($this);
         }
 
