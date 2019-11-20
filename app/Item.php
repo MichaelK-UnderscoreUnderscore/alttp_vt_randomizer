@@ -332,7 +332,12 @@ class Item
     {
         return $this->name . ':' . $this->world->id;
     }
-
+    
+    public function getSpoilerName(): string
+    {
+        return $this->name;
+    }
+    
     /**
      * Get the nice name of this Item
      *

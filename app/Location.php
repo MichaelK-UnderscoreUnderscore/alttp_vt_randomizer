@@ -276,7 +276,12 @@ class Location
     {
         return $this->name . ':' . $this->region->getWorld()->id;
     }
-
+    
+    public function getSpoilerName()
+    {
+        return $this->name;
+    }
+    
     /**
      * Get the ROM addres of this Location.
      *
