@@ -49,18 +49,18 @@ class MireTest extends TestCase
     {
         return [
             ["Mire Shed - Left", false, []],
-            ["Mire Shed - Left", false, [], ['Gloves']],
-            ["Mire Shed - Left", false, [], ['MoonPearl']],
-            ["Mire Shed - Left", false, [], ['Flute']],
+            ["Mire Shed - Left", false, [], ['Flute', 'MagicMirror']],
             ["Mire Shed - Left", true, ['MoonPearl', 'Flute', 'ProgressiveGlove', 'ProgressiveGlove']],
-            ["Mire Shed - Left", true, ['MoonPearl', 'Flute', 'TitansMitt']],
+            ["Mire Shed - Left", true, ['MoonPearl', 'Flute', 'ProgressiveGlove', 'Hammer']],
+            ["Mire Shed - Left", true, ['MoonPearl', 'Flute', 'DefeatAgahnim']],
+            ["Mire Shed - Left", true, ['MagicMirror', 'DefeatAgahnim']],
 
             ["Mire Shed - Right", false, []],
-            ["Mire Shed - Right", false, [], ['Gloves']],
-            ["Mire Shed - Right", false, [], ['MoonPearl']],
-            ["Mire Shed - Right", false, [], ['Flute']],
+            ["Mire Shed - Right", false, [], ['Flute', 'MagicMirror']],
             ["Mire Shed - Right", true, ['MoonPearl', 'Flute', 'ProgressiveGlove', 'ProgressiveGlove']],
-            ["Mire Shed - Right", true, ['MoonPearl', 'Flute', 'TitansMitt']],
+            ["Mire Shed - Right", true, ['MoonPearl', 'Flute', 'ProgressiveGlove', 'Hammer']],
+            ["Mire Shed - Right", true, ['MoonPearl', 'Flute', 'DefeatAgahnim']],
+            ["Mire Shed - Right", true, ['MagicMirror', 'DefeatAgahnim']],
         ];
     }
 }

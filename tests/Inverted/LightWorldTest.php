@@ -268,6 +268,12 @@ class LightWorldTest extends TestCase
             ["Waterfall Fairy - Right", false, []],
             ["Waterfall Fairy - Right", false, [], ['Flippers']],
             ["Waterfall Fairy - Right", true, ['Flippers']],
+
+            ["Bomb Merchant", false, []],
+            ["Bomb Merchant", false, [], ['Crystal5']],
+            ["Bomb Merchant", false, [], ['Crystal6']],
+            ["Bomb Merchant", false, [], ['MoonPearl']],
+            ["Bomb Merchant", true, ['Crystal5', 'Crystal6', 'MoonPearl']],
         ];
     }
 }
