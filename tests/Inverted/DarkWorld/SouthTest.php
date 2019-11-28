@@ -61,6 +61,8 @@ class SouthTest extends TestCase
             ["Stumpy", true, []],
 
             ["Digging Game", true, []],
+
+            ["Link's House", true, []],
         ];
     }
 }
