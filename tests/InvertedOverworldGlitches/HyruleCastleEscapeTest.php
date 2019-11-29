@@ -69,42 +69,72 @@ class HyruleCastleEscapeTest extends TestCase
     {
         return [
 
-            ["Sanctuary", false, 'KeyH2', [], ['KeyH2']],
+            ["Sanctuary", true, 'KeyH2', [], ['KeyH2']],
 
-            ["Sewers - Secret Room - Left", false, 'KeyH2', [], ['KeyH2']],
+            ["Sewers - Secret Room - Left", true, 'KeyH2', [], ['KeyH2']],
 
-            ["Sewers - Secret Room - Middle", false, 'KeyH2', [], ['KeyH2']],
+            ["Sewers - Secret Room - Middle", true, 'KeyH2', [], ['KeyH2']],
 
-            ["Sewers - Secret Room - Right", false, 'KeyH2', [], ['KeyH2']],
+            ["Sewers - Secret Room - Right", true, 'KeyH2', [], ['KeyH2']],
 
             ["Sewers - Dark Cross", true, 'KeyH2', [], ['KeyH2']],
 
-            ["Hyrule Castle - Boomerang Chest", true, 'KeyH2', [], ['KeyH2']],
+            ["Hyrule Castle - Boomerang Chest", false, 'KeyH2', [], ['KeyH2']],
 
             ["Hyrule Castle - Map Chest", true, 'KeyH2', [], ['KeyH2']],
 
-            ["Hyrule Castle - Zelda's Cell", true, 'KeyH2', [], ['KeyH2']],
+            ["Hyrule Castle - Zelda's Cell", false, 'KeyH2', [], ['KeyH2']],
         ];
     }
 
     public function accessPool()
     {
         return [
-            ["Sanctuary", true, ['UncleSword', 'KeyH2']],
+            ["Sanctuary", False, []],
+            ["Sanctuary", true, ['DefeatAgahnim']],
+            ["Sanctuary", true, ['MoonPearl', 'PegasusBoots']],
+            ["Sanctuary", true, ['MagicMirror', 'PegasusBoots']],
+            
+            ["Sewers - Secret Room - Left", false, []],
+            ["Sewers - Secret Room - Left", true, ['MoonPearl', 'ProgressiveGlove', 'PegasusBoots']],
+            ["Sewers - Secret Room - Left", true, ['MoonPearl', 'PegasusBoots', 'Lamp', 'KeyH2']],
+            ["Sewers - Secret Room - Left", true, ['MagicMirror', 'PegasusBoots', 'Lamp', 'KeyH2']],
+            ["Sewers - Secret Room - Left", true, ['DefeatAgahnim', 'Lamp', 'KeyH2']],
+            
+            ["Sewers - Secret Room - Middle", false, []],
+            ["Sewers - Secret Room - Middle", true, ['MoonPearl', 'ProgressiveGlove', 'PegasusBoots']],
+            ["Sewers - Secret Room - Middle", true, ['MoonPearl', 'PegasusBoots', 'Lamp', 'KeyH2']],
+            ["Sewers - Secret Room - Middle", true, ['MagicMirror', 'PegasusBoots', 'Lamp', 'KeyH2']],
+            ["Sewers - Secret Room - Middle", true, ['DefeatAgahnim', 'Lamp', 'KeyH2']],
+            
+            ["Sewers - Secret Room - Right", false, []],
+            ["Sewers - Secret Room - Right", true, ['MoonPearl', 'ProgressiveGlove', 'PegasusBoots']],
+            ["Sewers - Secret Room - Right", true, ['MoonPearl', 'PegasusBoots', 'Lamp', 'KeyH2']],
+            ["Sewers - Secret Room - Right", true, ['MagicMirror', 'PegasusBoots', 'Lamp', 'KeyH2']],
+            ["Sewers - Secret Room - Right", true, ['DefeatAgahnim', 'Lamp', 'KeyH2']],
+            
+            ["Sewers - Dark Cross", False, []],
+            ["Sewers - Dark Cross", False, [], ['Lamp']],
+            ["Sewers - Dark Cross", true, ['Lamp', 'DefeatAgahnim']],
+            ["Sewers - Dark Cross", true, ['Lamp', 'MoonPearl', 'PegasusBoots']],
+            ["Sewers - Dark Cross", true, ['Lamp', 'MagicMirror', 'PegasusBoots']],
+            
+            ["Hyrule Castle - Boomerang Chest", false, []],
+            ["Hyrule Castle - Boomerang Chest", false, [], ['KeyH2']],
+            ["Hyrule Castle - Boomerang Chest", true, ['KeyH2', 'DefeatAgahnim']],
+            ["Hyrule Castle - Boomerang Chest", true, ['KeyH2', 'MoonPearl', 'PegasusBoots']],
+            ["Hyrule Castle - Boomerang Chest", true, ['KeyH2', 'MagicMirror', 'PegasusBoots']],
 
-            ["Sewers - Secret Room - Left", true, ['UncleSword', 'KeyH2']],
+            ["Hyrule Castle - Map Chest", false, []],
+            ["Hyrule Castle - Map Chest", true, ['DefeatAgahnim']],
+            ["Hyrule Castle - Map Chest", true, ['MoonPearl', 'PegasusBoots']],
+            ["Hyrule Castle - Map Chest", true, ['MagicMirror', 'PegasusBoots']],
 
-            ["Sewers - Secret Room - Middle", true, ['UncleSword', 'KeyH2']],
-
-            ["Sewers - Secret Room - Right", true, ['UncleSword', 'KeyH2']],
-
-            ["Sewers - Dark Cross", true, ['UncleSword']],
-
-            ["Hyrule Castle - Boomerang Chest", true, ['UncleSword']],
-
-            ["Hyrule Castle - Map Chest", true, ['UncleSword']],
-
-            ["Hyrule Castle - Zelda's Cell", true, ['UncleSword']],
+            ["Hyrule Castle - Zelda's Cell", false, []],
+            ["Hyrule Castle - Zelda's Cell", false, [], ['KeyH2']],
+            ["Hyrule Castle - Zelda's Cell", true, ['KeyH2', 'DefeatAgahnim']],
+            ["Hyrule Castle - Zelda's Cell", true, ['KeyH2', 'MoonPearl', 'PegasusBoots']],
+            ["Hyrule Castle - Zelda's Cell", true, ['KeyH2', 'MagicMirror', 'PegasusBoots']],
         ];
     }
 }

@@ -71,15 +71,15 @@ class EastTest extends TestCase
 
             ["Paradox Cave Upper - Right", false, []],
             ["Paradox Cave Lower - Right", true, ['PegasusBoots']],
-			
-			["Mimic Cave", false, []],
-			["Mimic Cave", false, [], ['MagicMirror']],
-			["Mimic Cave", false, [], ['Hammer']],
-			["Mimic Cave", true, ['MagicMirror', 'Hammer', 'PegasusBoots']],
-			["Mimic Cave", true, ['MagicMirror', 'Hammer', 'ProgressiveGlove', 'Lamp']],
-			["Mimic Cave", true, ['MagicMirror', 'Hammer', 'PowerGlove', 'Lamp']],
-			["Mimic Cave", true, ['MagicMirror', 'Hammer', 'TitansMitt', 'Lamp']],
-			["Mimic Cave", true, ['MagicMirror', 'Hammer', 'Flute']],
+            
+            ["Mimic Cave", false, []],
+            ["Mimic Cave", false, [], ['MagicMirror']],
+            ["Mimic Cave", false, [], ['Hammer']],
+            ["Mimic Cave", true, ['MagicMirror', 'Hammer', 'PegasusBoots']],
+            ["Mimic Cave", true, ['MagicMirror', 'Hammer', 'ProgressiveGlove', 'Lamp']],
+            ["Mimic Cave", true, ['MagicMirror', 'Hammer', 'PowerGlove', 'Lamp']],
+            ["Mimic Cave", true, ['MagicMirror', 'Hammer', 'TitansMitt', 'Lamp']],
+            ["Mimic Cave", true, ['MagicMirror', 'Hammer', 'Flute']],
         ];
     }
 }

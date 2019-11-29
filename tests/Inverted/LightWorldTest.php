@@ -96,7 +96,7 @@ class LightWorldTest extends TestCase
             ["Kakariko Tavern", true, ['MoonPearl', 'PowerGlove', 'Hammer']],
             ["Kakariko Tavern", true, ['MoonPearl', 'ProgressiveGlove', 'ProgressiveGlove']],
             ["Kakariko Tavern", true, ['MoonPearl', 'TitansMitt']],
-			
+            
             ["Chicken House", false, []],
             ["Chicken House", false, [], ['MoonPearl']],
             ["Chicken House", true, ['MoonPearl', 'DefeatAgahnim']],
@@ -531,7 +531,7 @@ class LightWorldTest extends TestCase
             ["Bomb Merchant", true, ['Crystal5', 'Crystal6', 'MoonPearl', 'PowerGlove', 'Hammer']],
             ["Bomb Merchant", true, ['Crystal5', 'Crystal6', 'MoonPearl', 'ProgressiveGlove', 'ProgressiveGlove']],
             ["Bomb Merchant", true, ['Crystal5', 'Crystal6', 'MoonPearl', 'TitansMitt']],
-			
+            
             ["Ganon", false, []],
             ["Ganon", false, [], ['MoonPearl']],
             ["Ganon", false, [], ['DefeatAgahnim2']],

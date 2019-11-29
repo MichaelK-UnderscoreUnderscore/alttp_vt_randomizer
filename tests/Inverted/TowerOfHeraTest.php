@@ -158,7 +158,7 @@ class TowerOfHeraTest extends TestCase
             ["Tower of Hera - Big Chest", true, ['PowerGlove', 'MoonPearl', 'Lamp', 'Hookshot', 'Hammer', 'BigKeyP3']],
             ["Tower of Hera - Big Chest", true, ['ProgressiveGlove', 'ProgressiveGlove', 'MoonPearl', 'Lamp', 'Hammer', 'BigKeyP3']],
             ["Tower of Hera - Big Chest", true, ['TitansMitt', 'MoonPearl', 'Lamp', 'Hammer', 'BigKeyP3']],
-			
+            
             ["Tower of Hera - Boss", false, []],
             ["Tower of Hera - Boss", false, [], ['Lamp', 'Flute']],
             ["Tower of Hera - Boss", false, [], ['MoonPearl']],

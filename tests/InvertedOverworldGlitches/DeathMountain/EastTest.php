@@ -76,11 +76,11 @@ class EastTest extends TestCase
             ["Paradox Cave Upper - Right", false, []],
             ["Paradox Cave Upper - Right", true, ['MoonPearl', 'PegasusBoots']],
 
-			["Mimic Cave", false, []],
-			["Mimic Cave", false, [], ['MoonPearl']],
-			["Mimic Cave", false, [], ['Hammer']],
-			["Mimic Cave", true, ['MoonPearl', 'Hammer', 'PegasusBoots']],
-			
+            ["Mimic Cave", false, []],
+            ["Mimic Cave", false, [], ['MoonPearl']],
+            ["Mimic Cave", false, [], ['Hammer']],
+            ["Mimic Cave", true, ['MoonPearl', 'Hammer', 'PegasusBoots']],
+            
             ["Ether Tablet", false, []],
             ["Ether Tablet", false, [], ['UpgradedSword']],
             ["Ether Tablet", false, [], ['BookOfMudora']],
