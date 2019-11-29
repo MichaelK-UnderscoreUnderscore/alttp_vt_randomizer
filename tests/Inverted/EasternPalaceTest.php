@@ -25,13 +25,6 @@ class EasternPalaceTest extends TestCase
         unset($this->world);
     }
 
-    // Entry
-    public function testNothingRequiredToEnter()
-    {
-        $this->assertTrue($this->world->getRegion('Eastern Palace')
-            ->canEnter($this->world->getLocations(), $this->collected));
-    }
-
     /**
      * @param string $location
      * @param bool $access
@@ -93,26 +86,58 @@ class EasternPalaceTest extends TestCase
     public function accessPool()
     {
         return [
-            ["Eastern Palace - Compass Chest", true, []],
+            ["Eastern Palace - Compass Chest", false, []],
+            ["Eastern Palace - Compass Chest", false, [], ['MoonPearl']],
+            ["Eastern Palace - Compass Chest", true, ['MoonPearl', 'DefeatAgahnim']],
+            ["Eastern Palace - Compass Chest", true, ['MoonPearl', 'ProgressiveGlove', 'Hammer']],
+            ["Eastern Palace - Compass Chest", true, ['MoonPearl', 'PowerGlove', 'Hammer']],
+            ["Eastern Palace - Compass Chest", true, ['MoonPearl', 'ProgressiveGlove', 'ProgressiveGlove']],
+            ["Eastern Palace - Compass Chest", true, ['MoonPearl', 'TitansMitt']],
 
-            ["Eastern Palace - Cannonball Chest", true, []],
+            ["Eastern Palace - Cannonball Chest", false, []],
+            ["Eastern Palace - Cannonball Chest", false, [], ['MoonPearl']],
+            ["Eastern Palace - Cannonball Chest", true, ['MoonPearl', 'DefeatAgahnim', ]],
+            ["Eastern Palace - Cannonball Chest", true, ['MoonPearl', 'ProgressiveGlove', 'Hammer']],
+            ["Eastern Palace - Cannonball Chest", true, ['MoonPearl', 'PowerGlove', 'Hammer']],
+            ["Eastern Palace - Cannonball Chest", true, ['MoonPearl', 'ProgressiveGlove', 'ProgressiveGlove']],
+            ["Eastern Palace - Cannonball Chest", true, ['MoonPearl', 'TitansMitt']],
 
             ["Eastern Palace - Big Chest", false, []],
+            ["Eastern Palace - Big Chest", false, [], ['MoonPearl']],
             ["Eastern Palace - Big Chest", false, [], ['BigKeyP1']],
-            ["Eastern Palace - Big Chest", true, ['BigKeyP1']],
+            ["Eastern Palace - Big Chest", true, ['BigKeyP1', 'MoonPearl', 'DefeatAgahnim']],
+            ["Eastern Palace - Big Chest", true, ['BigKeyP1', 'MoonPearl', 'ProgressiveGlove', 'Hammer']],
+            ["Eastern Palace - Big Chest", true, ['BigKeyP1', 'MoonPearl', 'PowerGlove', 'Hammer']],
+            ["Eastern Palace - Big Chest", true, ['BigKeyP1', 'MoonPearl', 'ProgressiveGlove', 'ProgressiveGlove']],
+            ["Eastern Palace - Big Chest", true, ['BigKeyP1', 'MoonPearl', 'TitansMitt']],
 
-            ["Eastern Palace - Map Chest", true, []],
+            ["Eastern Palace - Map Chest", false, []],
+            ["Eastern Palace - Map Chest", false, [], ['MoonPearl']],
+            ["Eastern Palace - Map Chest", true, ['MoonPearl', 'DefeatAgahnim']],
+            ["Eastern Palace - Map Chest", true, ['MoonPearl', 'ProgressiveGlove', 'Hammer']],
+            ["Eastern Palace - Map Chest", true, ['MoonPearl', 'PowerGlove', 'Hammer']],
+            ["Eastern Palace - Map Chest", true, ['MoonPearl', 'ProgressiveGlove', 'ProgressiveGlove']],
+            ["Eastern Palace - Map Chest", true, ['MoonPearl', 'TitansMitt']],
 
             ["Eastern Palace - Big Key Chest", false, []],
+            ["Eastern Palace - Big Key Chest", false, [], ['MoonPearl']],
             ["Eastern Palace - Big Key Chest", false, [], ['Lamp']],
-            ["Eastern Palace - Big Key Chest", true, ['Lamp']],
-
+            ["Eastern Palace - Big Key Chest", true, ['Lamp', 'MoonPearl', 'DefeatAgahnim']],
+            ["Eastern Palace - Big Key Chest", true, ['Lamp', 'MoonPearl', 'ProgressiveGlove', 'Hammer']],
+            ["Eastern Palace - Big Key Chest", true, ['Lamp', 'MoonPearl', 'PowerGlove', 'Hammer']],
+            ["Eastern Palace - Big Key Chest", true, ['Lamp', 'MoonPearl', 'ProgressiveGlove', 'ProgressiveGlove']],
+            ["Eastern Palace - Big Key Chest", true, ['Lamp', 'MoonPearl', 'TitansMitt']],
 
             ["Eastern Palace - Boss", false, []],
+            ["Eastern Palace - Boss", false, [], ['MoonPearl']],
             ["Eastern Palace - Boss", false, [], ['Lamp']],
             ["Eastern Palace - Boss", false, [], ['AnyBow']],
             ["Eastern Palace - Boss", false, [], ['BigKeyP1']],
-            ["Eastern Palace - Boss", true, ['Lamp', 'BowAndArrows', 'BigKeyP1']],
+            ["Eastern Palace - Boss", true, ['Lamp', 'BowAndArrows', 'BigKeyP1', 'MoonPearl', 'DefeatAgahnim']],
+            ["Eastern Palace - Boss", true, ['Lamp', 'BowAndArrows', 'BigKeyP1', 'MoonPearl', 'ProgressiveGlove', 'Hammer']],
+            ["Eastern Palace - Boss", true, ['Lamp', 'BowAndArrows', 'BigKeyP1', 'MoonPearl', 'PowerGlove', 'Hammer']],
+            ["Eastern Palace - Boss", true, ['Lamp', 'BowAndArrows', 'BigKeyP1', 'MoonPearl', 'ProgressiveGlove', 'ProgressiveGlove']],
+            ["Eastern Palace - Boss", true, ['Lamp', 'BowAndArrows', 'BigKeyP1', 'MoonPearl', 'TitansMitt']],
         ];
     }
 
