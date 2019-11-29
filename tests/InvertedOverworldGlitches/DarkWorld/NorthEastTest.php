@@ -52,7 +52,7 @@ class NorthEastTest extends TestCase
             ["Catfish", true, ['PegasusBoots']],
 
             ["Pyramid", true, []],
-			
+            
             ["Pyramid Fairy - Sword", false, []],
             ["Pyramid Fairy - Sword", false, [], ['MagicMirror']],
             ["Pyramid Fairy - Sword", false, [], ['BigRedBomb']],

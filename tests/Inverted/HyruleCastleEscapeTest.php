@@ -97,7 +97,7 @@ class HyruleCastleEscapeTest extends TestCase
             ["Sanctuary", true, ['MoonPearl', 'PowerGlove', 'Hammer']],
             ["Sanctuary", true, ['MoonPearl', 'ProgressiveGlove', 'ProgressiveGlove']],
             ["Sanctuary", true, ['MoonPearl', 'TitansMitt']],
-			
+            
             ["Sewers - Secret Room - Left", false, []],
             ["Sewers - Secret Room - Left", false, [], ['MoonPearl']],
             ["Sewers - Secret Room - Left", true, ['MoonPearl', 'ProgressiveGlove', 'DefeatAgahnim']],
@@ -107,7 +107,7 @@ class HyruleCastleEscapeTest extends TestCase
             ["Sewers - Secret Room - Left", true, ['MoonPearl', 'ProgressiveGlove', 'ProgressiveGlove']],
             ["Sewers - Secret Room - Left", true, ['MoonPearl', 'TitansMitt']],
             ["Sewers - Secret Room - Left", true, ['MoonPearl', 'DefeatAgahnim', 'Lamp', 'KeyH2']],
-			
+            
             ["Sewers - Secret Room - Middle", false, []],
             ["Sewers - Secret Room - Middle", false, [], ['MoonPearl']],
             ["Sewers - Secret Room - Middle", true, ['MoonPearl', 'ProgressiveGlove', 'DefeatAgahnim']],
@@ -117,7 +117,7 @@ class HyruleCastleEscapeTest extends TestCase
             ["Sewers - Secret Room - Middle", true, ['MoonPearl', 'ProgressiveGlove', 'ProgressiveGlove']],
             ["Sewers - Secret Room - Middle", true, ['MoonPearl', 'TitansMitt']],
             ["Sewers - Secret Room - Middle", true, ['MoonPearl', 'DefeatAgahnim', 'Lamp', 'KeyH2']],
-			
+            
             ["Sewers - Secret Room - Right", false, []],
             ["Sewers - Secret Room - Right", false, [], ['MoonPearl']],
             ["Sewers - Secret Room - Right", true, ['MoonPearl', 'ProgressiveGlove', 'DefeatAgahnim']],
@@ -127,7 +127,7 @@ class HyruleCastleEscapeTest extends TestCase
             ["Sewers - Secret Room - Right", true, ['MoonPearl', 'ProgressiveGlove', 'ProgressiveGlove']],
             ["Sewers - Secret Room - Right", true, ['MoonPearl', 'TitansMitt']],
             ["Sewers - Secret Room - Right", true, ['MoonPearl', 'DefeatAgahnim', 'Lamp', 'KeyH2']],
-			
+            
             ["Sewers - Dark Cross", False, []],
             ["Sewers - Dark Cross", False, [], ['Lamp']],
             ["Sewers - Dark Cross", False, [], ['MoonPearl']],
@@ -136,7 +136,7 @@ class HyruleCastleEscapeTest extends TestCase
             ["Sewers - Dark Cross", true, ['Lamp', 'MoonPearl', 'PowerGlove', 'Hammer']],
             ["Sewers - Dark Cross", true, ['Lamp', 'MoonPearl', 'ProgressiveGlove', 'ProgressiveGlove']],
             ["Sewers - Dark Cross", true, ['Lamp', 'MoonPearl', 'TitansMitt']],
-			
+            
             ["Hyrule Castle - Boomerang Chest", false, []],
             ["Hyrule Castle - Boomerang Chest", false, [], ['KeyH2']],
             ["Hyrule Castle - Boomerang Chest", false, [], ['MoonPearl']],

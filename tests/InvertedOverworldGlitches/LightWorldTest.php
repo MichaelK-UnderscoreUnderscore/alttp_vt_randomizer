@@ -252,7 +252,7 @@ class LightWorldTest extends TestCase
             ["Waterfall Fairy - Right", true, ['Flippers']],
             ["Waterfall Fairy - Right", true, ['MoonPearl']],
             ["Waterfall Fairy - Right", true, ['PegasusBoots']],
-			
+            
             ["Ganon", false, []],
             ["Ganon", false, [], ['DefeatAgahnim2']],
         ];
