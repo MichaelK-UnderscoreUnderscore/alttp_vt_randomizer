@@ -531,6 +531,10 @@ class LightWorldTest extends TestCase
             ["Bomb Merchant", true, ['Crystal5', 'Crystal6', 'MoonPearl', 'PowerGlove', 'Hammer']],
             ["Bomb Merchant", true, ['Crystal5', 'Crystal6', 'MoonPearl', 'ProgressiveGlove', 'ProgressiveGlove']],
             ["Bomb Merchant", true, ['Crystal5', 'Crystal6', 'MoonPearl', 'TitansMitt']],
+			
+            ["Ganon", false, []],
+            ["Ganon", false, [], ['MoonPearl']],
+            ["Ganon", false, [], ['DefeatAgahnim2']],
         ];
     }
 }

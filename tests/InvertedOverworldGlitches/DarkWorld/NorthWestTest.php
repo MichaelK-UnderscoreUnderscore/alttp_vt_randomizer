@@ -48,57 +48,26 @@ class NorthWestTest extends TestCase
     public function accessPool()
     {
         return [
-            ["Brewery", false, []],
-            ["Brewery", false, [], ['MoonPearl']],
-            ["Brewery", true, ['MoonPearl', 'ProgressiveGlove', 'ProgressiveGlove']],
-            ["Brewery", true, ['MoonPearl', 'TitansMitt']],
-            ["Brewery", true, ['MoonPearl', 'ProgressiveGlove', 'Hammer']],
-            ["Brewery", true, ['MoonPearl', 'PowerGlove', 'Hammer']],
-            ["Brewery", true, ['MoonPearl', 'DefeatAgahnim', 'ProgressiveGlove', 'Hookshot']],
-            ["Brewery", true, ['MoonPearl', 'DefeatAgahnim', 'PowerGlove', 'Hookshot']],
-            ["Brewery", true, ['MoonPearl', 'DefeatAgahnim', 'Flippers', 'Hookshot']],
+            ["Brewery", true, []],
 
-            ["C-Shaped House", false, []],
-            ["C-Shaped House", true, ['MoonPearl', 'ProgressiveGlove', 'ProgressiveGlove']],
-            ["C-Shaped House", true, ['MoonPearl', 'TitansMitt']],
-            ["C-Shaped House", true, ['MoonPearl', 'ProgressiveGlove', 'Hammer']],
-            ["C-Shaped House", true, ['MoonPearl', 'PowerGlove', 'Hammer']],
-            ["C-Shaped House", true, ['MoonPearl', 'DefeatAgahnim', 'ProgressiveGlove', 'Hookshot']],
-            ["C-Shaped House", true, ['MoonPearl', 'DefeatAgahnim', 'PowerGlove', 'Hookshot']],
-            ["C-Shaped House", true, ['MoonPearl', 'DefeatAgahnim', 'Flippers', 'Hookshot']],
+            ["C-Shaped House", true, []],
 
-            ["Chest Game", false, []],
-            ["Chest Game", true, ['MoonPearl', 'ProgressiveGlove', 'ProgressiveGlove']],
-            ["Chest Game", true, ['MoonPearl', 'TitansMitt']],
-            ["Chest Game", true, ['MoonPearl', 'ProgressiveGlove', 'Hammer']],
-            ["Chest Game", true, ['MoonPearl', 'PowerGlove', 'Hammer']],
-            ["Chest Game", true, ['MoonPearl', 'DefeatAgahnim', 'ProgressiveGlove', 'Hookshot']],
-            ["Chest Game", true, ['MoonPearl', 'DefeatAgahnim', 'PowerGlove', 'Hookshot']],
-            ["Chest Game", true, ['MoonPearl', 'DefeatAgahnim', 'Flippers', 'Hookshot']],
+            ["Chest Game", true, []],
 
             ["Hammer Pegs", false, []],
-            ["Hammer Pegs", false, [], ['MoonPearl']],
             ["Hammer Pegs", false, [], ['Hammer']],
-            ["Hammer Pegs", true, ['MoonPearl', 'Hammer', 'ProgressiveGlove', 'ProgressiveGlove']],
-            ["Hammer Pegs", true, ['MoonPearl', 'Hammer', 'TitansMitt']],
+            ["Hammer Pegs", true, ['Hammer', 'PegasusBoots']],
 
             ["Bumper Cave", false, []],
-            ["Bumper Cave", true, ['MoonPearl', 'Cape', 'ProgressiveGlove', 'ProgressiveGlove']],
-            ["Bumper Cave", true, ['MoonPearl', 'Cape', 'TitansMitt']],
-            ["Bumper Cave", true, ['MoonPearl', 'Cape', 'ProgressiveGlove', 'Hammer']],
-            ["Bumper Cave", true, ['MoonPearl', 'Cape', 'PowerGlove', 'Hammer']],
-            ["Bumper Cave", true, ['MoonPearl', 'Cape', 'DefeatAgahnim', 'ProgressiveGlove', 'Hookshot']],
-            ["Bumper Cave", true, ['MoonPearl', 'Cape', 'DefeatAgahnim', 'PowerGlove', 'Hookshot']],
+            ["Bumper Cave", true, ['PegasusBoots']],
 
             ["Blacksmith", false, []],
-            ["Blacksmith", false, [], ['MoonPearl']],
-            ["Blacksmith", true, ['MoonPearl', 'ProgressiveGlove', 'ProgressiveGlove']],
-            ["Blacksmith", true, ['MoonPearl', 'TitansMitt']],
+            ["Blacksmith", true, ['MagicMirror', 'PegasusBoots']],
+            ["Blacksmith", true, ['ProgressiveGlove', 'ProgressiveGlove', 'PegasusBoots', 'MoonPearl']],
 
             ["Purple Chest", false, []],
-            ["Purple Chest", false, [], ['MoonPearl']],
-            ["Purple Chest", true, ['MoonPearl', 'ProgressiveGlove', 'ProgressiveGlove']],
-            ["Purple Chest", true, ['MoonPearl', 'TitansMitt']],
+            ["Purple Chest", true, ['MagicMirror', 'PegasusBoots']],
+            ["Purple Chest", true, ['ProgressiveGlove', 'ProgressiveGlove', 'PegasusBoots', 'MoonPearl']],
         ];
     }
 }

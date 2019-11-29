@@ -100,9 +100,6 @@ class NorthEastTest extends TestCase
             ["Pyramid Fairy - Right", true, ['BigRedBomb', 'MagicMirror', 'ProgressiveGlove', 'Flippers']],
             ["Pyramid Fairy - Right", true, ['BigRedBomb', 'MagicMirror', 'PowerGlove', 'Flippers']],
             ["Pyramid Fairy - Right", true, ['BigRedBomb', 'MagicMirror', 'TitansMitt', 'Flippers']],
-
-            ["Ganon", false, []],
-            ["Ganon", false, [], ['DefeatAgahnim2']],
         ];
     }
 }
