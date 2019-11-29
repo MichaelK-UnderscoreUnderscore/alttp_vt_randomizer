@@ -48,9 +48,8 @@ class DesertPalaceTest extends TestCase
     {
         return [
             [false, []],
-            [true, ['BookOfMudora']],
-            [true, ['Flute', 'MagicMirror', 'ProgressiveGlove', 'ProgressiveGlove']],
-            [true, ['Flute', 'MagicMirror', 'TitansMitt']],
+            [true, ['MoonPearl', 'PegasusBoots']],
+            [true, ['BookOfMudora', 'MagicMirror', 'PegasusBoots']],
         ];
     }
 
@@ -112,20 +111,17 @@ class DesertPalaceTest extends TestCase
     {
         return [
             ["Desert Palace - Map Chest", false, []],
-            ["Desert Palace - Map Chest", true, ['BookOfMudora']],
-            ["Desert Palace - Map Chest", true, ['Flute', 'MagicMirror', 'ProgressiveGlove', 'ProgressiveGlove']],
-            ["Desert Palace - Map Chest", true, ['Flute', 'MagicMirror', 'TitansMitt']],
+            ["Desert Palace - Map Chest", true, ['MoonPearl', 'PegasusBoots']],
+            ["Desert Palace - Map Chest", true, ['BookOfMudora', 'MagicMirror', 'PegasusBoots']],
 
             ["Desert Palace - Big Chest", false, []],
-            ["Desert Palace - Big Chest", true, ['BookOfMudora', 'BigKeyP2']],
-            ["Desert Palace - Big Chest", true, ['Flute', 'MagicMirror', 'ProgressiveGlove', 'ProgressiveGlove', 'BigKeyP2']],
-            ["Desert Palace - Big Chest", true, ['Flute', 'MagicMirror', 'TitansMitt', 'BigKeyP2']],
+            ["Desert Palace - Big Chest", true, ['MoonPearl', 'PegasusBoots', 'BigKeyP2']],
+            ["Desert Palace - Big Chest", true, ['BookOfMudora', 'MagicMirror', 'PegasusBoots', 'BigKeyP2']],
 
             ["Desert Palace - Torch", false, []],
             ["Desert Palace - Torch", false, [], ['PegasusBoots']],
-            ["Desert Palace - Torch", true, ['BookOfMudora', 'PegasusBoots']],
-            ["Desert Palace - Torch", true, ['Flute', 'MagicMirror', 'ProgressiveGlove', 'ProgressiveGlove', 'PegasusBoots']],
-            ["Desert Palace - Torch", true, ['Flute', 'MagicMirror', 'TitansMitt', 'PegasusBoots']],
+            ["Desert Palace - Torch", true, ['MoonPearl', 'PegasusBoots']],
+            ["Desert Palace - Torch", true, ['BookOfMudora', 'MagicMirror', 'PegasusBoots']],
 
             ["Desert Palace - Compass Chest", false, []],
             ["Desert Palace - Compass Chest", false, [], ['KeyP2']],
@@ -135,24 +131,15 @@ class DesertPalaceTest extends TestCase
 
             ["Desert Palace - Big Key Chest", false, []],
             ["Desert Palace - Big Key Chest", false, [], ['KeyP2']],
-            ["Desert Palace - Big Key Chest", true, ['BookOfMudora', 'KeyP2']],
-            ["Desert Palace - Big Key Chest", true, ['Flute', 'MagicMirror', 'ProgressiveGlove', 'ProgressiveGlove', 'KeyP2']],
-            ["Desert Palace - Big Key Chest", true, ['Flute', 'MagicMirror', 'TitansMitt', 'KeyP2']],
+            ["Desert Palace - Big Key Chest", true, ['MoonPearl', 'PegasusBoots', 'KeyP2']],
+            ["Desert Palace - Big Key Chest", true, ['BookOfMudora', 'MagicMirror', 'KeyP2']],
 
             ["Desert Palace - Boss", false, []],
             ["Desert Palace - Boss", false, [], ['KeyP2']],
             ["Desert Palace - Boss", false, [], ['BigKeyP2']],
             ["Desert Palace - Boss", false, [], ['Lamp', 'FireRod']],
-            ["Desert Palace - Boss", true, ['UncleSword', 'KeyP2', 'BookOfMudora', 'Lamp', 'ProgressiveGlove', 'BigKeyP2']],
-            ["Desert Palace - Boss", true, ['UncleSword', 'KeyP2', 'BookOfMudora', 'Lamp', 'PowerGlove', 'BigKeyP2']],
-            ["Desert Palace - Boss", true, ['UncleSword', 'KeyP2', 'BookOfMudora', 'Lamp', 'TitansMitt', 'BigKeyP2']],
-            ["Desert Palace - Boss", true, ['UncleSword', 'KeyP2', 'BookOfMudora', 'FireRod', 'ProgressiveGlove', 'BigKeyP2']],
-            ["Desert Palace - Boss", true, ['UncleSword', 'KeyP2', 'BookOfMudora', 'FireRod', 'PowerGlove', 'BigKeyP2']],
-            ["Desert Palace - Boss", true, ['UncleSword', 'KeyP2', 'BookOfMudora', 'FireRod', 'TitansMitt', 'BigKeyP2']],
-            ["Desert Palace - Boss", true, ['UncleSword', 'KeyP2', 'Flute', 'MagicMirror', 'Lamp', 'ProgressiveGlove', 'ProgressiveGlove', 'BigKeyP2']],
-            ["Desert Palace - Boss", true, ['UncleSword', 'KeyP2', 'Flute', 'MagicMirror', 'Lamp', 'TitansMitt', 'BigKeyP2']],
-            ["Desert Palace - Boss", true, ['UncleSword', 'KeyP2', 'Flute', 'MagicMirror', 'FireRod', 'ProgressiveGlove', 'ProgressiveGlove', 'BigKeyP2']],
-            ["Desert Palace - Boss", true, ['UncleSword', 'KeyP2', 'Flute', 'MagicMirror', 'FireRod', 'TitansMitt', 'BigKeyP2']],
+            ["Desert Palace - Boss", true, ['UncleSword', 'KeyP2', 'BigKeyP2', 'MoonPearl', 'PegasusBoots', 'Lamp']],
+            ["Desert Palace - Boss", true, ['UncleSword', 'KeyP2', 'BigKeyP2', 'MoonPearl', 'PegasusBoots', 'FireRod']],
         ];
     }
 }
