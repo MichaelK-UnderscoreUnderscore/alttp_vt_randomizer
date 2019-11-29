@@ -1,6 +1,6 @@
 <?php
 
-namespace NoGlitches\DarkWorld;
+namespace Inverted\DarkWorld;
 
 use ALttP\Item;
 use ALttP\World;

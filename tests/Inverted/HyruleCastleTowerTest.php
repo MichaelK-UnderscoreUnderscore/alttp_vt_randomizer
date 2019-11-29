@@ -25,27 +25,81 @@ class HyruleCastleTowerTest extends TestCase
         unset($this->world);
     }
 
-    // Entry
-    public function testEntryLampFlute()
+    /**
+     * @param bool $access
+     * @param array $items
+     * @param array $except
+     *
+     * @dataProvider entryPool
+     */
+    public function testEntry(bool $access, array $items, array $except = [])
     {
-        $this->assertFalse($this->world->getRegion('Hyrule Castle Tower')
-            ->canEnter($this->world->getLocations(), $this->allItemsExcept(['Lamp', 'Flute'])));
-    }
-    public function testEntryGloveFlute()
-    {
-        $this->assertFalse($this->world->getRegion('Hyrule Castle Tower')
-            ->canEnter($this->world->getLocations(), $this->allItemsExcept(['Gloves', 'Flute'])));
+        if (count($except)) {
+            $this->collected = $this->allItemsExcept($except);
+        }
+
+        $this->addCollected($items);
+
+        $this->assertEquals($access, $this->world->getRegion('Hyrule Castle Tower')
+            ->canEnter($this->world->getLocations(), $this->collected));
     }
 
-    // Completion
-    public function testSwordRequiredToComplete()
+    public function entryPool()
     {
-        $this->assertFalse($this->world->getRegion('Hyrule Castle Tower')
-            ->canComplete($this->world->getLocations(), $this->allItemsExcept(['AnySword'])));
+        return [
+            [false, []],
+            [false, [], ['Flute', 'Gloves']],
+            [false, [], ['Flute', 'Lamp']],
+            [true, ['Flute', 'MoonPearl', 'ProgressiveGlove', 'Hammer']],
+            [true, ['Flute', 'MoonPearl', 'PowerGlove', 'Hammer']],
+            [true, ['Flute', 'MoonPearl', 'ProgressiveGlove', 'ProgressiveGlove', 'UncleSword']],
+            [true, ['Flute', 'MoonPearl', 'TitansMitt', 'UncleSword']],
+			[true, ['ProgressiveGlove', 'Lamp', 'UncleSword']],
+			[true, ['PowerGlove', 'Lamp', 'UncleSword']],
+			[true, ['TitansMitt', 'Lamp', 'UncleSword']],
+        ];
     }
-    public function testLampRequiredToComplete()
+
+    /**
+     * @param bool $access
+     * @param array $items
+     * @param array $except
+     *
+     * @dataProvider completePool
+     */
+    public function testComplete(bool $access, array $items, array $except = [])
     {
-        $this->assertFalse($this->world->getRegion('Hyrule Castle Tower')
-            ->canComplete($this->world->getLocations(), $this->allItemsExcept(['Lamp'])));
+        if (count($except)) {
+            $this->collected = $this->allItemsExcept($except);
+        }
+
+        $this->addCollected($items);
+
+        $this->assertEquals($access, $this->world->getRegion('Hyrule Castle Tower')
+            ->canComplete($this->world->getLocations(), $this->collected));
+    }
+
+    public function completePool()
+    {
+        return [
+            [false, []],
+            [false, [], ['Lamp']],
+            [false, [], ['AnySword']],
+			[true, ['KeyA1', 'KeyA1', 'ProgressiveGlove', 'Lamp', 'UncleSword']],
+			[true, ['KeyA1', 'KeyA1', 'PowerGlove', 'Lamp', 'UncleSword']],
+			[true, ['KeyA1', 'KeyA1', 'TitansMitt', 'Lamp', 'UncleSword']],
+			[true, ['KeyA1', 'KeyA1', 'ProgressiveGlove', 'Lamp', 'ProgressiveSword']],
+			[true, ['KeyA1', 'KeyA1', 'PowerGlove', 'Lamp', 'ProgressiveSword']],
+			[true, ['KeyA1', 'KeyA1', 'TitansMitt', 'Lamp', 'ProgressiveSword']],
+			[true, ['KeyA1', 'KeyA1', 'ProgressiveGlove', 'Lamp', 'MasterSword']],
+			[true, ['KeyA1', 'KeyA1', 'PowerGlove', 'Lamp', 'MasterSword']],
+			[true, ['KeyA1', 'KeyA1', 'TitansMitt', 'Lamp', 'MasterSword']],
+			[true, ['KeyA1', 'KeyA1', 'ProgressiveGlove', 'Lamp', 'L3Sword']],
+			[true, ['KeyA1', 'KeyA1', 'PowerGlove', 'Lamp', 'L3Sword']],
+			[true, ['KeyA1', 'KeyA1', 'TitansMitt', 'Lamp', 'L3Sword']],
+			[true, ['KeyA1', 'KeyA1', 'ProgressiveGlove', 'Lamp', 'L4Sword']],
+			[true, ['KeyA1', 'KeyA1', 'PowerGlove', 'Lamp', 'L4Sword']],
+			[true, ['KeyA1', 'KeyA1', 'TitansMitt', 'Lamp', 'L4Sword']],
+        ];
     }
 }
