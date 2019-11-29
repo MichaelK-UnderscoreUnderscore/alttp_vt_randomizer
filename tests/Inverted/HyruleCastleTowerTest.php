@@ -26,10 +26,15 @@ class HyruleCastleTowerTest extends TestCase
     }
 
     // Entry
-    public function testCapeOrUpgradedSwordRequiredToEnter()
+    public function testEntryLampFlute()
     {
         $this->assertFalse($this->world->getRegion('Hyrule Castle Tower')
-            ->canEnter($this->world->getLocations(), $this->allItemsExcept(['Cape', 'UpgradedSword'])));
+            ->canEnter($this->world->getLocations(), $this->allItemsExcept(['Lamp', 'Flute'])));
+    }
+    public function testEntryGloveFlute()
+    {
+        $this->assertFalse($this->world->getRegion('Hyrule Castle Tower')
+            ->canEnter($this->world->getLocations(), $this->allItemsExcept(['Gloves', 'Flute'])));
     }
 
     // Completion
@@ -37,5 +42,10 @@ class HyruleCastleTowerTest extends TestCase
     {
         $this->assertFalse($this->world->getRegion('Hyrule Castle Tower')
             ->canComplete($this->world->getLocations(), $this->allItemsExcept(['AnySword'])));
+    }
+    public function testLampRequiredToComplete()
+    {
+        $this->assertFalse($this->world->getRegion('Hyrule Castle Tower')
+            ->canComplete($this->world->getLocations(), $this->allItemsExcept(['Lamp'])));
     }
 }
