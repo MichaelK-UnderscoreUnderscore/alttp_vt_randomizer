@@ -48,7 +48,8 @@ class HyruleCastleTowerTest extends TestCase
     {
         return [
             [false, []],
-            [true, ['PegasusBoots']],
+            [true, ['PegasusBoots', 'UncleSword']],
+            [true, ['PegasusBoots', 'Hammer']],
         ];
     }
 
