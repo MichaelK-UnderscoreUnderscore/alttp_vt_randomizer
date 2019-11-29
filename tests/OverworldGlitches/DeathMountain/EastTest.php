@@ -119,6 +119,9 @@ class EastTest extends TestCase
             ["Paradox Cave Upper - Right", true, ['ProgressiveGlove', 'Lamp', 'MagicMirror', 'Hammer']],
             ["Paradox Cave Upper - Right", true, ['PowerGlove', 'Lamp', 'MagicMirror', 'Hammer']],
             ["Paradox Cave Upper - Right", true, ['TitansMitt', 'Lamp', 'MagicMirror', 'Hammer']],
+			
+			["Mimic Cave", false, []],
+			["Mimic Cave", false, [], ['MagicMirror']],
         ];
     }
 }
