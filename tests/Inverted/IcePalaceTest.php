@@ -94,6 +94,7 @@ class IcePalaceTest extends TestCase
             ["Ice Palace - Big Key Chest", false, []],
             ["Ice Palace - Big Key Chest", false, [], ['Flippers']],
             ["Ice Palace - Big Key Chest", false, [], ['Hammer']],
+            ["Ice Palace - Big Key Chest", false, [], ['Gloves']],
             ["Ice Palace - Big Key Chest", false, [], ['FireRod', 'Bombos']],
             ["Ice Palace - Big Key Chest", false, [], ['FireRod', 'AnySword']],
             ["Ice Palace - Big Key Chest", true, ['ProgressiveGlove', 'Flippers', 'FireRod', 'Hammer', 'Hookshot', 'KeyD5']],
