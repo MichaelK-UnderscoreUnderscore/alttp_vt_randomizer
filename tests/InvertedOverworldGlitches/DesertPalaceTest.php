@@ -125,14 +125,13 @@ class DesertPalaceTest extends TestCase
 
             ["Desert Palace - Compass Chest", false, []],
             ["Desert Palace - Compass Chest", false, [], ['KeyP2']],
-            ["Desert Palace - Compass Chest", true, ['BookOfMudora', 'KeyP2']],
-            ["Desert Palace - Compass Chest", true, ['Flute', 'MagicMirror', 'ProgressiveGlove', 'ProgressiveGlove', 'KeyP2']],
-            ["Desert Palace - Compass Chest", true, ['Flute', 'MagicMirror', 'TitansMitt', 'KeyP2']],
+            ["Desert Palace - Compass Chest", true, ['MoonPearl', 'PegasusBoots', 'KeyP2']],
+            ["Desert Palace - Compass Chest", true, ['BookOfMudora', 'MagicMirror', 'PegasusBoots', 'KeyP2']],
 
             ["Desert Palace - Big Key Chest", false, []],
             ["Desert Palace - Big Key Chest", false, [], ['KeyP2']],
             ["Desert Palace - Big Key Chest", true, ['MoonPearl', 'PegasusBoots', 'KeyP2']],
-            ["Desert Palace - Big Key Chest", true, ['BookOfMudora', 'MagicMirror', 'KeyP2']],
+            ["Desert Palace - Big Key Chest", true, ['BookOfMudora', 'MagicMirror', 'PegasusBoots', 'KeyP2']],
 
             ["Desert Palace - Boss", false, []],
             ["Desert Palace - Boss", false, [], ['KeyP2']],
