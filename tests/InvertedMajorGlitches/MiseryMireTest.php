@@ -15,7 +15,6 @@ class MiseryMireTest extends TestCase
     {
         parent::setUp();
         $this->world = World::factory('inverted', ['difficulty' => 'test_rules', 'logic' => 'MajorGlitches']);
-
         $this->world->getLocation("Misery Mire Medallion")->setItem(Item::get('Ether', $this->world));
         $this->addCollected(['RescueZelda']);
         $this->collected->setChecksForWorld($this->world->id);
@@ -99,6 +98,11 @@ class MiseryMireTest extends TestCase
             ["Misery Mire - Big Chest", true, ['BigKeyD6', 'PegasusBoots', 'Ether', 'MasterSword']],
             ["Misery Mire - Big Chest", true, ['BigKeyD6', 'PegasusBoots', 'Ether', 'L3Sword']],
             ["Misery Mire - Big Chest", true, ['BigKeyD6', 'PegasusBoots', 'Ether', 'L4Sword']],
+            ["Misery Mire - Big Chest", true, ['BigKeyD6', 'Hookshot', 'Ether', 'UncleSword']],
+            ["Misery Mire - Big Chest", true, ['BigKeyD6', 'Hookshot', 'Ether', 'ProgressiveSword']],
+            ["Misery Mire - Big Chest", true, ['BigKeyD6', 'Hookshot', 'Ether', 'MasterSword']],
+            ["Misery Mire - Big Chest", true, ['BigKeyD6', 'Hookshot', 'Ether', 'L3Sword']],
+            ["Misery Mire - Big Chest", true, ['BigKeyD6', 'Hookshot', 'Ether', 'L4Sword']],
 
             ["Misery Mire - Main Lobby", false, []],
             ["Misery Mire - Main Lobby", true, ['KeyD6', 'PegasusBoots', 'Ether', 'UncleSword']],
@@ -106,6 +110,11 @@ class MiseryMireTest extends TestCase
             ["Misery Mire - Main Lobby", true, ['KeyD6', 'PegasusBoots', 'Ether', 'MasterSword']],
             ["Misery Mire - Main Lobby", true, ['KeyD6', 'PegasusBoots', 'Ether', 'L3Sword']],
             ["Misery Mire - Main Lobby", true, ['KeyD6', 'PegasusBoots', 'Ether', 'L4Sword']],
+            ["Misery Mire - Main Lobby", true, ['KeyD6', 'Hookshot', 'Ether', 'UncleSword']],
+            ["Misery Mire - Main Lobby", true, ['KeyD6', 'Hookshot', 'Ether', 'ProgressiveSword']],
+            ["Misery Mire - Main Lobby", true, ['KeyD6', 'Hookshot', 'Ether', 'MasterSword']],
+            ["Misery Mire - Main Lobby", true, ['KeyD6', 'Hookshot', 'Ether', 'L3Sword']],
+            ["Misery Mire - Main Lobby", true, ['KeyD6', 'Hookshot', 'Ether', 'L4Sword']],
 
             ["Misery Mire - Big Key Chest", false, []],
             ["Misery Mire - Big Key Chest", false, [], ['FireRod', 'Lamp']],
@@ -119,6 +128,16 @@ class MiseryMireTest extends TestCase
             ["Misery Mire - Big Key Chest", true, ['KeyD6', 'KeyD6', 'KeyD6', 'FireRod', 'PegasusBoots', 'Ether', 'MasterSword']],
             ["Misery Mire - Big Key Chest", true, ['KeyD6', 'KeyD6', 'KeyD6', 'FireRod', 'PegasusBoots', 'Ether', 'L3Sword']],
             ["Misery Mire - Big Key Chest", true, ['KeyD6', 'KeyD6', 'KeyD6', 'FireRod', 'PegasusBoots', 'Ether', 'L4Sword']],
+            ["Misery Mire - Big Key Chest", true, ['KeyD6', 'KeyD6', 'KeyD6', 'Lamp', 'Hookshot', 'Ether', 'UncleSword']],
+            ["Misery Mire - Big Key Chest", true, ['KeyD6', 'KeyD6', 'KeyD6', 'Lamp', 'Hookshot', 'Ether', 'ProgressiveSword']],
+            ["Misery Mire - Big Key Chest", true, ['KeyD6', 'KeyD6', 'KeyD6', 'Lamp', 'Hookshot', 'Ether', 'MasterSword']],
+            ["Misery Mire - Big Key Chest", true, ['KeyD6', 'KeyD6', 'KeyD6', 'Lamp', 'Hookshot', 'Ether', 'L3Sword']],
+            ["Misery Mire - Big Key Chest", true, ['KeyD6', 'KeyD6', 'KeyD6', 'Lamp', 'Hookshot', 'Ether', 'L4Sword']],
+            ["Misery Mire - Big Key Chest", true, ['KeyD6', 'KeyD6', 'KeyD6', 'FireRod', 'Hookshot', 'Ether', 'UncleSword']],
+            ["Misery Mire - Big Key Chest", true, ['KeyD6', 'KeyD6', 'KeyD6', 'FireRod', 'Hookshot', 'Ether', 'ProgressiveSword']],
+            ["Misery Mire - Big Key Chest", true, ['KeyD6', 'KeyD6', 'KeyD6', 'FireRod', 'Hookshot', 'Ether', 'MasterSword']],
+            ["Misery Mire - Big Key Chest", true, ['KeyD6', 'KeyD6', 'KeyD6', 'FireRod', 'Hookshot', 'Ether', 'L3Sword']],
+            ["Misery Mire - Big Key Chest", true, ['KeyD6', 'KeyD6', 'KeyD6', 'FireRod', 'Hookshot', 'Ether', 'L4Sword']],
 
             ["Misery Mire - Compass Chest", false, []],
             ["Misery Mire - Compass Chest", false, [], ['FireRod', 'Lamp']],
@@ -132,6 +151,16 @@ class MiseryMireTest extends TestCase
             ["Misery Mire - Compass Chest", true, ['KeyD6', 'KeyD6', 'KeyD6', 'FireRod', 'PegasusBoots', 'Ether', 'MasterSword']],
             ["Misery Mire - Compass Chest", true, ['KeyD6', 'KeyD6', 'KeyD6', 'FireRod', 'PegasusBoots', 'Ether', 'L3Sword']],
             ["Misery Mire - Compass Chest", true, ['KeyD6', 'KeyD6', 'KeyD6', 'FireRod', 'PegasusBoots', 'Ether', 'L4Sword']],
+            ["Misery Mire - Compass Chest", true, ['KeyD6', 'KeyD6', 'KeyD6', 'Lamp', 'Hookshot', 'Ether', 'UncleSword']],
+            ["Misery Mire - Compass Chest", true, ['KeyD6', 'KeyD6', 'KeyD6', 'Lamp', 'Hookshot', 'Ether', 'ProgressiveSword']],
+            ["Misery Mire - Compass Chest", true, ['KeyD6', 'KeyD6', 'KeyD6', 'Lamp', 'Hookshot', 'Ether', 'MasterSword']],
+            ["Misery Mire - Compass Chest", true, ['KeyD6', 'KeyD6', 'KeyD6', 'Lamp', 'Hookshot', 'Ether', 'L3Sword']],
+            ["Misery Mire - Compass Chest", true, ['KeyD6', 'KeyD6', 'KeyD6', 'Lamp', 'Hookshot', 'Ether', 'L4Sword']],
+            ["Misery Mire - Compass Chest", true, ['KeyD6', 'KeyD6', 'KeyD6', 'FireRod', 'Hookshot', 'Ether', 'UncleSword']],
+            ["Misery Mire - Compass Chest", true, ['KeyD6', 'KeyD6', 'KeyD6', 'FireRod', 'Hookshot', 'Ether', 'ProgressiveSword']],
+            ["Misery Mire - Compass Chest", true, ['KeyD6', 'KeyD6', 'KeyD6', 'FireRod', 'Hookshot', 'Ether', 'MasterSword']],
+            ["Misery Mire - Compass Chest", true, ['KeyD6', 'KeyD6', 'KeyD6', 'FireRod', 'Hookshot', 'Ether', 'L3Sword']],
+            ["Misery Mire - Compass Chest", true, ['KeyD6', 'KeyD6', 'KeyD6', 'FireRod', 'Hookshot', 'Ether', 'L4Sword']],
 
             ["Misery Mire - Bridge Chest", false, []],
             ["Misery Mire - Bridge Chest", true, ['PegasusBoots', 'Ether', 'UncleSword']],
@@ -139,6 +168,11 @@ class MiseryMireTest extends TestCase
             ["Misery Mire - Bridge Chest", true, ['PegasusBoots', 'Ether', 'MasterSword']],
             ["Misery Mire - Bridge Chest", true, ['PegasusBoots', 'Ether', 'L3Sword']],
             ["Misery Mire - Bridge Chest", true, ['PegasusBoots', 'Ether', 'L4Sword']],
+            ["Misery Mire - Bridge Chest", true, ['Hookshot', 'Ether', 'UncleSword']],
+            ["Misery Mire - Bridge Chest", true, ['Hookshot', 'Ether', 'ProgressiveSword']],
+            ["Misery Mire - Bridge Chest", true, ['Hookshot', 'Ether', 'MasterSword']],
+            ["Misery Mire - Bridge Chest", true, ['Hookshot', 'Ether', 'L3Sword']],
+            ["Misery Mire - Bridge Chest", true, ['Hookshot', 'Ether', 'L4Sword']],
 
             ["Misery Mire - Map Chest", false, []],
             ["Misery Mire - Map Chest", true, ['KeyD6', 'PegasusBoots', 'Ether', 'UncleSword']],
@@ -146,6 +180,11 @@ class MiseryMireTest extends TestCase
             ["Misery Mire - Map Chest", true, ['KeyD6', 'PegasusBoots', 'Ether', 'MasterSword']],
             ["Misery Mire - Map Chest", true, ['KeyD6', 'PegasusBoots', 'Ether', 'L3Sword']],
             ["Misery Mire - Map Chest", true, ['KeyD6', 'PegasusBoots', 'Ether', 'L4Sword']],
+            ["Misery Mire - Map Chest", true, ['KeyD6', 'Hookshot', 'Ether', 'UncleSword']],
+            ["Misery Mire - Map Chest", true, ['KeyD6', 'Hookshot', 'Ether', 'ProgressiveSword']],
+            ["Misery Mire - Map Chest", true, ['KeyD6', 'Hookshot', 'Ether', 'MasterSword']],
+            ["Misery Mire - Map Chest", true, ['KeyD6', 'Hookshot', 'Ether', 'L3Sword']],
+            ["Misery Mire - Map Chest", true, ['KeyD6', 'Hookshot', 'Ether', 'L4Sword']],
 
             ["Misery Mire - Spike Chest", false, []],
             ["Misery Mire - Spike Chest", true, ['PegasusBoots', 'Ether', 'UncleSword']],
@@ -153,6 +192,11 @@ class MiseryMireTest extends TestCase
             ["Misery Mire - Spike Chest", true, ['PegasusBoots', 'Ether', 'MasterSword']],
             ["Misery Mire - Spike Chest", true, ['PegasusBoots', 'Ether', 'L3Sword']],
             ["Misery Mire - Spike Chest", true, ['PegasusBoots', 'Ether', 'L4Sword']],
+            ["Misery Mire - Spike Chest", true, ['Hookshot', 'Ether', 'UncleSword']],
+            ["Misery Mire - Spike Chest", true, ['Hookshot', 'Ether', 'ProgressiveSword']],
+            ["Misery Mire - Spike Chest", true, ['Hookshot', 'Ether', 'MasterSword']],
+            ["Misery Mire - Spike Chest", true, ['Hookshot', 'Ether', 'L3Sword']],
+            ["Misery Mire - Spike Chest", true, ['Hookshot', 'Ether', 'L4Sword']],
 
             ["Misery Mire - Boss", false, []],
             ["Misery Mire - Boss", false, [], ['Lamp']],
@@ -163,6 +207,11 @@ class MiseryMireTest extends TestCase
             ["Misery Mire - Boss", true, ['KeyD6', 'KeyD6', 'BigKeyD6', 'Lamp', 'CaneOfSomaria', 'PegasusBoots', 'Ether', 'MasterSword']],
             ["Misery Mire - Boss", true, ['KeyD6', 'KeyD6', 'BigKeyD6', 'Lamp', 'CaneOfSomaria', 'PegasusBoots', 'Ether', 'L3Sword']],
             ["Misery Mire - Boss", true, ['KeyD6', 'KeyD6', 'BigKeyD6', 'Lamp', 'CaneOfSomaria', 'PegasusBoots', 'Ether', 'L4Sword']],
+            ["Misery Mire - Boss", true, ['KeyD6', 'KeyD6', 'BigKeyD6', 'Lamp', 'CaneOfSomaria', 'Hookshot', 'Ether', 'UncleSword']],
+            ["Misery Mire - Boss", true, ['KeyD6', 'KeyD6', 'BigKeyD6', 'Lamp', 'CaneOfSomaria', 'Hookshot', 'Ether', 'ProgressiveSword']],
+            ["Misery Mire - Boss", true, ['KeyD6', 'KeyD6', 'BigKeyD6', 'Lamp', 'CaneOfSomaria', 'Hookshot', 'Ether', 'MasterSword']],
+            ["Misery Mire - Boss", true, ['KeyD6', 'KeyD6', 'BigKeyD6', 'Lamp', 'CaneOfSomaria', 'Hookshot', 'Ether', 'L3Sword']],
+            ["Misery Mire - Boss", true, ['KeyD6', 'KeyD6', 'BigKeyD6', 'Lamp', 'CaneOfSomaria', 'Hookshot', 'Ether', 'L4Sword']],
         ];
     }
 }

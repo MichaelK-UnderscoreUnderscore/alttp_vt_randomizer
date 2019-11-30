@@ -15,6 +15,7 @@ class TowerOfHeraTest extends TestCase
     {
         parent::setUp();
         $this->world = World::factory('inverted', ['difficulty' => 'test_rules', 'logic' => 'MajorGlitches']);
+        $this->world->getLocation("Misery Mire Medallion")->setItem(Item::get('Ether', $this->world));
         $this->addCollected(['RescueZelda']);
         $this->collected->setChecksForWorld($this->world->id);
     }
@@ -48,8 +49,14 @@ class TowerOfHeraTest extends TestCase
     {
         return [
             [false, []],
-            [false, [], ['MoonPearl']],
-            [true, ['PegasusBoots', 'MoonPearl']],
+            [false, [], ['MoonPearl', 'MagicMirror', 'Ether', 'AnyBottle']],
+            [false, [], ['MoonPearl', 'AnySword', 'Ether', 'AnyBottle']],
+            [true, ['MoonPearl']],
+            [true, ['MagicMirror', 'UncleSword']],
+            [true, ['MagicMirror', 'ProgressiveSword']],
+            [true, ['MagicMirror', 'MasterSword']],
+            [true, ['MagicMirror', 'L3Sword']],
+            [true, ['MagicMirror', 'L4Sword']],
         ];
     }
 
