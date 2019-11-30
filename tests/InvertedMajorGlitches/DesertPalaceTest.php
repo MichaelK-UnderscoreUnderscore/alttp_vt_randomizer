@@ -47,9 +47,7 @@ class DesertPalaceTest extends TestCase
     public function entryPool()
     {
         return [
-            [false, []],
-            [true, ['MoonPearl', 'PegasusBoots']],
-            [true, ['BookOfMudora', 'MagicMirror', 'PegasusBoots']],
+            [true, []],
         ];
     }
 
@@ -110,35 +108,29 @@ class DesertPalaceTest extends TestCase
     public function accessPool()
     {
         return [
-            ["Desert Palace - Map Chest", false, []],
-            ["Desert Palace - Map Chest", true, ['MoonPearl', 'PegasusBoots']],
-            ["Desert Palace - Map Chest", true, ['BookOfMudora', 'MagicMirror', 'PegasusBoots']],
+            ["Desert Palace - Map Chest", true, []],
 
             ["Desert Palace - Big Chest", false, []],
-            ["Desert Palace - Big Chest", true, ['MoonPearl', 'PegasusBoots', 'BigKeyP2']],
-            ["Desert Palace - Big Chest", true, ['BookOfMudora', 'MagicMirror', 'PegasusBoots', 'BigKeyP2']],
+            ["Desert Palace - Big Chest", true, [ 'BigKeyP2']],
 
             ["Desert Palace - Torch", false, []],
             ["Desert Palace - Torch", false, [], ['PegasusBoots']],
-            ["Desert Palace - Torch", true, ['MoonPearl', 'PegasusBoots']],
-            ["Desert Palace - Torch", true, ['BookOfMudora', 'MagicMirror', 'PegasusBoots']],
+            ["Desert Palace - Torch", true, ['PegasusBoots']],
 
             ["Desert Palace - Compass Chest", false, []],
             ["Desert Palace - Compass Chest", false, [], ['KeyP2']],
-            ["Desert Palace - Compass Chest", true, ['MoonPearl', 'PegasusBoots', 'KeyP2']],
-            ["Desert Palace - Compass Chest", true, ['BookOfMudora', 'MagicMirror', 'PegasusBoots', 'KeyP2']],
+            ["Desert Palace - Compass Chest", true, ['KeyP2']],
 
             ["Desert Palace - Big Key Chest", false, []],
             ["Desert Palace - Big Key Chest", false, [], ['KeyP2']],
-            ["Desert Palace - Big Key Chest", true, ['MoonPearl', 'PegasusBoots', 'KeyP2']],
-            ["Desert Palace - Big Key Chest", true, ['BookOfMudora', 'MagicMirror', 'PegasusBoots', 'KeyP2']],
+            ["Desert Palace - Big Key Chest", true, ['KeyP2']],
 
             ["Desert Palace - Boss", false, []],
             ["Desert Palace - Boss", false, [], ['KeyP2']],
             ["Desert Palace - Boss", false, [], ['BigKeyP2']],
             ["Desert Palace - Boss", false, [], ['Lamp', 'FireRod']],
-            ["Desert Palace - Boss", true, ['UncleSword', 'KeyP2', 'BigKeyP2', 'MoonPearl', 'PegasusBoots', 'Lamp']],
-            ["Desert Palace - Boss", true, ['UncleSword', 'KeyP2', 'BigKeyP2', 'MoonPearl', 'PegasusBoots', 'FireRod']],
+            ["Desert Palace - Boss", true, ['UncleSword', 'KeyP2', 'BigKeyP2', 'Lamp']],
+            ["Desert Palace - Boss", true, ['UncleSword', 'KeyP2', 'BigKeyP2', 'FireRod']],
         ];
     }
 }
