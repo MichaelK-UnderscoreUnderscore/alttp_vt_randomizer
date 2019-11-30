@@ -56,18 +56,19 @@ class NorthWestTest extends TestCase
 
             ["Hammer Pegs", false, []],
             ["Hammer Pegs", false, [], ['Hammer']],
-            ["Hammer Pegs", true, ['Hammer', 'PegasusBoots']],
+            ["Hammer Pegs", true, ['Hammer']],
 
-            ["Bumper Cave", false, []],
-            ["Bumper Cave", true, ['PegasusBoots']],
+            ["Bumper Cave", true, []],
 
             ["Blacksmith", false, []],
-            ["Blacksmith", true, ['MagicMirror', 'PegasusBoots']],
-            ["Blacksmith", true, ['ProgressiveGlove', 'ProgressiveGlove', 'PegasusBoots', 'MoonPearl']],
+            ["Blacksmith", true, ['MagicMirror']],
+            ["Blacksmith", true, ['Bottle']],
+            ["Blacksmith", true, ['ProgressiveGlove', 'ProgressiveGlove']],
 
             ["Purple Chest", false, []],
-            ["Purple Chest", true, ['MagicMirror', 'PegasusBoots']],
-            ["Purple Chest", true, ['ProgressiveGlove', 'ProgressiveGlove', 'PegasusBoots', 'MoonPearl']],
+            ["Purple Chest", true, ['MagicMirror']],
+            ["Purple Chest", true, ['Bottle']],
+            ["Purple Chest", true, ['ProgressiveGlove', 'ProgressiveGlove']],
         ];
     }
 }

@@ -48,31 +48,26 @@ class EastTest extends TestCase
     public function accessPool()
     {
         return [
-            ["Superbunny Cave - Top", false, []],
-            ["Superbunny Cave - Top", true, ['PegasusBoots']],
+            ["Superbunny Cave - Top", true, []],
 
-            ["Superbunny Cave - Bottom", false, []],
-            ["Superbunny Cave - Bottom", true, ['PegasusBoots']],
+            ["Superbunny Cave - Bottom", true, []],
 
             ["Hookshot Cave - Bottom Right", false, []],
             ["Hookshot Cave - Bottom Right", false, [], ['Hookshot', 'PegasusBoots']],
-            ["Hookshot Cave - Bottom Right", false, [], ['Gloves', 'PegasusBoots', 'MagicMirror']],
             ["Hookshot Cave - Bottom Right", true, ['PegasusBoots']],
+            ["Hookshot Cave - Bottom Right", true, ['Hookshot']],
 
             ["Hookshot Cave - Bottom Left", false, []],
             ["Hookshot Cave - Bottom Left", false, [], ['Hookshot']],
-            ["Hookshot Cave - Bottom Left", false, [], ['Gloves', 'PegasusBoots', 'MagicMirror']],
-            ["Hookshot Cave - Bottom Left", true, ['PegasusBoots', 'Hookshot']],
+            ["Hookshot Cave - Bottom Left", true, ['Hookshot']],
 
             ["Hookshot Cave - Top Left", false, []],
             ["Hookshot Cave - Top Left", false, [], ['Hookshot']],
-            ["Hookshot Cave - Top Left", false, [], ['Gloves', 'PegasusBoots', 'MagicMirror']],
-            ["Hookshot Cave - Top Left", true, ['PegasusBoots', 'Hookshot']],
+            ["Hookshot Cave - Top Left", true, ['Hookshot']],
 
             ["Hookshot Cave - Top Right", false, []],
             ["Hookshot Cave - Top Right", false, [], ['Hookshot']],
-            ["Hookshot Cave - Top Right", false, [], ['Gloves', 'PegasusBoots', 'MagicMirror']],
-            ["Hookshot Cave - Top Right", true, ['PegasusBoots', 'Hookshot']],
+            ["Hookshot Cave - Top Right", true, ['Hookshot']],
         ];
     }
 }

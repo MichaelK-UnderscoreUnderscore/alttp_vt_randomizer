@@ -48,11 +48,9 @@ class MireTest extends TestCase
     public function accessPool()
     {
         return [
-            ["Mire Shed - Left", false, []],
-            ["Mire Shed - Left", true, ['PegasusBoots']],
+            ["Mire Shed - Left", true, []],
 
-            ["Mire Shed - Right", false, []],
-            ["Mire Shed - Right", true, ['PegasusBoots']],
+            ["Mire Shed - Right", true, []],
         ];
     }
 }

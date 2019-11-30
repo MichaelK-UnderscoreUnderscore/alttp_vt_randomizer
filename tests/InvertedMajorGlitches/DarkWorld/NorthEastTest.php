@@ -48,8 +48,7 @@ class NorthEastTest extends TestCase
     public function accessPool()
     {
         return [
-            ["Catfish", false, []],
-            ["Catfish", true, ['PegasusBoots']],
+            ["Catfish", true, []],
 
             ["Pyramid", true, []],
             
@@ -57,23 +56,23 @@ class NorthEastTest extends TestCase
             ["Pyramid Fairy - Sword", false, [], ['MagicMirror']],
             ["Pyramid Fairy - Sword", false, [], ['BigRedBomb']],
             ["Pyramid Fairy - Sword", false, [], ['AnySword']],
-            ["Pyramid Fairy - Sword", true, ['BigRedBomb', 'UncleSword', 'MagicMirror', 'PegasusBoots']],
+            ["Pyramid Fairy - Sword", true, ['BigRedBomb', 'UncleSword', 'MagicMirror']],
 
             ["Pyramid Fairy - Bow", false, []],
             ["Pyramid Fairy - Bow", false, [], ['MagicMirror']],
             ["Pyramid Fairy - Bow", false, [], ['BigRedBomb']],
             ["Pyramid Fairy - Bow", false, [], ['AnyBow']],
-            ["Pyramid Fairy - Bow", true, ['BigRedBomb', 'BowAndArrows', 'MagicMirror', 'PegasusBoots']],
+            ["Pyramid Fairy - Bow", true, ['BigRedBomb', 'BowAndArrows', 'MagicMirror']],
 
             ["Pyramid Fairy - Left", false, []],
             ["Pyramid Fairy - Left", false, [], ['MagicMirror']],
             ["Pyramid Fairy - Left", false, [], ['BigRedBomb']],
-            ["Pyramid Fairy - Left", true, ['BigRedBomb', 'MagicMirror', 'PegasusBoots']],
+            ["Pyramid Fairy - Left", true, ['BigRedBomb', 'MagicMirror']],
 
             ["Pyramid Fairy - Right", false, []],
             ["Pyramid Fairy - Right", false, [], ['MagicMirror']],
             ["Pyramid Fairy - Right", false, [], ['BigRedBomb']],
-            ["Pyramid Fairy - Right", true, ['BigRedBomb', 'MagicMirror', 'PegasusBoots']],
+            ["Pyramid Fairy - Right", true, ['BigRedBomb', 'MagicMirror']],
         ];
     }
 }
