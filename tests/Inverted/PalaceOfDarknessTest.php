@@ -50,8 +50,10 @@ class PalaceOfDarknessTest extends TestCase
             [false, []],
             [true, ['Hammer']],
             [true, ['Flippers']],
-            [true, ['Flute']],
-            [true, ['MagicMirror']],
+            [true, ['Flute', 'MoonPearl', 'ProgressiveGlove', 'ProgressiveGlove']],
+            [true, ['Flute', 'MoonPearl', 'TitansMitt']],
+            [true, ['MagicMirror', 'MoonPearl', 'ProgressiveGlove', 'ProgressiveGlove']],
+            [true, ['MagicMirror', 'DefeatAgahnim']],
         ];
     }
 
