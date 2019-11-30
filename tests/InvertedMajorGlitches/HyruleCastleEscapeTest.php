@@ -91,7 +91,8 @@ class HyruleCastleEscapeTest extends TestCase
     {
         return [
             ["Sanctuary", False, []],
-            ["Sanctuary", False, [], ['MoonPearl', 'MagicMirror', 'AnyBottle']],
+            ["Sanctuary", False, [], ['MoonPearl', 'MagicMirror', 'AnyBottle', 'Lamp']],
+            ["Sanctuary", true, ['Lamp', 'KeyH2']],
             ["Sanctuary", true, ['MoonPearl']],
             ["Sanctuary", true, ['MagicMirror']],
             ["Sanctuary", true, ['BottleWithBee']],

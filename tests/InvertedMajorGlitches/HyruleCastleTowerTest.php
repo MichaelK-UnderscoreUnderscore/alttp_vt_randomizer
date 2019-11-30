@@ -48,8 +48,8 @@ class HyruleCastleTowerTest extends TestCase
     {
         return [
             [false, []],
-            [true, ['PegasusBoots', 'UncleSword']],
-            [true, ['PegasusBoots', 'Hammer']],
+            [true, ['UncleSword']],
+            [true, ['Hammer']],
         ];
     }
 
@@ -78,11 +78,11 @@ class HyruleCastleTowerTest extends TestCase
             [false, []],
             [false, [], ['Lamp']],
             [false, [], ['AnySword']],
-            [true, ['KeyA1', 'KeyA1', 'PegasusBoots', 'Lamp', 'UncleSword']],
-            [true, ['KeyA1', 'KeyA1', 'PegasusBoots', 'Lamp', 'ProgressiveSword']],
-            [true, ['KeyA1', 'KeyA1', 'PegasusBoots', 'Lamp', 'MasterSword']],
-            [true, ['KeyA1', 'KeyA1', 'PegasusBoots', 'Lamp', 'L3Sword']],
-            [true, ['KeyA1', 'KeyA1', 'PegasusBoots', 'Lamp', 'L4Sword']],
+            [true, ['KeyA1', 'KeyA1', 'Lamp', 'UncleSword']],
+            [true, ['KeyA1', 'KeyA1', 'Lamp', 'ProgressiveSword']],
+            [true, ['KeyA1', 'KeyA1', 'Lamp', 'MasterSword']],
+            [true, ['KeyA1', 'KeyA1', 'Lamp', 'L3Sword']],
+            [true, ['KeyA1', 'KeyA1', 'Lamp', 'L4Sword']],
         ];
     }
 }
