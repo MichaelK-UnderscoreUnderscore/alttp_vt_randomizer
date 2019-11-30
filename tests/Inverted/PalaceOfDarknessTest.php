@@ -48,7 +48,10 @@ class PalaceOfDarknessTest extends TestCase
     {
         return [
             [false, []],
-            [false, ['MoonPearl']],
+            [true, ['Hammer']],
+            [true, ['Flippers']],
+            [true, ['Flute']],
+            [true, ['MagicMirror']],
         ];
     }
 
