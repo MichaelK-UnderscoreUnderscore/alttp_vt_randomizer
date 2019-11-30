@@ -50,10 +50,9 @@ class WestTest extends TestCase
         return [
             ["Old Man", false, []],
             ["Old Man", false, [], ['Lamp']],
-            ["Old Man", true, ['PegasusBoots', 'Lamp']],
+            ["Old Man", true, ['Lamp']],
 
-            ["Spectacle Rock Cave", false, []],
-            ["Spectacle Rock Cave", true, ['PegasusBoots']],
+            ["Spectacle Rock Cave", true, []],
         ];
     }
 }
