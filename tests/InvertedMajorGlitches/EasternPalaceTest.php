@@ -25,13 +25,6 @@ class EasternPalaceTest extends TestCase
         unset($this->world);
     }
 
-    // Entry
-    public function testNothingRequiredToEnter()
-    {
-        $this->assertTrue($this->world->getRegion('Eastern Palace')
-            ->canEnter($this->world->getLocations(), $this->collected));
-    }
-
     /**
      * @param string $location
      * @param bool $access
@@ -93,26 +86,40 @@ class EasternPalaceTest extends TestCase
     public function accessPool()
     {
         return [
-            ["Eastern Palace - Compass Chest", true, []],
+            ["Eastern Palace - Compass Chest", false, []],
+            ["Eastern Palace - Compass Chest", true, ['MoonPearl', 'PegasusBoots']],
+            ["Eastern Palace - Compass Chest", true, ['MagicMirror', 'PegasusBoots']],
+            ["Eastern Palace - Compass Chest", true, ['DefeatAgahnim']],
 
-            ["Eastern Palace - Cannonball Chest", true, []],
+            ["Eastern Palace - Cannonball Chest", false, []],
+            ["Eastern Palace - Compass Chest", true, ['MoonPearl', 'PegasusBoots']],
+            ["Eastern Palace - Compass Chest", true, ['MagicMirror', 'PegasusBoots']],
+            ["Eastern Palace - Compass Chest", true, ['DefeatAgahnim']],
 
             ["Eastern Palace - Big Chest", false, []],
             ["Eastern Palace - Big Chest", false, [], ['BigKeyP1']],
-            ["Eastern Palace - Big Chest", true, ['BigKeyP1']],
+            ["Eastern Palace - Big Chest", true, ['BigKeyP1', 'MoonPearl', 'PegasusBoots']],
+            ["Eastern Palace - Big Chest", true, ['BigKeyP1', 'MagicMirror', 'PegasusBoots']],
+            ["Eastern Palace - Big Chest", true, ['BigKeyP1', 'DefeatAgahnim']],
 
-            ["Eastern Palace - Map Chest", true, []],
+            ["Eastern Palace - Map Chest", false, []],
+            ["Eastern Palace - Compass Chest", true, ['MoonPearl', 'PegasusBoots']],
+            ["Eastern Palace - Compass Chest", true, ['MagicMirror', 'PegasusBoots']],
+            ["Eastern Palace - Compass Chest", true, ['DefeatAgahnim']],
 
             ["Eastern Palace - Big Key Chest", false, []],
             ["Eastern Palace - Big Key Chest", false, [], ['Lamp']],
-            ["Eastern Palace - Big Key Chest", true, ['Lamp']],
-
+            ["Eastern Palace - Big Key Chest", true, ['Lamp', 'MoonPearl', 'PegasusBoots']],
+            ["Eastern Palace - Big Key Chest", true, ['Lamp', 'MagicMirror', 'PegasusBoots']],
+            ["Eastern Palace - Big Key Chest", true, ['Lamp', 'DefeatAgahnim']],
 
             ["Eastern Palace - Boss", false, []],
             ["Eastern Palace - Boss", false, [], ['Lamp']],
             ["Eastern Palace - Boss", false, [], ['AnyBow']],
             ["Eastern Palace - Boss", false, [], ['BigKeyP1']],
-            ["Eastern Palace - Boss", true, ['Lamp', 'BowAndArrows', 'BigKeyP1']],
+            ["Eastern Palace - Boss", true, ['Lamp', 'BowAndArrows', 'BigKeyP1', 'MoonPearl', 'PegasusBoots']],
+            ["Eastern Palace - Boss", true, ['Lamp', 'BowAndArrows', 'BigKeyP1', 'MagicMirror', 'PegasusBoots']],
+            ["Eastern Palace - Boss", true, ['Lamp', 'BowAndArrows', 'BigKeyP1', 'DefeatAgahnim']],
         ];
     }
 }

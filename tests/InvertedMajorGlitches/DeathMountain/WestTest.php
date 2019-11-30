@@ -1,6 +1,6 @@
 <?php
 
-namespace InvertedMajorGlitches\DarkWorld;
+namespace InvertedMajorGlitches\DeathMountain;
 
 use ALttP\Item;
 use ALttP\World;
@@ -9,7 +9,7 @@ use TestCase;
 /**
  * @group InvertedMajorGlitches
  */
-class NorthWestTest extends TestCase
+class WestTest extends TestCase
 {
     public function setUp(): void
     {
@@ -48,26 +48,12 @@ class NorthWestTest extends TestCase
     public function accessPool()
     {
         return [
-            ["Brewery", true, []],
+            ["Old Man", false, []],
+            ["Old Man", false, [], ['Lamp']],
+            ["Old Man", true, ['PegasusBoots', 'Lamp']],
 
-            ["C-Shaped House", true, []],
-
-            ["Chest Game", true, []],
-
-            ["Hammer Pegs", false, []],
-            ["Hammer Pegs", false, [], ['Hammer']],
-            ["Hammer Pegs", true, ['Hammer', 'PegasusBoots']],
-
-            ["Bumper Cave", false, []],
-            ["Bumper Cave", true, ['PegasusBoots']],
-
-            ["Blacksmith", false, []],
-            ["Blacksmith", true, ['MagicMirror', 'PegasusBoots']],
-            ["Blacksmith", true, ['ProgressiveGlove', 'ProgressiveGlove', 'PegasusBoots', 'MoonPearl']],
-
-            ["Purple Chest", false, []],
-            ["Purple Chest", true, ['MagicMirror', 'PegasusBoots']],
-            ["Purple Chest", true, ['ProgressiveGlove', 'ProgressiveGlove', 'PegasusBoots', 'MoonPearl']],
+            ["Spectacle Rock Cave", false, []],
+            ["Spectacle Rock Cave", true, ['PegasusBoots']],
         ];
     }
 }

@@ -48,21 +48,51 @@ class EastTest extends TestCase
     public function accessPool()
     {
         return [
-            ["Spiral Cave", true, []],
+            ["Spiral Cave", false, []],
+            ["Spiral Cave", true, ['MagicMirror', 'ProgressiveGlove', 'ProgressiveGlove', 'Lamp', 'UncleSword']],
+            ["Spiral Cave", true, ['MagicMirror', 'TitansMitt', 'Lamp', 'UncleSword']],
+            ["Spiral Cave", true, ['MagicMirror', 'ProgressiveGlove', 'ProgressiveGlove', 'PegasusBoots', 'UncleSword']],
+            ["Spiral Cave", true, ['MagicMirror', 'TitansMitt', 'PegasusBoots', 'UncleSword']],
+            ["Spiral Cave", true, ['MoonPearl', 'PegasusBoots']],
 
-            ["Paradox Cave Lower - Far Left", true, []],
+            ["Paradox Cave Lower - Far Left", false, []],
+            ["Paradox Cave Lower - Far Left", true, ['MoonPearl', 'PegasusBoots']],
 
-            ["Paradox Cave Lower - Left", true, []],
+            ["Paradox Cave Lower - Left", false, []],
+            ["Paradox Cave Lower - Left", true, ['MoonPearl', 'PegasusBoots']],
 
-            ["Paradox Cave Lower - Middle", true, []],
+            ["Paradox Cave Lower - Middle", false, []],
+            ["Paradox Cave Lower - Middle", true, ['MoonPearl', 'PegasusBoots']],
 
-            ["Paradox Cave Lower - Right", true, []],
+            ["Paradox Cave Lower - Right", false, []],
+            ["Paradox Cave Lower - Right", true, ['MoonPearl', 'PegasusBoots']],
 
-            ["Paradox Cave Lower - Far Right", true, []],
+            ["Paradox Cave Lower - Far Right", false, []],
+            ["Paradox Cave Lower - Far Right", true, ['MoonPearl', 'PegasusBoots']],
 
-            ["Paradox Cave Upper - Left", true, []],
+            ["Paradox Cave Upper - Left", false, []],
+            ["Paradox Cave Upper - Left", true, ['MoonPearl', 'PegasusBoots']],
 
-            ["Paradox Cave Upper - Right", true, []],
+            ["Paradox Cave Upper - Right", false, []],
+            ["Paradox Cave Upper - Right", true, ['MoonPearl', 'PegasusBoots']],
+
+            ["Mimic Cave", false, []],
+            ["Mimic Cave", false, [], ['MoonPearl']],
+            ["Mimic Cave", false, [], ['Hammer']],
+            ["Mimic Cave", true, ['MoonPearl', 'Hammer', 'PegasusBoots']],
+            
+            ["Ether Tablet", false, []],
+            ["Ether Tablet", false, [], ['UpgradedSword']],
+            ["Ether Tablet", false, [], ['BookOfMudora']],
+            ["Ether Tablet", false, [], ['MoonPearl']],
+            ["Ether Tablet", true, ['PegasusBoots', 'MoonPearl', 'BookOfMudora', 'ProgressiveSword', 'ProgressiveSword']],
+            ["Ether Tablet", true, ['PegasusBoots', 'MoonPearl', 'BookOfMudora', 'L2Sword']],
+            ["Ether Tablet", true, ['PegasusBoots', 'MoonPearl', 'BookOfMudora', 'L3Sword']],
+            ["Ether Tablet", true, ['PegasusBoots', 'MoonPearl', 'BookOfMudora', 'L4Sword']],
+
+            ["Spectacle Rock", false, []],
+            ["Spectacle Rock", false, [], ['MoonPearl']],
+            ["Spectacle Rock", true, ['MoonPearl', 'PegasusBoots']],
         ];
     }
 }

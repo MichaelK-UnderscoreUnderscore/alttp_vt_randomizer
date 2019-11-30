@@ -9,7 +9,7 @@ use TestCase;
 /**
  * @group InvertedMajorGlitches
  */
-class NorthWestTest extends TestCase
+class MireTest extends TestCase
 {
     public function setUp(): void
     {
@@ -48,26 +48,11 @@ class NorthWestTest extends TestCase
     public function accessPool()
     {
         return [
-            ["Brewery", true, []],
+            ["Mire Shed - Left", false, []],
+            ["Mire Shed - Left", true, ['PegasusBoots']],
 
-            ["C-Shaped House", true, []],
-
-            ["Chest Game", true, []],
-
-            ["Hammer Pegs", false, []],
-            ["Hammer Pegs", false, [], ['Hammer']],
-            ["Hammer Pegs", true, ['Hammer', 'PegasusBoots']],
-
-            ["Bumper Cave", false, []],
-            ["Bumper Cave", true, ['PegasusBoots']],
-
-            ["Blacksmith", false, []],
-            ["Blacksmith", true, ['MagicMirror', 'PegasusBoots']],
-            ["Blacksmith", true, ['ProgressiveGlove', 'ProgressiveGlove', 'PegasusBoots', 'MoonPearl']],
-
-            ["Purple Chest", false, []],
-            ["Purple Chest", true, ['MagicMirror', 'PegasusBoots']],
-            ["Purple Chest", true, ['ProgressiveGlove', 'ProgressiveGlove', 'PegasusBoots', 'MoonPearl']],
+            ["Mire Shed - Right", false, []],
+            ["Mire Shed - Right", true, ['PegasusBoots']],
         ];
     }
 }
