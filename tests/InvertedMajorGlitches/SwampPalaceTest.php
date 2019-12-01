@@ -70,24 +70,32 @@ class SwampPalaceTest extends TestCase
     public function fillPool()
     {
         return [
-            ["Swamp Palace - Entrance", false, 'BigKeyD2', [], ['BigKeyD2']],
+            ["Swamp Palace - Entrance", true, 'BigKeyD2', [], ['BigKeyD2']],
             ["Swamp Palace - Entrance", true, 'KeyD2', [], ['KeyD2']],
 
             ["Swamp Palace - Big Chest", true, 'BigKeyD2', [], ['BigKeyD2']],
+            ["Swamp Palace - Big Chest", true, 'KeyD2', [], ['KeyD2']],
 
+            ["Swamp Palace - Big Key Chest", true, 'KeyD2', [], ['KeyD2']],
             ["Swamp Palace - Big Key Chest", true, 'BigKeyD2', [], ['BigKeyD2']],
-
+			
             ["Swamp Palace - Map Chest", true, 'BigKeyD2', [], ['BigKeyD2']],
-
+            ["Swamp Palace - Map Chest", true, 'KeyD2', [], ['KeyD2']],
+			
             ["Swamp Palace - West Chest", true, 'BigKeyD2', [], ['BigKeyD2']],
-
+            ["Swamp Palace - West Chest", true, 'KeyD2', [], ['KeyD2']],
+			
             ["Swamp Palace - Compass Chest", true, 'BigKeyD2', [], ['BigKeyD2']],
-
+            ["Swamp Palace - Compass Chest", true, 'KeyD2', [], ['KeyD2']],
+			
             ["Swamp Palace - Flooded Room - Left", true, 'BigKeyD2', [], ['BigKeyD2']],
-
+            ["Swamp Palace - Flooded Room - Left", true, 'KeyD2', [], ['KeyD2']],
+			
             ["Swamp Palace - Flooded Room - Right", true, 'BigKeyD2', [], ['BigKeyD2']],
-
+            ["Swamp Palace - Flooded Room - Right", true, 'KeyD2', [], ['KeyD2']],
+			
             ["Swamp Palace - Waterfall Room", true, 'BigKeyD2', [], ['BigKeyD2']],
+            ["Swamp Palace - Waterfall Room", true, 'KeyD2', [], ['KeyD2']],
 
             ["Swamp Palace - Boss", true, 'BigKeyD2', [], ['BigKeyD2']],
         ];
