@@ -114,11 +114,6 @@ class SwampPalace extends Region\Standard\SwampPalace
                 && (
                     $items->has('KeyD2')
                     || $mireEntry($locations, $items)
-                )
-                && (
-                    $items->has('Hammer') 
-                    || $mireSwitch($locations, $items) 
-                    || $heraSwitch($locations, $items)
                 );
         });
 
