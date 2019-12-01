@@ -15,6 +15,7 @@ class SwampPalaceTest extends TestCase
     {
         parent::setUp();
         $this->world = World::factory('inverted', ['difficulty' => 'test_rules', 'logic' => 'MajorGlitches']);
+        $this->world->getLocation("Misery Mire Medallion")->setItem(Item::get('Ether', $this->world));
         $this->addCollected(['RescueZelda']);
         $this->collected->setChecksForWorld($this->world->id);
     }
@@ -96,65 +97,65 @@ class SwampPalaceTest extends TestCase
     {
         return [
             ["Swamp Palace - Entrance", false, []],
-            ["Swamp Palace - Entrance", false, [], ['MagicMirror']],
+            ["Swamp Palace - Entrance", false, [], ['MagicMirror', 'Ether']],
             ["Swamp Palace - Entrance", false, [], ['Flippers']],
             ["Swamp Palace - Entrance", true, ['MagicMirror', 'Flippers']],
 
             ["Swamp Palace - Big Chest", false, []],
-            ["Swamp Palace - Big Chest", false, [], ['MagicMirror']],
+            ["Swamp Palace - Big Chest", false, [], ['MagicMirror', 'Ether']],
             ["Swamp Palace - Big Chest", false, [], ['Flippers']],
-            ["Swamp Palace - Big Chest", false, [], ['Hammer']],
+            ["Swamp Palace - Big Chest", false, [], ['Hammer', 'Ether']],
             ["Swamp Palace - Big Chest", false, [], ['BigKeyD2']],
             ["Swamp Palace - Big Chest", true, ['BigKeyD2', 'KeyD2', 'MagicMirror', 'Flippers', 'Hammer']],
 
             ["Swamp Palace - Big Key Chest", false, []],
-            ["Swamp Palace - Big Key Chest", false, [], ['MagicMirror']],
+            ["Swamp Palace - Big Key Chest", false, [], ['MagicMirror', 'Ether']],
             ["Swamp Palace - Big Key Chest", false, [], ['Flippers']],
-            ["Swamp Palace - Big Key Chest", false, [], ['Hammer']],
+            ["Swamp Palace - Big Key Chest", false, [], ['Hammer', 'Ether']],
             ["Swamp Palace - Big Key Chest", true, ['KeyD2', 'MagicMirror', 'Flippers', 'Hammer']],
 
             ["Swamp Palace - Map Chest", false, []],
-            ["Swamp Palace - Map Chest", false, [], ['MagicMirror']],
+            ["Swamp Palace - Map Chest", false, [], ['MagicMirror', 'Ether']],
             ["Swamp Palace - Map Chest", false, [], ['Flippers']],
             ["Swamp Palace - Map Chest", true, ['KeyD2', 'MagicMirror', 'Flippers']],
 
             ["Swamp Palace - West Chest", false, []],
-            ["Swamp Palace - West Chest", false, [], ['MagicMirror']],
+            ["Swamp Palace - West Chest", false, [], ['MagicMirror', 'Ether']],
             ["Swamp Palace - West Chest", false, [], ['Flippers']],
-            ["Swamp Palace - West Chest", false, [], ['Hammer']],
+            ["Swamp Palace - West Chest", false, [], ['Hammer', 'Ether']],
             ["Swamp Palace - West Chest", true, ['KeyD2', 'MagicMirror', 'Flippers', 'Hammer']],
 
             ["Swamp Palace - Compass Chest", false, []],
-            ["Swamp Palace - Compass Chest", false, [], ['MagicMirror']],
+            ["Swamp Palace - Compass Chest", false, [], ['MagicMirror', 'Ether']],
             ["Swamp Palace - Compass Chest", false, [], ['Flippers']],
-            ["Swamp Palace - Compass Chest", false, [], ['Hammer']],
+            ["Swamp Palace - Compass Chest", false, [], ['Hammer', 'Ether']],
             ["Swamp Palace - Compass Chest", true, ['KeyD2', 'MagicMirror', 'Flippers', 'Hammer']],
 
             ["Swamp Palace - Flooded Room - Left", false, []],
-            ["Swamp Palace - Flooded Room - Left", false, [], ['MagicMirror']],
+            ["Swamp Palace - Flooded Room - Left", false, [], ['MagicMirror', 'Ether']],
             ["Swamp Palace - Flooded Room - Left", false, [], ['Flippers']],
             ["Swamp Palace - Flooded Room - Left", false, [], ['Hammer']],
             ["Swamp Palace - Flooded Room - Left", false, [], ['Hookshot']],
             ["Swamp Palace - Flooded Room - Left", true, ['KeyD2', 'MagicMirror', 'Flippers', 'Hammer', 'Hookshot']],
 
             ["Swamp Palace - Flooded Room - Right", false, []],
-            ["Swamp Palace - Flooded Room - Right", false, [], ['MagicMirror']],
+            ["Swamp Palace - Flooded Room - Right", false, [], ['MagicMirror', 'Ether']],
             ["Swamp Palace - Flooded Room - Right", false, [], ['Flippers']],
-            ["Swamp Palace - Flooded Room - Right", false, [], ['Hammer']],
+            ["Swamp Palace - Flooded Room - Right", false, [], ['Hammer', 'Ether']],
             ["Swamp Palace - Flooded Room - Right", false, [], ['Hookshot']],
             ["Swamp Palace - Flooded Room - Right", true, ['KeyD2', 'MagicMirror', 'Flippers', 'Hammer', 'Hookshot']],
 
             ["Swamp Palace - Waterfall Room", false, []],
-            ["Swamp Palace - Waterfall Room", false, [], ['MagicMirror']],
+            ["Swamp Palace - Waterfall Room", false, [], ['MagicMirror', 'Ether']],
             ["Swamp Palace - Waterfall Room", false, [], ['Flippers']],
-            ["Swamp Palace - Waterfall Room", false, [], ['Hammer']],
+            ["Swamp Palace - Waterfall Room", false, [], ['Hammer', 'Ether']],
             ["Swamp Palace - Waterfall Room", false, [], ['Hookshot']],
             ["Swamp Palace - Waterfall Room", true, ['KeyD2', 'MagicMirror', 'Flippers', 'Hammer', 'Hookshot']],
 
             ["Swamp Palace - Boss", false, []],
-            ["Swamp Palace - Boss", false, [], ['MagicMirror']],
+            ["Swamp Palace - Boss", false, [], ['MagicMirror', 'Ether']],
             ["Swamp Palace - Boss", false, [], ['Flippers']],
-            ["Swamp Palace - Boss", false, [], ['Hammer']],
+            ["Swamp Palace - Boss", false, [], ['Hammer', 'Ether']],
             ["Swamp Palace - Boss", false, [], ['Hookshot']],
             ["Swamp Palace - Boss", true, ['KeyD2', 'MagicMirror', 'Flippers', 'Hammer', 'Hookshot']],
         ];

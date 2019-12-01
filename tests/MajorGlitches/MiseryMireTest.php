@@ -15,7 +15,6 @@ class MiseryMireTest extends TestCase
     {
         parent::setUp();
         $this->world = World::factory('standard', ['difficulty' => 'test_rules', 'logic' => 'MajorGlitches']);
-
         $this->world->getLocation("Misery Mire Medallion")->setItem(Item::get('Ether', $this->world));
         $this->addCollected(['RescueZelda']);
         $this->collected->setChecksForWorld($this->world->id);
