@@ -48,13 +48,18 @@ class TowerOfHera extends Region\Standard\TowerOfHera
         };
 
 
-        $this->locations["Tower of Hera - Big Key Chest"]->setRequirements(function ($locations, $items) use ($mire) {
+        $this->locations["Tower of Hera - Big Key Chest"]->setRequirements(function ($locations, $items) {
             return $items->canLightTorches()
                 && (($items->has('KeyP3')
                     && ($items->has('MoonPearl') || ($this->world->config('canOWYBA', false)
                     && $items->hasABottle()) || ($this->world->config('canBunnyRevive', false)
-                    && $items->canBunnyRevive()))) || ($mire($locations, $items)
-                    && $items->has('KeyD6', 4)));
+                    && $items->canBunnyRevive()))) || 
+                    ($this->world->config('canOneFrameClipUW', false) && (
+                        ($locations->itemInLocations(Item::get('BigKeyD6', $this->world), [
+                            "Misery Mire - Compass Chest",
+                            "Misery Mire - Big Key Chest",
+                        ]) && $items->has('KeyD6', 3)) || $items->has('KeyD6', 4)) &&
+                    $this->world->getRegion('Misery Mire')->canEnter($locations, $items)));
         })->setAlwaysAllow(function ($item, $items) {
             return $this->world->config('accessibility') !== 'locations' && $item == Item::get('KeyP3', $this->world);
         });

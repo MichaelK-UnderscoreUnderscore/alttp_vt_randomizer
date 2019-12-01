@@ -57,7 +57,7 @@ class SwampPalace extends Region\Standard\SwampPalace
             return 
                 $this->world->config('canOneFrameClipUW', false)
                 && (
-                    (	
+                    (
                         $locations->itemInLocations(Item::get('BigKeyD6', $this->world), [
                             "Misery Mire - Compass Chest",
                             "Misery Mire - Big Key Chest",
@@ -68,6 +68,11 @@ class SwampPalace extends Region\Standard\SwampPalace
                 ) 
                 && $this->world->getRegion('Misery Mire')->canEnter($locations, $items);
         };
+        
+        $this->locations["Swamp Palace - Entrance"]->setFillRules(function ($item, $locations, $items) use ($mireEntry) {
+            return $this->world->config('region.wildKeys', false) || $item == Item::get('KeyD2', $this->world) 
+                || $mireEntry($locations, $items);
+        });
 
         $this->locations["Swamp Palace - Big Chest"]->setRequirements(function ($locations, $items) use ($mireEntry, $mireSwitch, $heraSwitch) {
             return 
@@ -186,8 +191,7 @@ class SwampPalace extends Region\Standard\SwampPalace
         });
 
         $this->locations["Swamp Palace - Boss"]->setRequirements(function ($locations, $items) use ($mireEntry, $mireSwitch, $heraSwitch) {
-            return 
-                $items->has('Hookshot')
+            return $items->has('Hookshot')
                 && (
                     $items->has('KeyD2')
                     || $mireEntry($locations, $items)
