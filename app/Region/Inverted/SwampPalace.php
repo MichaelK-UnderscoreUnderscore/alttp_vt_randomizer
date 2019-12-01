@@ -229,7 +229,7 @@ class SwampPalace extends Region\Standard\SwampPalace
 
         $this->can_enter = function ($locations, $items) use ($mainEntry, $mireEntry) {
             return 
-                && $items->has('Flippers')
+                $items->has('Flippers')
                 (
                     $this->world->config('itemPlacement') !== 'basic'
                     || (
