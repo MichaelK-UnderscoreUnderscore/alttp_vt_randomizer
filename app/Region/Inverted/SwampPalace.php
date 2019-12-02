@@ -20,7 +20,7 @@ class SwampPalace extends Region\Standard\SwampPalace
     {
         parent::initalize();
 
-        $mireSwitch = function ($locations, $items) {
+        $mire = function ($locations, $items) {
             return 
                 $this->world->config('canOneFrameClipUW', false)
                 && (
@@ -36,63 +36,37 @@ class SwampPalace extends Region\Standard\SwampPalace
                 && $this->world->getRegion('Misery Mire')->canEnter($locations, $items);
         };
         
-        $heraSwitch = function ($locations, $items) {
+        $hera = function ($locations, $items) {
             return 
                 $this->world->config('canOneFrameClipUW', false)
                 && $this->world->getRegion('Tower of Hera')->canEnter($locations, $items)
                 && $items->has('BigKeyP3');
         };
-
-        $mainEntry = function ($locations, $items) {
-            return 
-                (
-                    $items->has('MoonPearl')
-                    || $this->world->config('canSuperBunny', false)
-                )
-                && $items->has('MagicMirror')
-                && $this->world->getRegion('South Light World')->canEnter($locations, $items);
-        };
         
-        $mireEntry = function ($locations, $items) {
-            return 
-                $this->world->config('canOneFrameClipUW', false)
-                && (
-                    (
-                        $locations->itemInLocations(Item::get('BigKeyD6', $this->world), [
-                            "Misery Mire - Compass Chest",
-                            "Misery Mire - Big Key Chest",
-                        ]) &&
-                        $items->has('KeyD6', 3)
-                    ) 
-                    || $items->has('KeyD6', 4)
-                ) 
-                && $this->world->getRegion('Misery Mire')->canEnter($locations, $items);
-        };
-        
-        $this->locations["Swamp Palace - Entrance"]->setFillRules(function ($item, $locations, $items) use ($mireEntry) {
+        $this->locations["Swamp Palace - Entrance"]->setFillRules(function ($item, $locations, $items) use ($mire) {
             return $this->world->config('region.wildKeys', false) || $item == Item::get('KeyD2', $this->world) 
-                || $mireEntry($locations, $items);
+                || $mire($locations, $items);
         });
 
-        $this->locations["Swamp Palace - Big Chest"]->setRequirements(function ($locations, $items) use ($mireEntry, $mireSwitch, $heraSwitch) {
+        $this->locations["Swamp Palace - Big Chest"]->setRequirements(function ($locations, $items) use ($mire, $hera) {
             return 
                 (
                     $items->has('KeyD2')
-                    || $mireEntry($locations, $items)
+                    || $mire($locations, $items)
                 )
                 && (
                     $items->has('Hammer') 
-                    || $mireSwitch($locations, $items) 
-                    || $heraSwitch($locations, $items)
+                    || $mire($locations, $items) 
+                    || $hera($locations, $items)
                 )
                 && (
                     $items->has('BigKeyD2')
                     || (
-                        $mireSwitch($locations, $items)
+                        $mire($locations, $items)
                         && $items->has('BigKeyD6')
                     )
                     || (
-                        $heraSwitch($locations, $items)
+                        $hera($locations, $items)
                         && $items->has('BigKeyP3')
                     )
                 );
@@ -100,106 +74,106 @@ class SwampPalace extends Region\Standard\SwampPalace
             return $this->world->config('accessibility') !== 'locations' && $item == Item::get('BigKeyD2', $this->world);
         });
 
-        $this->locations["Swamp Palace - Big Key Chest"]->setRequirements(function ($locations, $items) use ($mireEntry, $mireSwitch, $heraSwitch) {
+        $this->locations["Swamp Palace - Big Key Chest"]->setRequirements(function ($locations, $items) use ($mire, $hera) {
             return 
                 (
                     $items->has('KeyD2')
-                    || $mireEntry($locations, $items)
+                    || $mire($locations, $items)
                 )
                 && (
                     $items->has('Hammer') 
-                    || $mireSwitch($locations, $items) 
-                    || $heraSwitch($locations, $items)
+                    || $mire($locations, $items) 
+                    || $hera($locations, $items)
                 );
         });
 
-        $this->locations["Swamp Palace - Map Chest"]->setRequirements(function ($locations, $items) use ($mireEntry, $mireSwitch, $heraSwitch) {
+        $this->locations["Swamp Palace - Map Chest"]->setRequirements(function ($locations, $items) use ($mire, $hera) {
             return 
                 $items->canBombThings()
                 && (
                     $items->has('KeyD2')
-                    || $mireEntry($locations, $items)
+                    || $mire($locations, $items)
                 );
         });
 
-        $this->locations["Swamp Palace - West Chest"]->setRequirements(function ($locations, $items) use ($mireEntry, $mireSwitch, $heraSwitch) {
+        $this->locations["Swamp Palace - West Chest"]->setRequirements(function ($locations, $items) use ($mire, $hera) {
             return 
                 (
                     $items->has('KeyD2')
-                    || $mireEntry($locations, $items)
+                    || $mire($locations, $items)
                 )
                 && (
                     $items->has('Hammer') 
-                    || $mireSwitch($locations, $items) 
-                    || $heraSwitch($locations, $items)
+                    || $mire($locations, $items) 
+                    || $hera($locations, $items)
                 );
         });
 
-        $this->locations["Swamp Palace - Compass Chest"]->setRequirements(function ($locations, $items) use ($mireEntry, $mireSwitch, $heraSwitch) {
+        $this->locations["Swamp Palace - Compass Chest"]->setRequirements(function ($locations, $items) use ($mire, $hera) {
             return 
                 (
                     $items->has('KeyD2')
-                    || $mireEntry($locations, $items)
+                    || $mire($locations, $items)
                 )
                 && (
                     $items->has('Hammer') 
-                    || $mireSwitch($locations, $items) 
-                    || $heraSwitch($locations, $items)
+                    || $mire($locations, $items) 
+                    || $hera($locations, $items)
                 );
         });
 
-        $this->locations["Swamp Palace - Flooded Room - Left"]->setRequirements(function ($locations, $items) use ($mireEntry, $mireSwitch, $heraSwitch) {
+        $this->locations["Swamp Palace - Flooded Room - Left"]->setRequirements(function ($locations, $items) use ($mire, $hera) {
             return 
                 $items->has('Hookshot')
                 && (
                     $items->has('KeyD2')
-                    || $mireEntry($locations, $items)
+                    || $mire($locations, $items)
                 )
                 && (
                     $items->has('Hammer') 
-                    || $mireSwitch($locations, $items) 
-                    || $heraSwitch($locations, $items)
+                    || $mire($locations, $items) 
+                    || $hera($locations, $items)
                 );
         });
 
-        $this->locations["Swamp Palace - Flooded Room - Right"]->setRequirements(function ($locations, $items) use ($mireEntry, $mireSwitch, $heraSwitch) {
+        $this->locations["Swamp Palace - Flooded Room - Right"]->setRequirements(function ($locations, $items) use ($mire, $hera) {
             return 
                 $items->has('Hookshot')
                 && (
                     $items->has('KeyD2')
-                    || $mireEntry($locations, $items)
+                    || $mire($locations, $items)
                 )
                 && (
                     $items->has('Hammer') 
-                    || $mireSwitch($locations, $items) 
-                    || $heraSwitch($locations, $items)
+                    || $mire($locations, $items) 
+                    || $hera($locations, $items)
                 );
         });
 
-        $this->locations["Swamp Palace - Waterfall Room"]->setRequirements(function ($locations, $items) use ($mireEntry, $mireSwitch, $heraSwitch) {
+        $this->locations["Swamp Palace - Waterfall Room"]->setRequirements(function ($locations, $items) use ($mire, $hera) {
             return 
                 $items->has('Hookshot')
                 && (
                     $items->has('KeyD2')
-                    || $mireEntry($locations, $items)
+                    || $mire($locations, $items)
                 )
                 && (
                     $items->has('Hammer') 
-                    || $mireSwitch($locations, $items) 
-                    || $heraSwitch($locations, $items)
+                    || $mire($locations, $items) 
+                    || $hera($locations, $items)
                 );
         });
 
-        $this->locations["Swamp Palace - Boss"]->setRequirements(function ($locations, $items) use ($mireEntry, $mireSwitch, $heraSwitch) {
+        $this->locations["Swamp Palace - Boss"]->setRequirements(function ($locations, $items) use ($mire, $hera) {
             return $items->has('Hookshot')
                 && (
                     $items->has('KeyD2')
-                    || $mireEntry($locations, $items)
+                    || $mire($locations, $items)
                 )
                 && (
                     $items->has('Hammer') 
-                    || $mireSwitch($locations, $items) 
-                    || $heraSwitch($locations, $items)
+                    || $mire($locations, $items) 
+                    || $hera($locations, $items)
                 )
                 && $this->boss->canBeat($items, $locations)
                 && (
@@ -226,7 +200,7 @@ class SwampPalace extends Region\Standard\SwampPalace
                 && ($item == Item::get('CompassD2', $this->world) || $item == Item::get('MapD2', $this->world));
         });
 
-        $this->can_enter = function ($locations, $items) use ($mainEntry, $mireEntry) {
+        $this->can_enter = function ($locations, $items) use ($main, $mire) {
             return 
                 $items->has('Flippers')
                 && (
@@ -239,10 +213,36 @@ class SwampPalace extends Region\Standard\SwampPalace
                         && $items->hasHealth(7)
                         && $items->hasBottle()
                     )
-                ) && (
-                    $mainEntry($locations, $items)
-                    || $mireEntry($locations, $items)
-                );
+                ) && 
+                (
+                    $items->has('MoonPearl')
+                    || $this->world->config('canSuperBunny', false)
+                )
+                && (
+                    $items->has('MagicMirror')
+                    || (
+                        $mire($locations, $items)
+                        && (
+                            $items->has('BigKeyD6')
+                            || (
+                                $$hera($locations, $items)
+                                && $items->has('BigKeyP3')
+                            )
+                        )
+                        && $locations["Old Man"]->canAccess($items)
+                        && (
+                            (
+                                $items->has('PegasusBoots') 
+                                && $this->world->config('canBootsClip', false)
+                            )
+                            || (
+                                $this->world->config('canSuperSpeed', false) 
+                                && $items->canSpinSpeed()
+                            )
+                            || $this->world->config('canOneFrameClipOW', false)
+                        )
+                    )
+                && $this->world->getRegion('South Light World')->canEnter($locations, $items);
         };
 
         return $this;
