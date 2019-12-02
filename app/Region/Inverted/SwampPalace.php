@@ -168,7 +168,10 @@ class SwampPalace extends Region\Standard\SwampPalace
             return $items->has('Hookshot')
                 && (
                     $items->has('KeyD2')
-                    || $mire($locations, $items)
+                    || (
+                        $mire($locations, $items)
+                        && !$this->world->config('region.wildKeys', false)
+                    )
                 )
                 && (
                     $items->has('Hammer') 
@@ -200,7 +203,7 @@ class SwampPalace extends Region\Standard\SwampPalace
                 && ($item == Item::get('CompassD2', $this->world) || $item == Item::get('MapD2', $this->world));
         });
 
-        $this->can_enter = function ($locations, $items) use ($main, $mire) {
+        $this->can_enter = function ($locations, $items) use ($hera, $mire) {
             return 
                 $items->has('Flippers')
                 && (
@@ -225,23 +228,30 @@ class SwampPalace extends Region\Standard\SwampPalace
                         && (
                             $items->has('BigKeyD6')
                             || (
-                                $$hera($locations, $items)
+                                $hera($locations, $items)
                                 && $items->has('BigKeyP3')
                             )
                         )
                         && $locations["Old Man"]->canAccess($items)
                         && (
                             (
-                                $items->has('PegasusBoots') 
-                                && $this->world->config('canBootsClip', false)
-                            )
-                            || (
-                                $this->world->config('canSuperSpeed', false) 
-                                && $items->canSpinSpeed()
+                                $items->has('MoonPearl')
+                                && 
+                                (
+                                    (
+                                        $items->has('PegasusBoots') 
+                                        && $this->world->config('canBootsClip', false)
+                                    )
+                                    || (
+                                        $this->world->config('canSuperSpeed', false) 
+                                        && $items->canSpinSpeed()
+                                    )
+                                )
                             )
                             || $this->world->config('canOneFrameClipOW', false)
                         )
                     )
+                )
                 && $this->world->getRegion('South Light World')->canEnter($locations, $items);
         };
 

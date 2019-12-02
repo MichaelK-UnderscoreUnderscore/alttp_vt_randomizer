@@ -94,37 +94,8 @@ class SwampPalace extends Region
                 && $this->world->getRegion('Tower of Hera')->canEnter($locations, $items)
                 && $items->has('BigKeyP3');
         };
-
-        $main = function ($locations, $items) {
-            return 
-				$items->has('MoonPearl') 
-		        && $items->has('Flippers')
-			    && $this->world->getRegion('South Dark World')->canEnter($locations, $items)
-				&& (
-					$items->has('MagicMirror')
-	                || (
-		                $mire($locations, $items)
-			            && (
-				            $items->has('BigKeyD6')
-					        || $items->has('BigKeyP3')
-						)
-	                    && $locations["Old Man"]->canAccess($items)
-		                && (
-			                (
-				                $items->has('PegasusBoots') 
-					            && $this->world->config('canBootsClip', false)
-						    )
-							|| (
-								$this->world->config('canSuperSpeed', false) 
-	                            && $items->canSpinSpeed()
-		                    )
-			                || $this->world->config('canOneFrameClipOW', false)
-				        )
-					)
-	            );
-        };
         
-		
+        
         $this->locations["Swamp Palace - Entrance"]->setFillRules(function ($item, $locations, $items) use ($mire) {
             return $this->world->config('region.wildKeys', false) || $item == Item::get('KeyD2', $this->world) 
                 || $mire($locations, $items);
@@ -252,7 +223,8 @@ class SwampPalace extends Region
         };
 
         $this->locations["Swamp Palace - Boss"]->setRequirements(function ($locations, $items) use ($mire, $hera) {
-            return $items->has('Hookshot')
+            return
+                $items->has('Hookshot')
                 && (
                     $items->has('KeyD2')
                     || $mire($locations, $items)
@@ -285,56 +257,48 @@ class SwampPalace extends Region
         })->setAlwaysAllow(function ($item, $items) {
             return $this->world->config('region.bossNormalLocation', true)
                 && ($item == Item::get('CompassD2', $this->world) || $item == Item::get('MapD2', $this->world));
+        });
 
-
-
-
-
-
-
-
-
-
-
-
-        $this->can_enter = function ($locations, $items) use ($main, $mire) {
+                
+        $this->can_enter = function ($locations, $items) use ($mire) {
             return 
-				$items->has('RescueZelda')
+                $items->has('RescueZelda')
                 && (
-					$this->world->config('itemPlacement') !== 'basic'
+                    $this->world->config('itemPlacement') !== 'basic'
                     || (
-						(
-							$this->world->config('mode.weapons') === 'swordless' || $items->hasSword()
-						) 
-						&& $items->hasHealth(7) 
-						&& $items->hasBottle()
-					)
-				)
+                        (
+                            $this->world->config('mode.weapons') === 'swordless' 
+                            || $items->hasSword()
+                        ) 
+                        && $items->hasHealth(7) 
+                        && $items->hasBottle()
+                    )
+                )
                 && $items->has('MoonPearl') 
-		        && $items->has('Flippers')
-			    && $this->world->getRegion('South Dark World')->canEnter($locations, $items)
-				&& (
-					$items->has('MagicMirror')
-	                || (
-		                $mire($locations, $items)
-			            && (
-				            $items->has('BigKeyD6')
-					        || $items->has('BigKeyP3')
-						)
-	                    && $locations["Old Man"]->canAccess($items)
-		                && (
-			                (
-				                $items->has('PegasusBoots') 
-					            && $this->world->config('canBootsClip', false)
-						    )
-							|| (
-								$this->world->config('canSuperSpeed', false) 
-	                            && $items->canSpinSpeed()
-		                    )
-			                || $this->world->config('canOneFrameClipOW', false)
-				        )
-					)
-	            );
+                && $items->has('Flippers')
+                && $this->world->getRegion('South Dark World')->canEnter($locations, $items)
+                && (
+                    $items->has('MagicMirror')
+                    || (
+                        $mire($locations, $items)
+                        && (
+                            $items->has('BigKeyD6')
+                            || $items->has('BigKeyP3')
+                        )
+                        && $locations["Old Man"]->canAccess($items)
+                        && (
+                            (
+                                $items->has('PegasusBoots') 
+                                && $this->world->config('canBootsClip', false)
+                            )
+                            || (
+                                $this->world->config('canSuperSpeed', false) 
+                                && $items->canSpinSpeed()
+                            )
+                            || $this->world->config('canOneFrameClipOW', false)
+                        )
+                    )
+                );
         };
 
         $this->prize_location->setRequirements($this->can_complete);
