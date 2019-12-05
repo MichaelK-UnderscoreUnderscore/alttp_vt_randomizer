@@ -1,13 +1,13 @@
 <?php
 
-namespace InvertedMajorGlitches\DarkWorld\DeathMountain;
+namespace MajorGlitches\DarkWorld\DeathMountain;
 
 use ALttP\Item;
 use ALttP\World;
 use TestCase;
 
 /**
- * @group InvertedMajorGlitches
+ * @group MajorGlitches
  */
 class WestTest extends TestCase
 {
