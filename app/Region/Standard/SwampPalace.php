@@ -258,7 +258,6 @@ class SwampPalace extends Region
             return $this->world->config('region.bossNormalLocation', true)
                 && ($item == Item::get('CompassD2', $this->world) || $item == Item::get('MapD2', $this->world));
         });
-
                 
         $this->can_enter = function ($locations, $items) use ($mire) {
             return 
