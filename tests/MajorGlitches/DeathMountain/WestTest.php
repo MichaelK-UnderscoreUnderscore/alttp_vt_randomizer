@@ -14,7 +14,7 @@ class WestTest extends TestCase
     public function setUp(): void
     {
         parent::setUp();
-        $this->world = World::factory('inverted', ['difficulty' => 'test_rules', 'logic' => 'MajorGlitches']);
+        $this->world = World::factory('standard', ['difficulty' => 'test_rules', 'logic' => 'MajorGlitches']);
         $this->addCollected(['RescueZelda']);
         $this->collected->setChecksForWorld($this->world->id);
     }
@@ -48,11 +48,21 @@ class WestTest extends TestCase
     public function accessPool()
     {
         return [
+            ["Ether Tablet", false, []],
+            ["Ether Tablet", false, [], ['UpgradedSword']],
+            ["Ether Tablet", false, [], ['BookOfMudora']],
+            ["Ether Tablet", true, ['BookOfMudora', 'ProgressiveSword', 'ProgressiveSword']],
+            ["Ether Tablet", true, ['BookOfMudora', 'L2Sword']],
+            ["Ether Tablet", true, ['BookOfMudora', 'L3Sword']],
+            ["Ether Tablet", true, ['BookOfMudora', 'L4Sword']],
+
             ["Old Man", false, []],
             ["Old Man", false, [], ['Lamp']],
             ["Old Man", true, ['Lamp']],
 
             ["Spectacle Rock Cave", true, []],
+
+            ["Spectacle Rock", true, []],
         ];
     }
 }
