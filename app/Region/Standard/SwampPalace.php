@@ -183,7 +183,7 @@ class SwampPalace extends Region
         $this->can_enter = function ($locations, $items) use ($main, $mire) {
             return $items->has('RescueZelda')
                 && ($this->world->config('itemPlacement') !== 'basic'
-                    || (($this->world->config('mode.weapons') === 'swordless' || $items->hasSword()) && $items->hasHealth(7) && $items->hasBottle()))
+                    || (($this->world->config('mode.weapons') === 'swordless' || $items->hasSword()) && $items->hasHealth(7) && $items->hasABottle()))
                 && ($main($locations, $items)
                     || $mire($locations, $items));
         };

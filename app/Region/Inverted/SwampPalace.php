@@ -131,7 +131,7 @@ class SwampPalace extends Region\Standard\SwampPalace
                     ($this->world->config('mode.weapons') === 'swordless'
                         || $items->hasSword())
                     && $items->hasHealth(7)
-                    && $items->hasBottle())) && ($main($locations, $items)
+                    && $items->hasABottle())) && ($main($locations, $items)
                 || $mire($locations, $items));
         };
 
