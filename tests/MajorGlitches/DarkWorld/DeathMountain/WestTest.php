@@ -14,7 +14,7 @@ class WestTest extends TestCase
     public function setUp(): void
     {
         parent::setUp();
-        $this->world = World::factory('inverted', ['difficulty' => 'test_rules', 'logic' => 'MajorGlitches']);
+        $this->world = World::factory('standard', ['difficulty' => 'test_rules', 'logic' => 'MajorGlitches']);
         $this->addCollected(['RescueZelda']);
         $this->collected->setChecksForWorld($this->world->id);
     }
@@ -52,6 +52,8 @@ class WestTest extends TestCase
             ["Spike Cave", false, [], ['Gloves']],
             ["Spike Cave", false, [], ['Hammer']],
             ["Spike Cave", false, [], ['Cape', 'CaneOfByrna']],
+            ["Spike Cave", false, [], ['AnyBottle', 'MoonPearl']],
+            ["Spike Cave", false, ['Bottle', 'Hammer', 'ProgressiveGlove', 'Cape']],
             ["Spike Cave", true, ['Bottle', 'MoonPearl', 'Hammer', 'ProgressiveGlove', 'Cape']],
             ["Spike Cave", true, ['Bottle', 'MoonPearl', 'Hammer', 'PowerGlove', 'Cape']],
             ["Spike Cave", true, ['Bottle', 'MoonPearl', 'Hammer', 'TitansMitt', 'Cape']],
@@ -70,6 +72,24 @@ class WestTest extends TestCase
             ["Spike Cave", true, ['QuarterMagic', 'MoonPearl', 'Hammer', 'ProgressiveGlove', 'CaneOfByrna']],
             ["Spike Cave", true, ['QuarterMagic', 'MoonPearl', 'Hammer', 'PowerGlove', 'CaneOfByrna']],
             ["Spike Cave", true, ['QuarterMagic', 'MoonPearl', 'Hammer', 'TitansMitt', 'CaneOfByrna']],
+            ["Spike Cave", true, ['Bottle', 'Bottle', 'Hammer', 'ProgressiveGlove', 'Cape']],
+            ["Spike Cave", true, ['Bottle', 'Bottle', 'Hammer', 'PowerGlove', 'Cape']],
+            ["Spike Cave", true, ['Bottle', 'Bottle', 'Hammer', 'TitansMitt', 'Cape']],
+            ["Spike Cave", true, ['Bottle', 'Bottle', 'Hammer', 'ProgressiveGlove', 'CaneOfByrna']],
+            ["Spike Cave", true, ['Bottle', 'Bottle', 'Hammer', 'PowerGlove', 'CaneOfByrna']],
+            ["Spike Cave", true, ['Bottle', 'Bottle', 'Hammer', 'TitansMitt', 'CaneOfByrna']],
+            ["Spike Cave", true, ['HalfMagic', 'Bottle', 'Hammer', 'ProgressiveGlove', 'Cape']],
+            ["Spike Cave", true, ['HalfMagic', 'Bottle', 'Hammer', 'PowerGlove', 'Cape']],
+            ["Spike Cave", true, ['HalfMagic', 'Bottle', 'Hammer', 'TitansMitt', 'Cape']],
+            ["Spike Cave", true, ['HalfMagic', 'Bottle', 'Hammer', 'ProgressiveGlove', 'CaneOfByrna']],
+            ["Spike Cave", true, ['HalfMagic', 'Bottle', 'Hammer', 'PowerGlove', 'CaneOfByrna']],
+            ["Spike Cave", true, ['HalfMagic', 'Bottle', 'Hammer', 'TitansMitt', 'CaneOfByrna']],
+            ["Spike Cave", true, ['QuarterMagic', 'Bottle', 'Hammer', 'ProgressiveGlove', 'Cape']],
+            ["Spike Cave", true, ['QuarterMagic', 'Bottle', 'Hammer', 'PowerGlove', 'Cape']],
+            ["Spike Cave", true, ['QuarterMagic', 'Bottle', 'Hammer', 'TitansMitt', 'Cape']],
+            ["Spike Cave", true, ['QuarterMagic', 'Bottle', 'Hammer', 'ProgressiveGlove', 'CaneOfByrna']],
+            ["Spike Cave", true, ['QuarterMagic', 'Bottle', 'Hammer', 'PowerGlove', 'CaneOfByrna']],
+            ["Spike Cave", true, ['QuarterMagic', 'Bottle', 'Hammer', 'TitansMitt', 'CaneOfByrna']],
         ];
     }
 }
