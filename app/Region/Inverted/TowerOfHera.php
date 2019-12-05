@@ -49,8 +49,7 @@ class TowerOfHera extends Region\Standard\TowerOfHera
 
 
         $this->locations["Tower of Hera - Big Key Chest"]->setRequirements(function ($locations, $items) use ($mire) {
-            return 
-                $items->canLightTorches()
+            return $items->canLightTorches()
                 && (($items->has('KeyP3')
                     && ($items->has('MoonPearl') || ($this->world->config('canOWYBA', false)
                     && $items->hasABottle()) || ($this->world->config('canBunnyRevive', false)
