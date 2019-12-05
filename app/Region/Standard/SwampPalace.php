@@ -273,11 +273,13 @@ class SwampPalace extends Region
                         && $items->hasBottle()
                     )
                 )
-                && $items->has('MoonPearl') 
                 && $items->has('Flippers')
                 && $this->world->getRegion('South Dark World')->canEnter($locations, $items)
                 && (
-                    $items->has('MagicMirror')
+                    (
+                        $items->has('MoonPearl') 
+                        && $items->has('MagicMirror')
+                    )
                     || (
                         $mire($locations, $items)
                         && (

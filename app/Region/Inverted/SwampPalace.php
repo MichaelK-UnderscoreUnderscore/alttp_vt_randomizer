@@ -218,7 +218,17 @@ class SwampPalace extends Region\Standard\SwampPalace
                     )
                 ) && 
                 (
-                    $items->has('MoonPearl')
+                    (
+                        $items->has('MoonPearl') 
+                        || (
+                            $this->world->config('canYBA', false)
+                            && $items->hasABottle()
+                        )
+                        || (
+                            $this->world->config('canBunnyRevive', false)
+                            && canBunnyRevive()
+                        )
+                    )
                     || $this->world->config('canSuperBunny', false)
                 )
                 && (

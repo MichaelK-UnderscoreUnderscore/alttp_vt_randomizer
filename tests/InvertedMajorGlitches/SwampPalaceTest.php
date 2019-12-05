@@ -62,6 +62,16 @@ class SwampPalaceTest extends TestCase
             [true, ['Flippers', 'Lamp', 'Ether', 'Hookshot', 'MasterSword', 'KeyD6', 'KeyD6', 'KeyD6', 'BigKeyD6']],
             [true, ['Flippers', 'Lamp', 'Ether', 'Hookshot', 'L3Sword', 'KeyD6', 'KeyD6', 'KeyD6', 'BigKeyD6']],
             [true, ['Flippers', 'Lamp', 'Ether', 'Hookshot', 'L4Sword', 'KeyD6', 'KeyD6', 'KeyD6', 'BigKeyD6']],
+            [true, ['Flippers', 'Lamp', 'Ether', 'PegasusBoots', 'UncleSword', 'KeyD6', 'KeyD6', 'KeyD6', 'BigKeyP3']],
+            [true, ['Flippers', 'Lamp', 'Ether', 'PegasusBoots', 'ProgressiveSword', 'KeyD6', 'KeyD6', 'KeyD6', 'BigKeyP3']],
+            [true, ['Flippers', 'Lamp', 'Ether', 'PegasusBoots', 'MasterSword', 'KeyD6', 'KeyD6', 'KeyD6', 'BigKeyP3']],
+            [true, ['Flippers', 'Lamp', 'Ether', 'PegasusBoots', 'L3Sword', 'KeyD6', 'KeyD6', 'KeyD6', 'BigKeyP3']],
+            [true, ['Flippers', 'Lamp', 'Ether', 'PegasusBoots', 'L4Sword', 'KeyD6', 'KeyD6', 'KeyD6', 'BigKeyP3']],
+            [true, ['Flippers', 'Lamp', 'Ether', 'Hookshot', 'UncleSword', 'KeyD6', 'KeyD6', 'KeyD6', 'BigKeyP3']],
+            [true, ['Flippers', 'Lamp', 'Ether', 'Hookshot', 'ProgressiveSword', 'KeyD6', 'KeyD6', 'KeyD6', 'BigKeyP3']],
+            [true, ['Flippers', 'Lamp', 'Ether', 'Hookshot', 'MasterSword', 'KeyD6', 'KeyD6', 'KeyD6', 'BigKeyP3']],
+            [true, ['Flippers', 'Lamp', 'Ether', 'Hookshot', 'L3Sword', 'KeyD6', 'KeyD6', 'KeyD6', 'BigKeyP3']],
+            [true, ['Flippers', 'Lamp', 'Ether', 'Hookshot', 'L4Sword', 'KeyD6', 'KeyD6', 'KeyD6', 'BigKeyP3']],
         ];
     }
 
@@ -500,7 +510,7 @@ class SwampPalaceTest extends TestCase
                         // AnyBottle Seems to not work with the code for canExtendMagic() right now. 
                         // Testing Instead via the Test below with both allowed Magical Weapons.
             ["Swamp Palace - Boss", false, ['Hookshot', 'Flippers', 'MagicMirror', 'KeyD2', 'FireRod', 'IceRod', 'MoonPearl', 'BigKeyP3']],
-            ["Swamp Palace - Boss", true, ['Hookshot', 'Flippers', 'MagicMirror', 'Hammer', 'KeyD2', 'BigKeyD2']],
+            ["Swamp Palace - Boss", true, ['Hookshot', 'Flippers', 'MagicMirror', 'Hammer', 'KeyD2']],
             ["Swamp Palace - Boss", true, ['Hookshot', 'Flippers', 'MagicMirror', 'KeyD2', 'BowAndArrows', 'FireRod', 'MoonPearl', 'BigKeyP3']],
             ["Swamp Palace - Boss", true, ['Hookshot', 'Flippers', 'MagicMirror', 'KeyD2', 'HalfMagic', 'FireRod', 'MoonPearl', 'BigKeyP3']],
             ["Swamp Palace - Boss", true, ['Hookshot', 'Flippers', 'MagicMirror', 'KeyD2', 'QuarterMagic', 'FireRod', 'MoonPearl', 'BigKeyP3']],
