@@ -12,7 +12,6 @@ return [
     ],
     'info' => [
         'spoilerwarning' => 'WARNUNG: Der Ersteller dieses Spiel hat den Spoiler Log angesehen.',
-        'mystery' => 'Dies ist ein geheimnissvolles Spiel. Die Einstellungen sind unbekannt und müssen beim Spielen herausgefunden werden!',
         'logic' => __('randomizer.glitches_required.title'),
         'accessibility' => __('randomizer.accessibility.title'),
         'build' => 'ROM build',
