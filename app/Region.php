@@ -60,7 +60,12 @@ class Region
     {
         return $this->name;
     }
-
+    
+    public function getSpoilerName()
+    {
+        return $this->name;
+    }
+    
     /**
      * Get the Boss of this Region.
      *

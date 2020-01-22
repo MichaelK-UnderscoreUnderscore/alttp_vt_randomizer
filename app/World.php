@@ -825,12 +825,12 @@ abstract class World
                     }
 
                     $location = sprintf("Equipment Slot %s", ++$i);
-                    $this->spoiler['Equipped'][$location] = $item->getTarget()->getName();
+                    $this->spoiler['Equipped'][$location] = $item->getTarget()->getSpoilerName();
                 }
             }
 
             foreach ($this->getRegions() as $region) {
-                $name = $region->getName();
+                $name = $region->getSpoilerName();
                 if (!isset($this->spoiler[$name])) {
                     $this->spoiler[$name] = [];
                 }
@@ -843,16 +843,16 @@ abstract class World
                     }
                     if ($location->hasItem()) {
                         $item = $location->getItem();
-                        $this->spoiler[$name][$location->getName()] = $this->config('rom.genericKeys', false) && $item instanceof Item\Key
+                        $this->spoiler[$name][$location->getSpoilerName()] = $this->config('rom.genericKeys', false) && $item instanceof Item\Key
                             ? 'Key'
-                            : $item->getTarget()->getName();
+                            : $item->getTarget()->getSpoilerName();
                     } else {
-                        $this->spoiler[$name][$location->getName()] = 'Nothing';
+                        $this->spoiler[$name][$location->getSpoilerName()] = 'Nothing';
                     }
                 });
             }
             foreach ($this->getShops() as $shop) {
-                if ($shop->getActive()) {
+                if ($shop->getActive() && !$shop->getVanilla()) {
                     $shop_data = [
                         'location' => $shop->getName(),
                         'type' => $shop instanceof Shop\TakeAny ? 'Take Any' : 'Shop',
@@ -866,7 +866,7 @@ abstract class World
                     $this->spoiler['Shops'][] = $shop_data;
                 }
             }
-            $this->spoiler['playthrough'] = (new PlaythroughService)->getPlayThrough($this);
+            //$this->spoiler['playthrough'] = (new PlaythroughService)->getPlayThrough($this);
         }
 
         $this->spoiler['meta'] = array_merge($this->spoiler['meta'] ?? [], $meta, [
@@ -894,24 +894,24 @@ abstract class World
             'enemizer.enemy_health' => $this->config('enemizer.enemyHealth'),
         ]);
 
-        $this->spoiler['Bosses'] = [
-            "Eastern Palace" => $this->getRegion('Eastern Palace')->getBoss('')->getName(),
-            "Desert Palace" => $this->getRegion('Desert Palace')->getBoss('')->getName(),
-            "Tower Of Hera" => $this->getRegion('Tower of Hera')->getBoss('')->getName(),
-            "Hyrule Castle" => "Agahnim",
-            "Palace Of Darkness" => $this->getRegion('Palace of Darkness')->getBoss('')->getName(),
-            "Swamp Palace" => $this->getRegion('Swamp Palace')->getBoss('')->getName(),
-            "Skull Woods" => $this->getRegion('Skull Woods')->getBoss('')->getName(),
-            "Thieves Town" => $this->getRegion('Thieves Town')->getBoss('')->getName(),
-            "Ice Palace" => $this->getRegion('Ice Palace')->getBoss('')->getName(),
-            "Misery Mire" => $this->getRegion('Misery Mire')->getBoss('')->getName(),
-            "Turtle Rock" => $this->getRegion('Turtle Rock')->getBoss('')->getName(),
-            "Ganons Tower Basement" => $this->getRegion('Ganons Tower')->getBoss('bottom')->getName(),
-            "Ganons Tower Middle" => $this->getRegion('Ganons Tower')->getBoss('middle')->getName(),
-            "Ganons Tower Top" => $this->getRegion('Ganons Tower')->getBoss('top')->getName(),
-            "Ganons Tower" => "Agahnim 2",
-            "Ganon" => "Ganon"
-        ];
+        //$this->spoiler['Bosses'] = [
+        //    "Eastern Palace" => $this->getRegion('Eastern Palace')->getBoss('')->getName(),
+        //    "Desert Palace" => $this->getRegion('Desert Palace')->getBoss('')->getName(),
+        //    "Tower Of Hera" => $this->getRegion('Tower of Hera')->getBoss('')->getName(),
+        //    "Hyrule Castle" => "Agahnim",
+        //    "Palace Of Darkness" => $this->getRegion('Palace of Darkness')->getBoss('')->getName(),
+        //    "Swamp Palace" => $this->getRegion('Swamp Palace')->getBoss('')->getName(),
+        //    "Skull Woods" => $this->getRegion('Skull Woods')->getBoss('')->getName(),
+        //    "Thieves Town" => $this->getRegion('Thieves Town')->getBoss('')->getName(),
+        //    "Ice Palace" => $this->getRegion('Ice Palace')->getBoss('')->getName(),
+        //    "Misery Mire" => $this->getRegion('Misery Mire')->getBoss('')->getName(),
+        //    "Turtle Rock" => $this->getRegion('Turtle Rock')->getBoss('')->getName(),
+        //    "Ganons Tower Basement" => $this->getRegion('Ganons Tower')->getBoss('bottom')->getName(),
+        //    "Ganons Tower Middle" => $this->getRegion('Ganons Tower')->getBoss('middle')->getName(),
+        //    "Ganons Tower Top" => $this->getRegion('Ganons Tower')->getBoss('top')->getName(),
+        //    "Ganons Tower" => "Agahnim 2",
+        //    "Ganon" => "Ganon"
+        //];
 
         if ($this->config('rom.HardMode') !== null) {
             $this->spoiler['meta']['difficulty_mode'] = $this->config('rom.HardMode', 0);
