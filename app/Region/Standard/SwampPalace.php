@@ -74,10 +74,9 @@ class SwampPalace extends Region
         $mire = function ($locations, $items) {
             return $this->world->config('canOneFrameClipUW', false)
                 && (($locations->itemInLocations(Item::get('BigKeyD6', $this->world), [
-                        "Misery Mire - Compass Chest",
-                        "Misery Mire - Big Key Chest",
-                    ])
-                    && $items->has('KeyD6', 2))
+                    "Misery Mire - Compass Chest",
+                    "Misery Mire - Big Key Chest",
+                ]) && $items->has('KeyD6', 2))
                     || $items->has('KeyD6', 3))
                 && $this->world->getRegion('Misery Mire')->canEnter($locations, $items);
         };
@@ -158,8 +157,10 @@ class SwampPalace extends Region
                 && ($items->has('Hammer') 
                     || $mire($locations, $items) || $hera($locations, $items))
                 && $this->boss->canBeat($items, $locations)
-                && (!$this->world->config('region.wildCompasses', false) || $items->has('CompassD2') || $this->locations["Swamp Palace - Boss"]->hasItem(Item::get('CompassD2', $this->world)))
-                && (!$this->world->config('region.wildMaps', false) || $items->has('MapD2') || $this->locations["Swamp Palace - Boss"]->hasItem(Item::get('MapD2', $this->world)));
+                && (!$this->world->config('region.wildCompasses', false) || $items->has('CompassD2')
+                    || $this->locations["Swamp Palace - Boss"]->hasItem(Item::get('CompassD2', $this->world)))
+                && (!$this->world->config('region.wildMaps', false) || $items->has('MapD2')
+                    || $this->locations["Swamp Palace - Boss"]->hasItem(Item::get('MapD2', $this->world)));
         })->setFillRules(function ($item, $locations, $items) {
             if (
                 !$this->world->config('region.bossNormalLocation', true)
@@ -188,8 +189,7 @@ class SwampPalace extends Region
                         && $locations["Old Man"]->canAccess($items)
                         && (($items->has('PegasusBoots')
                             && $this->world->config('canBootsClip', false))
-                            || ($this->world->config('canSuperSpeed', false)
-                                && $items->canSpinSpeed())
+                            || ($this->world->config('canSuperSpeed', false) && $items->canSpinSpeed())
                             || $this->world->config('canOneFrameClipOW', false))));
         };
 

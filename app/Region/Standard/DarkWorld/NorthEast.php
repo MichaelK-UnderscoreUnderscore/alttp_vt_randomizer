@@ -163,9 +163,9 @@ class NorthEast extends Region
                         && (($this->world->config('canBootsClip', false) && $items->has('PegasusBoots'))
                             || ($this->world->config('canBunnyRevive', false) && $items->canBunnyRevive())
                             || ($this->world->config('canSuperSpeed', false) && $items->canSpinSpeed())
-                            || ($items->has('MoonPearl') && $this->world->config('canFakeFlipper', false))))
+                            || ($this->world->config('canFakeFlipper', false) && $items->has('MoonPearl'))))
                     || $items->has('DefeatAgahnim')
-                    || ($items->has('MagicMirror') && $this->world->config('canMirrorWrap', false)
+                    || ($this->world->config('canMirrorWrap', false) && $items->has('MagicMirror')
                         && $this->world->config('canBunnyRevive', false) && $items->canBunnyRevive()
                         && (($this->world->config('canSuperSpeed', false) && $items->canSpinSpeed())
                             || ($this->world->config('canBootsClip', false) && $items->has('PegasusBoots'))
@@ -221,8 +221,11 @@ class NorthEast extends Region
                     ($this->world->config('mode.weapons') == 'swordless' && $items->has('Hammer')
                         && ($items->has('Lamp', $this->world->config('item.require.Lamp', 1)) || (
                             $items->has('FireRod') && $items->canExtendMagic(1))))
-                    || (!$this->world->config('region.requireBetterSword', false) && ($items->hasSword(2) && ($items->has('Lamp', $this->world->config('item.require.Lamp', 1)) || ($items->has('FireRod') && $items->canExtendMagic(3)))))
-                    || ($items->hasSword(3) && ($items->has('Lamp', $this->world->config('item.require.Lamp', 1)) || ($items->has('FireRod') && $items->canExtendMagic(2)))));
+                    || (!$this->world->config('region.requireBetterSword', false)
+                        && ($items->hasSword(2) && ($items->has('Lamp', $this->world->config('item.require.Lamp', 1))
+                            || ($items->has('FireRod') && $items->canExtendMagic(3)))))
+                    || ($items->hasSword(3) && ($items->has('Lamp', $this->world->config('item.require.Lamp', 1))
+                        || ($items->has('FireRod') && $items->canExtendMagic(2)))));
         });
 
         return $this;

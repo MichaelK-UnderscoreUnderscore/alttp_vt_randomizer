@@ -85,8 +85,8 @@ class TurtleRock extends Region
     {
         $upper = function ($locations, $items) {
             return (($locations["Turtle Rock Medallion"]->hasItem(Item::get('Bombos', $this->world)) && $items->has('Bombos'))
-                || ($locations["Turtle Rock Medallion"]->hasItem(Item::get('Ether', $this->world)) && $items->has('Ether'))
-                || ($locations["Turtle Rock Medallion"]->hasItem(Item::get('Quake', $this->world)) && $items->has('Quake')))
+                    || ($locations["Turtle Rock Medallion"]->hasItem(Item::get('Ether', $this->world)) && $items->has('Ether'))
+                    || ($locations["Turtle Rock Medallion"]->hasItem(Item::get('Quake', $this->world)) && $items->has('Quake')))
                 && ($this->world->config('mode.weapons') == 'swordless' || $items->hasSword())
                 && ($items->has('MoonPearl')
                     || ($this->world->config('canOWYBA', false) && $items->hasABottle()
@@ -188,32 +188,36 @@ class TurtleRock extends Region
 
         $this->locations["Turtle Rock - Eye Bridge - Bottom Left"]->setRequirements(function ($locations, $items) use ($upper, $middle, $lower) {
             return ($lower($locations, $items)
-                || (($upper($locations, $items) || $middle($locations, $items)) &&
-                    $items->has('Lamp', $this->world->config('item.require.Lamp', 1)) && $items->has('CaneOfSomaria') && $items->has('BigKeyD7') && $items->has('KeyD7', 3)))
+                || (($upper($locations, $items) || $middle($locations, $items))
+                    && $items->has('Lamp', $this->world->config('item.require.Lamp', 1)) && $items->has('CaneOfSomaria')
+                    && $items->has('BigKeyD7') && $items->has('KeyD7', 3)))
                 && ($this->world->config('itemPlacement') !== 'basic' || $items->has('Cape') || $items->has('CaneOfByrna')
                     || ($this->world->config('item.overflow.count.Shield', 3) >= 3 && $items->canBlockLasers()));
         });
 
         $this->locations["Turtle Rock - Eye Bridge - Bottom Right"]->setRequirements(function ($locations, $items) use ($upper, $middle, $lower) {
             return ($lower($locations, $items)
-                || (($upper($locations, $items) || $middle($locations, $items)) &&
-                    $items->has('Lamp', $this->world->config('item.require.Lamp', 1)) && $items->has('CaneOfSomaria') && $items->has('BigKeyD7') && $items->has('KeyD7', 3)))
+                || (($upper($locations, $items) || $middle($locations, $items))
+                    && $items->has('Lamp', $this->world->config('item.require.Lamp', 1)) && $items->has('CaneOfSomaria')
+                    && $items->has('BigKeyD7') && $items->has('KeyD7', 3)))
                 && ($this->world->config('itemPlacement') !== 'basic' || $items->has('Cape') || $items->has('CaneOfByrna')
                     || ($this->world->config('item.overflow.count.Shield', 3) >= 3 && $items->canBlockLasers()));
         });
 
         $this->locations["Turtle Rock - Eye Bridge - Top Left"]->setRequirements(function ($locations, $items) use ($upper, $middle, $lower) {
             return ($lower($locations, $items)
-                || (($upper($locations, $items) || $middle($locations, $items)) &&
-                    $items->has('Lamp', $this->world->config('item.require.Lamp', 1)) && $items->has('CaneOfSomaria') && $items->has('BigKeyD7') && $items->has('KeyD7', 3)))
+                || (($upper($locations, $items) || $middle($locations, $items))
+                    && $items->has('Lamp', $this->world->config('item.require.Lamp', 1)) && $items->has('CaneOfSomaria')
+                    && $items->has('BigKeyD7') && $items->has('KeyD7', 3)))
                 && ($this->world->config('itemPlacement') !== 'basic' || $items->has('Cape') || $items->has('CaneOfByrna')
                     || ($this->world->config('item.overflow.count.Shield', 3) >= 3 && $items->canBlockLasers()));
         });
 
         $this->locations["Turtle Rock - Eye Bridge - Top Right"]->setRequirements(function ($locations, $items) use ($upper, $middle, $lower) {
             return ($lower($locations, $items)
-                || (($upper($locations, $items) || $middle($locations, $items)) &&
-                    $items->has('Lamp', $this->world->config('item.require.Lamp', 1)) && $items->has('CaneOfSomaria') && $items->has('BigKeyD7') && $items->has('KeyD7', 3)))
+                || (($upper($locations, $items) || $middle($locations, $items))
+                    && $items->has('Lamp', $this->world->config('item.require.Lamp', 1)) && $items->has('CaneOfSomaria')
+                    && $items->has('BigKeyD7') && $items->has('KeyD7', 3)))
                 && ($this->world->config('itemPlacement') !== 'basic' || $items->has('Cape') || $items->has('CaneOfByrna')
                     || ($this->world->config('item.overflow.count.Shield', 3) >= 3 && $items->canBlockLasers()));
         });
@@ -235,8 +239,10 @@ class TurtleRock extends Region
                     || $items->has('Lamp', $this->world->config('item.require.Lamp', 1)))
                 && $items->has('BigKeyD7') && $items->has('CaneOfSomaria')
                 && $this->boss->canBeat($items, $locations)
-                && (!$this->world->config('region.wildCompasses', false) || $items->has('CompassD7') || $this->locations["Turtle Rock - Boss"]->hasItem(Item::get('CompassD7', $this->world)))
-                && (!$this->world->config('region.wildMaps', false) || $items->has('MapD7') || $this->locations["Turtle Rock - Boss"]->hasItem(Item::get('MapD7', $this->world)));
+                && (!$this->world->config('region.wildCompasses', false) || $items->has('CompassD7')
+                    || $this->locations["Turtle Rock - Boss"]->hasItem(Item::get('CompassD7', $this->world)))
+                && (!$this->world->config('region.wildMaps', false) || $items->has('MapD7')
+                    || $this->locations["Turtle Rock - Boss"]->hasItem(Item::get('MapD7', $this->world)));
         })->setFillRules(function ($item, $locations, $items) {
             if (
                 !$this->world->config('region.bossNormalLocation', true)
@@ -254,7 +260,8 @@ class TurtleRock extends Region
         $this->can_enter = function ($locations, $items) use ($lower, $middle, $upper) {
             return $items->has('RescueZelda')
                 && ($this->world->config('itemPlacement') !== 'basic'
-                    || (($this->world->config('mode.weapons') === 'swordless' || $items->hasSword(2)) && $items->hasHealth(12) && ($items->hasBottle(2) || $items->hasArmor())))
+                    || (($this->world->config('mode.weapons') === 'swordless' || $items->hasSword(2))
+                        && $items->hasHealth(12) && ($items->hasBottle(2) || $items->hasArmor())))
                 && ($lower($locations, $items)
                     || $middle($locations, $items)
                     || $upper($locations, $items));

@@ -47,19 +47,14 @@ class South extends Region\Standard\DarkWorld\South
             return $items->canBombThings()
                 && ($items->has('Flippers')
                     || $items->canFly($this->world)
-                    || ($this->world->config('canOWYBA', false)
-                        && $items->hasABottle()) || (
-                        ($this->world->config('canBootsClip', false)
-                            || $this->world->config('canWaterWalk', false))
-                        && $items->has('PegasusBoots')) ||
-                    $this->world->config('canOneFrameClipOW', false)
+                    || ($this->world->config('canOWYBA', false) && $items->hasABottle())
+                    || (($this->world->config('canBootsClip', false) || $this->world->config('canWaterWalk', false))
+                            && $items->has('PegasusBoots'))
+                    || $this->world->config('canOneFrameClipOW', false)
                     || ($this->world->config('canFakeFlipper', false)
-                        && (
-                            ($this->world->getRegion('North East Dark World')->canEnter($locations, $items)
-                                && ($items->has('Hammer')
-                                    || $items->canLiftRocks()))
-                            || ($this->World->config('canBunnyRevive', false)
-                                && $items->canBunnyRevive()))
+                        && (($this->world->getRegion('North East Dark World')->canEnter($locations, $items)
+                                && ($items->has('Hammer') || $items->canLiftRocks()))
+                            || ($this->World->config('canBunnyRevive', false) && $items->canBunnyRevive()))
                         || ($this->world->getRegion('North West Dark World')->canEnter($locations, $items)
                             && $this->world->config('region.cantTakeDamage', false))));
         });
@@ -68,19 +63,14 @@ class South extends Region\Standard\DarkWorld\South
             return $items->canLiftRocks()
                 && ($items->has('Flippers')
                     || $items->canFly($this->world)
-                    || ($this->world->config('canOWYBA', false)
-                        && $items->hasABottle()) || (
-                        ($this->world->config('canBootsClip', false)
-                            || $this->world->config('canWaterWalk', false))
-                        && $items->has('PegasusBoots')) ||
-                    $this->world->config('canOneFrameClipOW', false)
+                    || ($this->world->config('canOWYBA', false) && $items->hasABottle())
+                    || (($this->world->config('canBootsClip', false) || $this->world->config('canWaterWalk', false))
+                            && $items->has('PegasusBoots'))
+                    || $this->world->config('canOneFrameClipOW', false)
                     || ($this->world->config('canFakeFlipper', false)
-                        && (
-                            ($this->world->getRegion('North East Dark World')->canEnter($locations, $items)
-                                && ($items->has('Hammer')
-                                    || $items->canLiftRocks()))
-                            || ($this->World->config('canBunnyRevive', false)
-                                && $items->canBunnyRevive()))
+                        && (($this->world->getRegion('North East Dark World')->canEnter($locations, $items)
+                                && ($items->has('Hammer') || $items->canLiftRocks()))
+                            || ($this->World->config('canBunnyRevive', false) && $items->canBunnyRevive()))
                         || ($this->world->getRegion('North West Dark World')->canEnter($locations, $items)
                             && $this->world->config('region.cantTakeDamage', false))));
         });
@@ -89,18 +79,14 @@ class South extends Region\Standard\DarkWorld\South
             return $items->canLiftRocks()
                 && ($items->has('Flippers')
                     || $items->canFly($this->world)
-                    || ($this->world->config('canOWYBA', false)
-                        && $items->hasABottle()) || (
-                        ($this->world->config('canBootsClip', false)
-                            || $this->world->config('canWaterWalk', false))
-                        && $items->has('PegasusBoots')) ||
-                    $this->world->config('canOneFrameClipOW', false)
+                    || ($this->world->config('canOWYBA', false) && $items->hasABottle())
+                    || (($this->world->config('canBootsClip', false) || $this->world->config('canWaterWalk', false))
+                            && $items->has('PegasusBoots'))
+                    || $this->world->config('canOneFrameClipOW', false)
                     || ($this->world->config('canFakeFlipper', false)
-                        && (
-                            ($this->world->getRegion('North East Dark World')->canEnter($locations, $items)
-                                && ($items->has('Hammer')
-                                    || $items->canLiftRocks())) || ($this->World->config('canBunnyRevive', false)
-                                && $items->canBunnyRevive()))
+                        && (($this->world->getRegion('North East Dark World')->canEnter($locations, $items)
+                                && ($items->has('Hammer') || $items->canLiftRocks()))
+                            || ($this->World->config('canBunnyRevive', false) && $items->canBunnyRevive()))
                         || ($this->world->getRegion('North West Dark World')->canEnter($locations, $items)
                             && $this->world->config('region.cantTakeDamage', false))));
         });

@@ -48,14 +48,14 @@ class West extends Region
         $this->shops["Dark Death Mountain Fairy"]->setRequirements(function ($locations, $items) {
             return $items->has('MoonPearl')
                 || ($this->world->config('canOWYBA', false) && $items->hasABottle()
-                    && (($items->has('PegasusBoots') && $this->world->config('canBootsClip', false))
+                    && (($this->world->config('canBootsClip', false) && $items->has('PegasusBoots'))
                         || $this->world->config('canOneFrameClipOW', false)));
         });
 
         $this->locations["Spike Cave"]->setRequirements(function ($locations, $items) {
             return ($items->has('MoonPearl')
                     || ($this->world->config('canOWYBA', false) && $items->hasABottle()
-                        && (($items->has('PegasusBoots') && $this->world->config('canBootsClip', false))
+                        && (($this->world->config('canBootsClip', false) && $items->has('PegasusBoots'))
                             || $this->world->config('canOneFrameClipOW', false))
                         && (($items->has('Cape') && $items->canExtendMagic(3))
                             || ((!$this->world->config('region.cantTakeDamage', false) || $items->canExtendMagic(3))
@@ -67,7 +67,7 @@ class West extends Region
 
         $this->can_enter = function ($locations, $items) {
             return ($items->has('RescueZelda') 
-            && $this->world->getRegion('West Death Mountain')->canEnter($locations, $items));
+                && $this->world->getRegion('West Death Mountain')->canEnter($locations, $items));
         };
 
         return $this;

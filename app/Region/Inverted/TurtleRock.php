@@ -15,7 +15,8 @@ class TurtleRock extends Region\Standard\TurtleRock
         return $items->has('CaneOfSomaria')
             && ($this->enterTop($locations, $items)
                 || ($this->enterMiddle($locations, $items)
-                    && $items->has('KeyD7', 4)) || ($this->enterBottom($locations, $items)
+                    && $items->has('KeyD7', 4))
+                || ($this->enterBottom($locations, $items)
                     && $items->has('Lamp', $this->world->config('item.require.Lamp', 1))
                     && $items->has('KeyD7', 4)));
     }
@@ -24,7 +25,8 @@ class TurtleRock extends Region\Standard\TurtleRock
     {
         return $this->enterMiddle($locations, $items)
             || ($this->enterTop($locations, $items)
-                && $items->has('KeyD7', $this->accountForWastingKeyOnTrinexDoor(2, 3))) || ($this->enterBottom($locations, $items)
+                && $items->has('KeyD7', $this->accountForWastingKeyOnTrinexDoor(2, 3)))
+            || ($this->enterBottom($locations, $items)
                 && $items->has('Lamp', $this->world->config('item.require.Lamp', 1))
                 && $items->has('CaneOfSomaria'));
     }
@@ -32,8 +34,7 @@ class TurtleRock extends Region\Standard\TurtleRock
     protected function canReachBottom($locations, $items)
     {
         return $this->enterBottom($locations, $items)
-            || (
-                ($this->enterTop($locations, $items)
+            || (($this->enterTop($locations, $items)
                     || $this->enterMiddle($locations, $items))
                 && $items->has('Lamp', $this->world->config('item.require.Lamp', 1))
                 && $items->has('CaneOfSomaria')
@@ -52,11 +53,10 @@ class TurtleRock extends Region\Standard\TurtleRock
 
     protected function enterTop($locations, $items)
     {
-        return (($locations["Turtle Rock Medallion"]->hasItem(Item::get('Bombos', $this->world))
-            && $items->has('Bombos')) || ($locations["Turtle Rock Medallion"]->hasItem(Item::get('Ether', $this->world))
-            && $items->has('Ether')) || ($locations["Turtle Rock Medallion"]->hasItem(Item::get('Quake', $this->world))
-            && $items->has('Quake'))) && ($this->world->config('mode.weapons') == 'swordless'
-            || $items->hasSword())
+        return (($locations["Turtle Rock Medallion"]->hasItem(Item::get('Bombos', $this->world)) && $items->has('Bombos'))
+                || ($locations["Turtle Rock Medallion"]->hasItem(Item::get('Ether', $this->world)) && $items->has('Ether'))
+                || ($locations["Turtle Rock Medallion"]->hasItem(Item::get('Quake', $this->world)) && $items->has('Quake')))
+            && ($this->world->config('mode.weapons') == 'swordless' || $items->hasSword())
             && $items->has('CaneOfSomaria')
             && $this->world->getRegion('East Dark World Death Mountain')->canEnter($locations, $items);
     }
@@ -64,10 +64,9 @@ class TurtleRock extends Region\Standard\TurtleRock
     protected function enterMiddle($locations, $items)
     {
         return $this->world->getRegion('East Death Mountain')->canEnter($locations, $items)
-            && $items->has('MagicMirror')
+                && $items->has('MagicMirror')
             || ($this->world->getRegion('East Dark World Death Mountain')->canEnter($locations, $items)
-                && $this->world->config('canSuperSpeed', false)
-                && $items->canSpinSpeed());
+                && $this->world->config('canSuperSpeed', false) && $items->canSpinSpeed());
     }
 
     protected function enterBottom($locations, $items)
@@ -86,9 +85,9 @@ class TurtleRock extends Region\Standard\TurtleRock
     {
         $this->locations["Turtle Rock - Chain Chomps"]->setRequirements(function ($locations, $items) {
             return ($this->enterTop($locations, $items)
-                && $items->has('CaneOfSomaria')
-                && $items->has('KeyD7', $this->accountForWastingKeyOnTrinexDoor(1, 2))) ||
-                $this->enterMiddle($locations, $items);
+                    && $items->has('CaneOfSomaria')
+                    && $items->has('KeyD7', $this->accountForWastingKeyOnTrinexDoor(1, 2)))
+                || $this->enterMiddle($locations, $items);
         });
 
         $this->locations["Turtle Rock - Roller Room - Left"]->setRequirements(function ($locations, $items) {
@@ -125,45 +124,38 @@ class TurtleRock extends Region\Standard\TurtleRock
 
         $this->locations["Turtle Rock - Crystaroller Room"]->setRequirements(function ($locations, $items) {
             return ($items->has('BigKeyD7')
-                && $this->canReachMiddle($locations, $items)) || ($this->enterBottom($locations, $items)
-                && $items->has('Lamp', $this->world->config('item.require.Lamp', 1))
-                && $items->has('CaneOfSomaria'));
+                    && $this->canReachMiddle($locations, $items))
+                || ($this->enterBottom($locations, $items)
+                    && $items->has('Lamp', $this->world->config('item.require.Lamp', 1))
+                    && $items->has('CaneOfSomaria'));
         });
 
         $this->locations["Turtle Rock - Eye Bridge - Bottom Left"]->setRequirements(function ($locations, $items) {
             return $this->canReachBottom($locations, $items)
                 && ($this->world->config('itemPlacement') !== 'basic'
-                    || $items->has('Cape')
-                    || $items->has('CaneOfByrna')
-                    || ($this->world->config('item.overflow.count.Shield', 3) >= 3
-                        && $items->canBlockLasers()));
+                    || $items->has('Cape') || $items->has('CaneOfByrna')
+                    || ($this->world->config('item.overflow.count.Shield', 3) >= 3 && $items->canBlockLasers()));
         });
 
         $this->locations["Turtle Rock - Eye Bridge - Bottom Right"]->setRequirements(function ($locations, $items) {
             return $this->canReachBottom($locations, $items)
                 && ($this->world->config('itemPlacement') !== 'basic'
-                    || $items->has('Cape')
-                    || $items->has('CaneOfByrna')
-                    || ($this->world->config('item.overflow.count.Shield', 3) >= 3
-                        && $items->canBlockLasers()));
+                    || $items->has('Cape') || $items->has('CaneOfByrna')
+                    || ($this->world->config('item.overflow.count.Shield', 3) >= 3 && $items->canBlockLasers()));
         });
 
         $this->locations["Turtle Rock - Eye Bridge - Top Left"]->setRequirements(function ($locations, $items) {
             return $this->canReachBottom($locations, $items)
                 && ($this->world->config('itemPlacement') !== 'basic'
-                    || $items->has('Cape')
-                    || $items->has('CaneOfByrna')
-                    || ($this->world->config('item.overflow.count.Shield', 3) >= 3
-                        && $items->canBlockLasers()));
+                    || $items->has('Cape') || $items->has('CaneOfByrna')
+                    || ($this->world->config('item.overflow.count.Shield', 3) >= 3 && $items->canBlockLasers()));
         });
 
         $this->locations["Turtle Rock - Eye Bridge - Top Right"]->setRequirements(function ($locations, $items) {
             return $this->canReachBottom($locations, $items)
                 && ($this->world->config('itemPlacement') !== 'basic'
-                    || $items->has('Cape')
-                    || $items->has('CaneOfByrna')
-                    || ($this->world->config('item.overflow.count.Shield', 3) >= 3
-                        && $items->canBlockLasers()));
+                    || $items->has('Cape') || $items->has('CaneOfByrna')
+                    || ($this->world->config('item.overflow.count.Shield', 3) >= 3 && $items->canBlockLasers()));
         });
 
         $this->can_complete = function ($locations, $items) {
@@ -176,11 +168,9 @@ class TurtleRock extends Region\Standard\TurtleRock
                 && $items->has('BigKeyD7')
                 && $items->has('CaneOfSomaria')
                 && $this->boss->canBeat($items, $locations)
-                && (!$this->world->config('region.wildCompasses', false)
-                    || $items->has('CompassD7')
+                && (!$this->world->config('region.wildCompasses', false) || $items->has('CompassD7')
                     || $this->locations["Turtle Rock - Boss"]->hasItem(Item::get('CompassD7', $this->world)))
-                && (!$this->world->config('region.wildMaps', false)
-                    || $items->has('MapD7')
+                && (!$this->world->config('region.wildMaps', false) || $items->has('MapD7')
                     || $this->locations["Turtle Rock - Boss"]->hasItem(Item::get('MapD7', $this->world)));
         })->setFillRules(function ($item, $locations, $items) {
             if (
@@ -199,14 +189,11 @@ class TurtleRock extends Region\Standard\TurtleRock
 
         $this->can_enter = function ($locations, $items) {
             return ($this->world->config('itemPlacement') !== 'basic'
-                || (
-                    ($this->world->config('mode.weapons') === 'swordless'
-                        || $items->hasSword(2))
-                    && $items->hasHealth(12)
-                    && ($items->hasBottle(2)
-                        || $items->hasArmor()))) && ($this->enterTop($locations, $items)
-                || $this->enterMiddle($locations, $items)
-                || $this->enterBottom($locations, $items));
+                    || (($this->world->config('mode.weapons') === 'swordless' || $items->hasSword(2))
+                        && $items->hasHealth(12) && ($items->hasBottle(2) || $items->hasArmor())))
+                && ($this->enterTop($locations, $items)
+                    || $this->enterMiddle($locations, $items)
+                    || $this->enterBottom($locations, $items));
         };
 
         $this->prize_location->setRequirements($this->can_complete);

@@ -101,8 +101,10 @@ class DesertPalace extends Region
                 && $items->canLightTorches()
                 && $items->has('BigKeyP2') && $items->has('KeyP2')
                 && $this->boss->canBeat($items, $locations)
-                && (!$this->world->config('region.wildCompasses', false) || $items->has('CompassP2') || $this->locations["Desert Palace - Boss"]->hasItem(Item::get('CompassP2', $this->world)))
-                && (!$this->world->config('region.wildMaps', false) || $items->has('MapP2') || $this->locations["Desert Palace - Boss"]->hasItem(Item::get('MapP2', $this->world)));
+                && (!$this->world->config('region.wildCompasses', false) || $items->has('CompassP2')
+                    || $this->locations["Desert Palace - Boss"]->hasItem(Item::get('CompassP2', $this->world)))
+                && (!$this->world->config('region.wildMaps', false) || $items->has('MapP2')
+                    || $this->locations["Desert Palace - Boss"]->hasItem(Item::get('MapP2', $this->world)));
         })->setFillRules(function ($item, $locations, $items) {
             if (
                 !$this->world->config('region.bossNormalLocation', true)

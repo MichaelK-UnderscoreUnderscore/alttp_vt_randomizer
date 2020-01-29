@@ -91,8 +91,8 @@ class East extends Region
                 && ($this->world->config('canOneFrameClipOW', false)
                     || ($this->world->config('canBootsClip', false) && $items->has('PegasusBoots'))
                     || ($this->world->config('canSuperSpeed', false) && $items->canSpinSpeed())
-                    || (((($this->world->config('canMirrorClip', false) || $this->world->config('canMirrorWrap', false))
-                        && $items->has('MagicMirror')) || $items->has('Hookshot'))
+                    || (((($this->world->config('canMirrorClip', false) || $this->world->config('canMirrorWrap', false)) && $items->has('MagicMirror'))
+                            || $items->has('Hookshot'))
                         && $this->world->getRegion('West Death Mountain')->canEnter($locations, $items))
                     || ($items->has('Hammer') && $this->world->getRegion('Tower of Hera')->canEnter($locations, $items)));
         };

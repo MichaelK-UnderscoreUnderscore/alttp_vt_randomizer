@@ -30,48 +30,39 @@ class NorthWest extends Region\Standard\DarkWorld\NorthWest
                 && ($items->canLiftDarkRocks()
                     || ($items->has('MagicMirror')
                         && $this->world->getRegion('North West Light World')->canEnter($locations, $items))
-                    || ($this->world->config('canBootsClip', false)
-                        && $items->has('PegasusBoots')) || (
-                        ($this->world->config('canFakeFlipper', false)
-                            || $items->has('Flippers')
-                            && (($this->world->config('canSuperSpeed', false)
-                                && $items->canSpinSpeed())
-                                || $this->world->config('canOneFrameClipOW', false)))));
+                    || ($this->world->config('canBootsClip', false) && $items->has('PegasusBoots'))
+                    || (($this->world->config('canFakeFlipper', false) || $items->has('Flippers')
+                        && (($this->world->config('canSuperSpeed', false) && $items->canSpinSpeed())
+                            || $this->world->config('canOneFrameClipOW', false)))));
         });
 
         $this->locations["Bumper Cave"]->setRequirements(function ($locations, $items) {
             return ($items->canLiftRocks()
-                && $items->has('Cape')
-                && $items->has('MoonPearl')
-                && $items->has('MagicMirror')
-                && $this->world->getRegion('North West Light World')->canEnter($locations, $items))
-                || ($this->world->config('canBootsClip', false)
-                    && $items->has('PegasusBoots'))
+                    && $items->has('Cape')
+                    && $items->has('MoonPearl')
+                    && $items->has('MagicMirror')
+                    && $this->world->getRegion('North West Light World')->canEnter($locations, $items))
+                || ($this->world->config('canBootsClip', false) && $items->has('PegasusBoots'))
                 || $this->world->config('canOneFrameClipOW', false);
         });
 
         $this->locations["Blacksmith"]->setRequirements(function ($locations, $items) {
             return ($items->canLiftDarkRocks()
-                || ($items->has('MagicMirror')
-                || (
-                    ($this->world->config('canOWYBA', false)
-                        && $items->hasABottle()) && ($this->world->config('canOneFrameClipOW', false)
-                        || ($this->world->config('canBootsClip', false)
-                            && $items->has('PegasusBoots'))))))
+                    || ($items->has('MagicMirror')
+                    || (($this->world->config('canOWYBA', false) && $items->hasABottle())
+                        && ($this->world->config('canOneFrameClipOW', false)
+                            || ($this->world->config('canBootsClip', false) && $items->has('PegasusBoots'))))))
                 && $this->world->getRegion('North West Light World')->canEnter($locations, $items);
         });
 
         $this->locations["Purple Chest"]->setRequirements(function ($locations, $items) {
             return ($items->canLiftDarkRocks()
-                || ($items->has('MagicMirror')
-                || (($this->world->config('canOWYBA', false)
-                    && $items->hasABottle())
-                    && (($this->world->config('canFakeFlipper', false)
-                        || $items->has('Flippers'))
-                        && (($this->world->config('canBootsClip', false)
-                            && $items->has('PegasusBoots'))
-                            || $this->world->config('canOneFrameClipOW', false))))
-                && $this->world->getRegion('North West Light World')->canEnter($locations, $items)))
+                    || ($items->has('MagicMirror')
+                    || (($this->world->config('canOWYBA', false) && $items->hasABottle())
+                        && (($this->world->config('canFakeFlipper', false) || $items->has('Flippers'))
+                            && (($this->world->config('canBootsClip', false) && $items->has('PegasusBoots'))
+                                || $this->world->config('canOneFrameClipOW', false))))
+                    && $this->world->getRegion('North West Light World')->canEnter($locations, $items)))
                 && $this->world->getRegion('South Light World')->canEnter($locations, $items);
         });
 

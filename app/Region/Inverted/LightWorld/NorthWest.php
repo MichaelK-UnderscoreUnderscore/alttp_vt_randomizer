@@ -19,17 +19,15 @@ class NorthWest extends Region\Standard\LightWorld\NorthWest
     {
         $this->shops["Bush Covered House"]->setRequirements(function ($locations, $items) {
             return $items->has('MoonPearl')
-                || ($this->world->config('canBunnyRevive', false)
-                    && $items->canBunnyRevive()) || ($this->world->config('canOWYBA', false)
-                    && $items->hasABottle());
+                || ($this->world->config('canBunnyRevive', false) && $items->canBunnyRevive())
+                || ($this->world->config('canOWYBA', false) && $items->hasABottle());
         });
 
         $this->shops["Bomb Hut"]->setRequirements(function ($locations, $items) {
-            return $items->has('MoonPearl')
-                || ($this->world->config('canBunnyRevive', false)
-                    && $items->canBunnyRevive()) || ($this->world->config('canOWYBA', false)
-                    && $items->hasABottle()) &&
-                $items->canBombThings();
+            return ($items->has('MoonPearl')
+                    || ($this->world->config('canBunnyRevive', false) && $items->canBunnyRevive())
+                    || ($this->world->config('canOWYBA', false) && $items->hasABottle()))
+                && $items->canBombThings();
         });
 
         // Bunny can pull pedestal
@@ -42,138 +40,118 @@ class NorthWest extends Region\Standard\LightWorld\NorthWest
         $this->locations["King's Tomb"]->setRequirements(function ($locations, $items) {
             return $items->has('PegasusBoots')
                 && ($items->has('MoonPearl')
-                    || ($this->world->config('canBunnyRevive', false)
-                        && $items->canBunnyRevive()) || ($this->world->config('canOWYBA', false)
-                        && $items->hasABottle())) && ($items->canLiftDarkRocks()
-                    || ($this->world->config('canMirrorClip', false)
-                        && $items->has('MagicMirror')
-                        && $items->has('MoonPearl')
-                        && ($this->world->config('canBootsClip', false)
-                            && $items->has('PegasusBoots')) ||
-                        $this->world->config('canOneFrameClipOW', false)
+                    || ($this->world->config('canBunnyRevive', false) && $items->canBunnyRevive())
+                    || ($this->world->config('canOWYBA', false) && $items->hasABottle()))
+                && ($items->canLiftDarkRocks()
+                    || ($this->world->config('canMirrorClip', false) && $items->has('MagicMirror') && $items->has('MoonPearl')
+                            && ($this->world->config('canBootsClip', false) && $items->has('PegasusBoots'))
+                        || $this->world->config('canOneFrameClipOW', false)
                         || ($this->world->getRegion('East Death Mountain')->canEnter($locations, $items)
-                            && ($this->world->config('canSuperSpeed', false)
-                                && $items->canSpinSpeed()
+                            && ($this->world->config('canSuperSpeed', false) && $items->canSpinSpeed()
                                 && ($items->has('MoonPearl')
-                                    || ($this->world->config('canOWYBA', false)
-                                        && $items->hasABottle(2)))))));
+                                    || ($this->world->config('canOWYBA', false) && $items->hasABottle(2)))))));
         });
 
         $this->locations["Kakariko Tavern"]->setRequirements(function ($locations, $items) {
             return $items->has('MoonPearl')
                 || ($this->world->config('canSuperBunny', false)
-                    && ($items->has('MagicMirror') || !$this->world->config('cantTakeDamage', false))) 
-                    || ($this->world->config('canOWYBA', false)
-                    && $items->hasABottle()) || ($this->world->config('canBunnyRevive', false)
-                    && $items->canBunnyRevive());
+                    && ($items->has('MagicMirror') || !$this->world->config('cantTakeDamage', false)))
+                || ($this->world->config('canOWYBA', false) && $items->hasABottle())
+                || ($this->world->config('canBunnyRevive', false) && $items->canBunnyRevive());
         });
 
         $this->locations["Chicken House"]->setRequirements(function ($locations, $items) {
             return $items->has('MoonPearl')
-                || ($this->world->config('canOWYBA', false)
-                    && $items->hasABottle()) || ($this->world->config('canBunnyRevive', false)
-                    && $items->canBunnyRevive());
+                || ($this->world->config('canOWYBA', false) && $items->hasABottle())
+                || ($this->world->config('canBunnyRevive', false) && $items->canBunnyRevive());
         });
 
         $this->locations["Kakariko Well - Top"]->setRequirements(function ($locations, $items) {
             return $items->canBombThings()
                 && ($items->has('MoonPearl')
-                    || ($this->world->config('canOWYBA', false)
-                        && $items->hasABottle()) || ($this->world->config('canBunnyRevive', false)
-                        && $items->canBunnyRevive()));
+                    || ($this->world->config('canOWYBA', false) && $items->hasABottle())
+                    || ($this->world->config('canBunnyRevive', false) && $items->canBunnyRevive()));
         });
 
         $this->locations["Kakariko Well - Left"]->setRequirements(function ($locations, $items) {
             return $items->has('MoonPearl')
                 || $this->world->config('canSuperBunny', false)
-                || ($this->world->config('canOWYBA', false)
-                    && $items->hasABottle()) || ($this->world->config('canBunnyRevive', false)
-                    && $items->canBunnyRevive());
+                || ($this->world->config('canOWYBA', false) && $items->hasABottle())
+                || ($this->world->config('canBunnyRevive', false) && $items->canBunnyRevive());
         });
 
         $this->locations["Kakariko Well - Middle"]->setRequirements(function ($locations, $items) {
             return $items->has('MoonPearl')
                 || $this->world->config('canSuperBunny', false)
-                || ($this->world->config('canOWYBA', false)
-                    && $items->hasABottle()) || ($this->world->config('canBunnyRevive', false)
-                    && $items->canBunnyRevive());
+                || ($this->world->config('canOWYBA', false) && $items->hasABottle())
+                || ($this->world->config('canBunnyRevive', false) && $items->canBunnyRevive());
         });
 
         $this->locations["Kakariko Well - Right"]->setRequirements(function ($locations, $items) {
             return $items->has('MoonPearl')
                 || $this->world->config('canSuperBunny', false)
-                || ($this->world->config('canOWYBA', false)
-                    && $items->hasABottle()) || ($this->world->config('canBunnyRevive', false)
-                    && $items->canBunnyRevive());
+                || ($this->world->config('canOWYBA', false) && $items->hasABottle())
+                || ($this->world->config('canBunnyRevive', false) && $items->canBunnyRevive());
         });
 
         $this->locations["Kakariko Well - Bottom"]->setRequirements(function ($locations, $items) {
             return $items->has('MoonPearl')
                 || $this->world->config('canSuperBunny', false)
-                || ($this->world->config('canOWYBA', false)
-                    && $items->hasABottle()) || ($this->world->config('canBunnyRevive', false)
-                    && $items->canBunnyRevive());
+                || ($this->world->config('canOWYBA', false) && $items->hasABottle())
+                || ($this->world->config('canBunnyRevive', false) && $items->canBunnyRevive());
         });
 
         $this->locations["Blind's Hideout - Top"]->setRequirements(function ($locations, $items) {
             return $items->canBombThings()
                 && ($items->has('MoonPearl')
-                    || ($this->world->config('canOWYBA', false)
-                        && $items->hasABottle()) || ($this->world->config('canBunnyRevive', false)
-                        && $items->canBunnyRevive()));
+                    || ($this->world->config('canOWYBA', false) && $items->hasABottle())
+                    || ($this->world->config('canBunnyRevive', false) && $items->canBunnyRevive()));
         });
 
         $this->locations["Blind's Hideout - Left"]->setRequirements(function ($locations, $items) {
             return $items->has('MoonPearl')
-                || ($this->world->config('canSuperBunny', false)
-                    && $items->has('MagicMirror')) || ($this->world->config('canOWYBA', false)
-                    && $items->hasABottle()) || ($this->world->config('canBunnyRevive', false)
-                    && $items->canBunnyRevive());
+                || ($this->world->config('canSuperBunny', false) && $items->has('MagicMirror'))
+                || ($this->world->config('canOWYBA', false) && $items->hasABottle())
+                || ($this->world->config('canBunnyRevive', false) && $items->canBunnyRevive());
         });
 
         $this->locations["Blind's Hideout - Right"]->setRequirements(function ($locations, $items) {
             return $items->has('MoonPearl')
-                || ($this->world->config('canSuperBunny', false)
-                    && $items->has('MagicMirror')) || ($this->world->config('canOWYBA', false)
-                    && $items->hasABottle()) || ($this->world->config('canBunnyRevive', false)
-                    && $items->canBunnyRevive());
+                || ($this->world->config('canSuperBunny', false) && $items->has('MagicMirror'))
+                || ($this->world->config('canOWYBA', false) && $items->hasABottle())
+                || ($this->world->config('canBunnyRevive', false) && $items->canBunnyRevive());
         });
 
         $this->locations["Blind's Hideout - Far Left"]->setRequirements(function ($locations, $items) {
             return $items->has('MoonPearl')
-                || ($this->world->config('canSuperBunny', false)
-                    && $items->has('MagicMirror')) || ($this->world->config('canOWYBA', false)
-                    && $items->hasABottle()) || ($this->world->config('canBunnyRevive', false)
-                    && $items->canBunnyRevive());
+                || ($this->world->config('canSuperBunny', false) && $items->has('MagicMirror'))
+                || ($this->world->config('canOWYBA', false) && $items->hasABottle())
+                || ($this->world->config('canBunnyRevive', false) && $items->canBunnyRevive());
         });
 
         $this->locations["Blind's Hideout - Far Right"]->setRequirements(function ($locations, $items) {
             return $items->has('MoonPearl')
-                || ($this->world->config('canSuperBunny', false)
-                    && $items->has('MagicMirror')) || ($this->world->config('canOWYBA', false)
-                    && $items->hasABottle()) || ($this->world->config('canBunnyRevive', false)
-                    && $items->canBunnyRevive());
+                || ($this->world->config('canSuperBunny', false) && $items->has('MagicMirror'))
+                || ($this->world->config('canOWYBA', false) && $items->hasABottle())
+                || ($this->world->config('canBunnyRevive', false) && $items->canBunnyRevive());
         });
 
         $this->locations["Pegasus Rocks"]->setRequirements(function ($locations, $items) {
             return $items->has('PegasusBoots')
                 && ($items->has('MoonPearl')
-                    || ($this->world->config('canOWYBA', false)
-                        && $items->hasABottle()) || ($this->world->config('canBunnyRevive', false)
-                        && $items->canBunnyRevive()));
+                    || ($this->world->config('canOWYBA', false) && $items->hasABottle())
+                    || ($this->world->config('canBunnyRevive', false) && $items->canBunnyRevive()));
         });
 
         $this->locations["Magic Bat"]->setRequirements(function ($locations, $items) {
             return $items->has('Powder')
                 && ($items->has('MoonPearl')
-                    || ($this->world->config('canOWYBA', false)
-                        && $items->hasABottle()) || ($this->world->config('canBunnyRevive', false)
-                        && $items->canBunnyRevive())) && ($items->has('Hammer')
-                    || (
-                        ($this->world->config('canBootsClip', false)
-                            && $items->has('PegasusBoots')) ||
-                        $this->world->config('canOneFrameClipOW', false)) && ($this->world->config('canFakeFlipper', false)
-                        || $items->has('Flippers')));
+                    || ($this->world->config('canOWYBA', false) && $items->hasABottle())
+                    || ($this->world->config('canBunnyRevive', false) && $items->canBunnyRevive()))
+                && ($items->has('Hammer')
+                    || (($this->world->config('canBootsClip', false) && $items->has('PegasusBoots'))
+                        || $this->world->config('canOneFrameClipOW', false))
+                    && ($this->world->config('canFakeFlipper', false) || $items->has('Flippers')));
         });
 
         $this->locations["Sick Kid"]->setRequirements(function ($locations, $items) {
@@ -184,34 +162,29 @@ class NorthWest extends Region\Standard\LightWorld\NorthWest
             return $items->has('DefeatAgahnim')
                 && ($items->has('PegasusBoots')
                     && ($items->has('MoonPearl')
-                        || ($this->world->config('canBunnyRevive', false)
-                            && $items->canBunnyRevive()) || ($this->world->config('canOWYBA', false)
-                            && $items->hasABottle())) ||
-                    $this->world->config('canOneFrameClipOW', false)
-                    || ($this->world->config('canMirrorWrap', false)
-                        && $items->has('MagicMirror')));
+                        || ($this->world->config('canBunnyRevive', false) && $items->canBunnyRevive())
+                        || ($this->world->config('canOWYBA', false) && $items->hasABottle()))
+                    || $this->world->config('canOneFrameClipOW', false)
+                    || ($this->world->config('canMirrorWrap', false) && $items->has('MagicMirror')));
         });
 
         $this->locations["Graveyard Ledge"]->setRequirements(function ($locations, $items) {
             return ($items->has('MoonPearl')
-                || ($this->world->config('canBunnyRevive', false)
-                    && $items->canBunnyRevive()) || ($this->world->config('canOWYBA', false)
-                    && $items->hasABottle())) &&
-                $items->canBombThings();
+                    || ($this->world->config('canBunnyRevive', false) && $items->canBunnyRevive())
+                    || ($this->world->config('canOWYBA', false) && $items->hasABottle()))
+                && $items->canBombThings();
         });
 
         $this->locations["Mushroom"]->setRequirements(function ($locations, $items) {
             return $items->has('MoonPearl')
-                || ($this->world->config('canBunnyRevive', false)
-                    && $items->canBunnyRevive()) || ($this->world->config('canOWYBA', false)
-                    && $items->hasABottle());
+                || ($this->world->config('canBunnyRevive', false) && $items->canBunnyRevive())
+                || ($this->world->config('canOWYBA', false) && $items->hasABottle());
         });
 
         $this->locations["Lost Woods Hideout"]->setRequirements(function ($locations, $items) {
             return $items->has('MoonPearl')
-                || ($this->world->config('canBunnyRevive', false)
-                    && $items->canBunnyRevive()) || ($this->world->config('canOWYBA', false)
-                    && $items->hasABottle());
+                || ($this->world->config('canBunnyRevive', false) && $items->canBunnyRevive())
+                || ($this->world->config('canOWYBA', false) && $items->hasABottle());
         });
 
         $this->can_enter = function ($locations, $items) {

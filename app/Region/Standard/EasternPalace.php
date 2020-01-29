@@ -86,8 +86,10 @@ class EasternPalace extends Region
                     || ($this->world->config('itemPlacement') === 'advanced' && $items->has('FireRod')))
                 && $items->has('BigKeyP1')
                 && $this->boss->canBeat($items, $locations)
-                && (!$this->world->config('region.wildCompasses', false) || $items->has('CompassP1') || $this->locations["Eastern Palace - Boss"]->hasItem(Item::get('CompassP1', $this->world)))
-                && (!$this->world->config('region.wildMaps', false) || $items->has('MapP1') || $this->locations["Eastern Palace - Boss"]->hasItem(Item::get('MapP1', $this->world)));
+                && (!$this->world->config('region.wildCompasses', false) || $items->has('CompassP1')
+                    || $this->locations["Eastern Palace - Boss"]->hasItem(Item::get('CompassP1', $this->world)))
+                && (!$this->world->config('region.wildMaps', false) || $items->has('MapP1')
+                    || $this->locations["Eastern Palace - Boss"]->hasItem(Item::get('MapP1', $this->world)));
         })->setFillRules(function ($item, $locations, $items) {
             if (
                 !$this->world->config('region.bossNormalLocation', true)

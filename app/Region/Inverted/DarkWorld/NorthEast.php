@@ -38,22 +38,22 @@ class NorthEast extends Region\Standard\DarkWorld\NorthEast
                 || $items->has('Flippers')
                 || ($items->has('MagicMirror')
                     && $this->world->getRegion('North East Light World')->canEnter($locations, $items)
-                    && $items->has('MoonPearl')) || ($this->world->config('canOWYBA', false)
-                    && $items->hasABottle()) || ($this->world->config('canBootsClip', false)
-                    && $items->has('PegasusBoots')) || ($this->world->config('canSuperSpeed', false)
-                    && $items->canSpinSpeed()) || ($this->world->config('canOneFrameClipOW', false)
-                    || ( //Quirn-Jump
+                    && $items->has('MoonPearl'))
+                || ($this->world->config('canOWYBA', false) && $items->hasABottle())
+                || ($this->world->config('canBootsClip', false) && $items->has('PegasusBoots'))
+                || ($this->world->config('canSuperSpeed', false) && $items->canSpinSpeed())
+                || ($this->world->config('canOneFrameClipOW', false)
+                    || ( // Quirn-Jump
                         !$this->world->config('region.cantTakeDamage', false)
-                        && $this->world->config('canFakeFlipper', false)) || ($this->world->config('canBunnyRevive', false)
-                        && $items->canBunnyRevive())) || ($this->world->config('canWaterWalk', false)
-                    && $items->has('PegasusBoots'));
+                        && $this->world->config('canFakeFlipper', false))
+                    || ($this->world->config('canBunnyRevive', false) && $items->canBunnyRevive()))
+                || ($this->world->config('canWaterWalk', false) && $items->has('PegasusBoots'));
         });
 
         $this->locations["Catfish"]->setRequirements(function ($locations, $items) {
             return $items->canLiftRocks()
-                || ($this->world->config('canBootsClip', false)
-                    && $items->has('PegasusBoots')) ||
-                $this->world->config('canOneFrameClipOW', false);
+                || ($this->world->config('canBootsClip', false) && $items->has('PegasusBoots'))
+                || $this->world->config('canOneFrameClipOW', false);
         });
 
         $this->locations["Pyramid Fairy - Sword"]->setRequirements(function ($locations, $items) {
@@ -86,14 +86,15 @@ class NorthEast extends Region\Standard\DarkWorld\NorthEast
                 || $items->has('Hammer')
                 || $items->has('Flippers')
                 || ($items->has('MagicMirror')
-                    && $this->world->getRegion('North East Light World')->canEnter($locations, $items)) || ($this->world->config('canOWYBA', false)
-                    && $items->hasABottle()) || ($this->world->config('canBootsClip', false)
-                    && $items->has('PegasusBoots')) || ($this->world->config('canWaterWalk', false)
-                    && $items->has('PegasusBoots')) || ($this->world->config('canSuperSpeed', false)
-                    && $items->canSpinSpeed()) || (!$this->world->config('region.cantTakeDamage', false)
-                    && $this->world->config('canFakeFlipper', false)) || ($this->world->config('canBunnyRevive', false)
-                    && $items->canBunnyRevive()) ||
-                $this->world->config('canOneFrameClipOW', false);
+                    && $this->world->getRegion('North East Light World')->canEnter($locations, $items))
+                || ($this->world->config('canOWYBA', false) && $items->hasABottle())
+                || ($this->world->config('canBootsClip', false) && $items->has('PegasusBoots'))
+                || ($this->world->config('canWaterWalk', false) && $items->has('PegasusBoots'))
+                || ($this->world->config('canSuperSpeed', false) && $items->canSpinSpeed())
+                || (!$this->world->config('region.cantTakeDamage', false)
+                    && $this->world->config('canFakeFlipper', false))
+                || ($this->world->config('canBunnyRevive', false) && $items->canBunnyRevive())
+                || $this->world->config('canOneFrameClipOW', false);
         };
 
         return $this;

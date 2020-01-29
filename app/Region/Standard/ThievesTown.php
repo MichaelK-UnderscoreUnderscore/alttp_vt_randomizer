@@ -96,8 +96,10 @@ class ThievesTown extends Region
             return $this->canEnter($locations, $items)
                 && $items->has('KeyD4') && $items->has('BigKeyD4')
                 && $this->boss->canBeat($items, $locations)
-                && (!$this->world->config('region.wildCompasses', false) || $items->has('CompassD4') || $this->locations["Thieves' Town - Boss"]->hasItem(Item::get('CompassD4', $this->world)))
-                && (!$this->world->config('region.wildMaps', false) || $items->has('MapD4') || $this->locations["Thieves' Town - Boss"]->hasItem(Item::get('MapD4', $this->world)));
+                && (!$this->world->config('region.wildCompasses', false) || $items->has('CompassD4')
+                    || $this->locations["Thieves' Town - Boss"]->hasItem(Item::get('CompassD4', $this->world)))
+                && (!$this->world->config('region.wildMaps', false) || $items->has('MapD4')
+                    || $this->locations["Thieves' Town - Boss"]->hasItem(Item::get('MapD4', $this->world)));
         })->setFillRules(function ($item, $locations, $items) {
             if (
                 !$this->world->config('region.bossNormalLocation', true)
@@ -118,7 +120,7 @@ class ThievesTown extends Region
                 && ($this->world->config('itemPlacement') !== 'basic'
                     || (($this->world->config('mode.weapons') === 'swordless' || $items->hasSword()) && $items->hasHealth(7) && $items->hasABottle()))
                 && ($items->has('MoonPearl')
-                    || ($items->hasABottle() && $this->world->config('canOWYBA', false))
+                    || ($this->world->config('canOWYBA', false) && $items->hasABottle())
                     || ($this->world->config('canBunnyRevive', false) && $items->canSpinSpeed()))
                 && $this->world->getRegion('North West Dark World')->canEnter($locations, $items);
         };

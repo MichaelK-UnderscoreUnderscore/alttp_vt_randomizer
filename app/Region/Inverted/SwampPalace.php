@@ -23,10 +23,10 @@ class SwampPalace extends Region\Standard\SwampPalace
         $mire = function ($locations, $items) {
             return $this->world->config('canOneFrameClipUW', false)
                 && (($locations->itemInLocations(Item::get('BigKeyD6', $this->world), [
-                        "Misery Mire - Compass Chest",
-                        "Misery Mire - Big Key Chest",
-                    ]) &&
-                        $items->has('KeyD6', 2)) || $items->has('KeyD6', 3))
+                    "Misery Mire - Compass Chest",
+                    "Misery Mire - Big Key Chest",
+                ]) && $items->has('KeyD6', 2))
+                    || $items->has('KeyD6', 3))
                 && $this->world->getRegion('Misery Mire')->canEnter($locations, $items);
         };
         
@@ -103,10 +103,9 @@ class SwampPalace extends Region\Standard\SwampPalace
                 && ($items->has('Hammer') 
                     || $mire($locations, $items) || $hera($locations, $items))
                 && $this->boss->canBeat($items, $locations)
-                && (!$this->world->config('region.wildCompasses', false)
-                    || $items->has('CompassD2')
-                    || $this->locations["Swamp Palace - Boss"]->hasItem(Item::get('CompassD2', $this->world))) && (!$this->world->config('region.wildMaps', false)
-                    || $items->has('MapD2')
+                && (!$this->world->config('region.wildCompasses', false) || $items->has('CompassD2')
+                    || $this->locations["Swamp Palace - Boss"]->hasItem(Item::get('CompassD2', $this->world)))
+                && (!$this->world->config('region.wildMaps', false) || $items->has('MapD2')
                     || $this->locations["Swamp Palace - Boss"]->hasItem(Item::get('MapD2', $this->world)));
         })->setFillRules(function ($item, $locations, $items) {
             if (
@@ -126,23 +125,18 @@ class SwampPalace extends Region\Standard\SwampPalace
         $this->can_enter = function ($locations, $items) use ($mire) {
             return $items->has('Flippers')
                 && ($this->world->config('itemPlacement') !== 'basic'
-                    || (($this->world->config('mode.weapons') === 'swordless'
-                        || $items->hasSword())
-                    && $items->hasHealth(7)
-                    && $items->hasBottle())) 
+                    || (($this->world->config('mode.weapons') === 'swordless' || $items->hasSword())
+                        && $items->hasHealth(7) && $items->hasBottle())) 
                 && (($items->has('MoonPearl') 
-                    || ($this->world->config('canOWYBA', false)
-                        && $items->hasABottle())
-                    || ($this->world->config('canBunnyRevive', false)
-                        && canBunnyRevive()))
-                    || ($this->world->config('canSuperBunny', false) 
-                        && $items->has('MagicMirror')))
+                    || ($this->world->config('canOWYBA', false) && $items->hasABottle())
+                    || ($this->world->config('canBunnyRevive', false) && canBunnyRevive()))
+                    || ($this->world->config('canSuperBunny', false) && $items->has('MagicMirror')))
                 && ($items->has('MagicMirror')
                     || ($this->world->config('canOneFrameClipUW', false)
                         && $items->has('MoonPearl')
                         && ($items->has('BigKeyP3') || $items->has('BigKeyD6')) && $mire($locations, $items)
                         && $locations["Old Man"]->canAccess($items)
-                        && (($items->has('PegasusBoots') && $this->world->config('canBootsClip', false))
+                        && (($this->world->config('canBootsClip', false) && $items->has('PegasusBoots'))
                             || ($this->world->config('canSuperSpeed', false) && $items->canSpinSpeed())
                             || $this->world->config('canOneFrameClipOW', false))))
                 && $this->world->getRegion('South Light World')->canEnter($locations, $items);

@@ -127,8 +127,10 @@ class SkullWoods extends Region
                 && ($this->world->config('mode.weapons') == 'swordless' || $items->hasSword())
                 && $items->has('KeyD3', 3)
                 && $this->boss->canBeat($items, $locations)
-                && (!$this->world->config('region.wildCompasses', false) || $items->has('CompassD3') || $this->locations["Skull Woods - Boss"]->hasItem(Item::get('CompassD3', $this->world)))
-                && (!$this->world->config('region.wildMaps', false) || $items->has('MapD3') || $this->locations["Skull Woods - Boss"]->hasItem(Item::get('MapD3', $this->world)));
+                && (!$this->world->config('region.wildCompasses', false) || $items->has('CompassD3')
+                    || $this->locations["Skull Woods - Boss"]->hasItem(Item::get('CompassD3', $this->world)))
+                && (!$this->world->config('region.wildMaps', false) || $items->has('MapD3')
+                    || $this->locations["Skull Woods - Boss"]->hasItem(Item::get('MapD3', $this->world)));
         })->setFillRules(function ($item, $locations, $items) {
             if (
                 !$this->world->config('region.bossNormalLocation', true)
@@ -149,7 +151,7 @@ class SkullWoods extends Region
                 && ($this->world->config('itemPlacement') !== 'basic'
                     || (($this->world->config('mode.weapons') === 'swordless' || $items->hasSword()) && $items->hasHealth(7) && $items->hasABottle()))
                 && ($this->world->config('canDungeonRevive', false) || $items->has('MoonPearl')
-                    || (($items->hasABottle() && $this->world->config('canOWYBA', false))
+                    || (($this->world->config('canOWYBA', false) && $items->hasABottle())
                         || ($this->world->config('canBunnyRevive', false) && $items->canBunnyRevive())))
                 && $this->world->getRegion('North West Dark World')->canEnter($locations, $items);
         };

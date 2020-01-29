@@ -107,8 +107,10 @@ class MiseryMire extends Region
                 && $items->has('CaneOfSomaria') && $items->has('Lamp', $this->world->config('item.require.Lamp', 1))
                 && $items->has('BigKeyD6')
                 && $this->boss->canBeat($items, $locations)
-                && (!$this->world->config('region.wildCompasses', false) || $items->has('CompassD6') || $this->locations["Misery Mire - Boss"]->hasItem(Item::get('CompassD6', $this->world)))
-                && (!$this->world->config('region.wildMaps', false) || $items->has('MapD6') || $this->locations["Misery Mire - Boss"]->hasItem(Item::get('MapD6', $this->world)));
+                && (!$this->world->config('region.wildCompasses', false) || $items->has('CompassD6')
+                    || $this->locations["Misery Mire - Boss"]->hasItem(Item::get('CompassD6', $this->world)))
+                && (!$this->world->config('region.wildMaps', false) || $items->has('MapD6')
+                    || $this->locations["Misery Mire - Boss"]->hasItem(Item::get('MapD6', $this->world)));
         })->setFillRules(function ($item, $locations, $items) {
             if (
                 !$this->world->config('region.bossNormalLocation', true)
@@ -127,15 +129,18 @@ class MiseryMire extends Region
         $this->can_enter = function ($locations, $items) {
             return $items->has('RescueZelda')
                 && ($this->world->config('itemPlacement') !== 'basic'
-                    || (($this->world->config('mode.weapons') === 'swordless' || $items->hasSword(2)) && $items->hasHealth(12) && ($items->hasBottle(2) || $items->hasArmor())))
+                    || (($this->world->config('mode.weapons') === 'swordless' || $items->hasSword(2))
+                        && $items->hasHealth(12) && ($items->hasBottle(2) || $items->hasArmor())))
                 && ((($locations["Misery Mire Medallion"]->hasItem(Item::get('Bombos', $this->world)) && $items->has('Bombos'))
                     || ($locations["Misery Mire Medallion"]->hasItem(Item::get('Ether', $this->world)) && $items->has('Ether'))
                     || ($locations["Misery Mire Medallion"]->hasItem(Item::get('Quake', $this->world)) && $items->has('Quake')))
-                    && ($this->world->config('mode.weapons') == 'swordless' || $items->hasSword()))
+                && ($this->world->config('mode.weapons') == 'swordless' || $items->hasSword()))
                 && ($items->has('MoonPearl')
                     || ($items->hasABottle()
-                        && (($items->has('BugCatchingNet') && $this->world->config('canBunnyRevive', false)
-                            && (($items->canLiftDarkRocks() && ($items->canFly($this->world) || ($this->world->config('canBootsClip', false) && $items->has('PegasusBoots'))))
+                        && (($this->world->config('canBunnyRevive', false) && $items->has('BugCatchingNet')
+                            && (($items->canLiftDarkRocks()
+                                && ($items->canFly($this->world)
+                                    || ($this->world->config('canBootsClip', false) && $items->has('PegasusBoots'))))
                                 || ($this->world->config('canOWYBA', false) && $items->has('MagicMirror'))
                                 || $this->world->config('canOneFrameClipOW', false)))
                             || ($this->world->config('canOWYBA', false)

@@ -106,11 +106,13 @@ class IcePalace extends Region
                 && $items->has('Hammer') && $items->canLiftRocks()
                 && $this->boss->canBeat($items, $locations)
                 && $items->has('BigKeyD5') && (
-                    ($this->world->config('itemPlacement') !== 'basic' && ($items->has('CaneOfSomaria') && $items->has('KeyD5')
-                        || $items->has('KeyD5', 2)))
+                    ($this->world->config('itemPlacement') !== 'basic'
+                        && ($items->has('CaneOfSomaria') && $items->has('KeyD5') || $items->has('KeyD5', 2)))
                     || ($this->world->config('itemPlacement') === 'basic' && $items->has('KeyD5', 2)))
-                && (!$this->world->config('region.wildCompasses', false) || $items->has('CompassD5') || $this->locations["Ice Palace - Boss"]->hasItem(Item::get('CompassD5', $this->world)))
-                && (!$this->world->config('region.wildMaps', false) || $items->has('MapD5') || $this->locations["Ice Palace - Boss"]->hasItem(Item::get('MapD5', $this->world)));
+                && (!$this->world->config('region.wildCompasses', false) || $items->has('CompassD5')
+                    || $this->locations["Ice Palace - Boss"]->hasItem(Item::get('CompassD5', $this->world)))
+                && (!$this->world->config('region.wildMaps', false) || $items->has('MapD5')
+                    || $this->locations["Ice Palace - Boss"]->hasItem(Item::get('MapD5', $this->world)));
         })->setFillRules(function ($item, $locations, $items) {
             if (
                 !$this->world->config('region.bossNormalLocation', true)
@@ -128,14 +130,15 @@ class IcePalace extends Region
         $this->can_enter = function ($locations, $items) {
             return $items->has('RescueZelda')
                 && ($this->world->config('itemPlacement') !== 'basic'
-                    || (($this->world->config('mode.weapons') === 'swordless' || $items->hasSword(2)) && $items->hasHealth(12) && ($items->hasBottle(2) || $items->hasArmor())))
+                    || (($this->world->config('mode.weapons') === 'swordless' || $items->hasSword(2))
+                        && $items->hasHealth(12) && ($items->hasBottle(2) || $items->hasArmor())))
                 && ($items->canMeltThings($this->world) || $this->world->config('canOneFrameClipUW', false))
                 && ((($items->has('MoonPearl') || $this->world->config('canDungeonRevive', false))
-                    && ($items->has('Flippers') || $this->world->config('canFakeFlipper', false))
+                    && ($this->world->config('canFakeFlipper', false) || $items->has('Flippers'))
                     && $items->canLiftDarkRocks())
                     || ($this->world->getRegion('South Dark World')->canEnter($locations, $items)
                         && ((($items->has('MoonPearl')
-                            || ($items->hasABottle() && $this->world->config('canOWYBA', false))
+                            || ($this->world->config('canOWYBA', false) && $items->hasABottle())
                             || ($this->world->config('canBunnyRevive', false) && $items->canBunnyRevive()))
                         && (($this->world->config('canMirrorWrap', false) && $items->has('MagicMirror')
                             && (($this->world->config('canBootsClip', false) && $items->has('PegasusBoots'))
