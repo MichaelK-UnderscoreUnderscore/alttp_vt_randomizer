@@ -25,10 +25,10 @@ class NorthWest extends Region\Standard\LightWorld\NorthWest
         });
 
         $this->shops["Bomb Hut"]->setRequirements(function ($locations, $items) {
-            return $items->has('MoonPearl')
+            return ($items->has('MoonPearl')
                 || ($this->world->config('canBunnyRevive', false)
                     && $items->canBunnyRevive()) || ($this->world->config('canOWYBA', false)
-                    && $items->hasABottle()) &&
+                    && $items->hasABottle())) &&
                 $items->canBombThings();
         });
 

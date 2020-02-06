@@ -111,10 +111,9 @@ class NorthEast extends Region\Standard\LightWorld\NorthEast
             return ($items->has('MoonPearl')
                 || ($this->world->config('canBunnyRevive', false)
                     && $items->canBunnyRevive()) || ($this->world->config('canOWYBA', false)
-                    && $items->hasABottle())) && ($this->world->config('canFakeFlipper', false)
-                || ($this->world->config('canWaterWalk', false)
-                    && ($items->has('PegasusBoots')
-                        || $items->has('MoonPearl'))) ||
+                    && $items->hasABottle())) && ($this->world->config('canWaterWalk', false)
+                && ($items->has('PegasusBoots') || ($items->has('MoonPearl')
+                    && $this->world->config('canFakeFlipper', false))) ||
                 $items->has('Flippers')
                 || ($this->world->getRegion('East Death Mountain')->canEnter($locations, $items)
                     && (
@@ -128,10 +127,9 @@ class NorthEast extends Region\Standard\LightWorld\NorthEast
             return ($items->has('MoonPearl')
                 || ($this->world->config('canBunnyRevive', false)
                     && $items->canBunnyRevive()) || ($this->world->config('canOWYBA', false)
-                    && $items->hasABottle())) && ($this->world->config('canFakeFlipper', false)
-                || ($this->world->config('canWaterWalk', false)
-                    && ($items->has('PegasusBoots')
-                        || $items->has('MoonPearl'))) ||
+                    && $items->hasABottle())) && ($this->world->config('canWaterWalk', false)
+                && ($items->has('PegasusBoots') || ($items->has('MoonPearl')
+                    && $this->world->config('canFakeFlipper', false))) ||
                 $items->has('Flippers')
                 || ($this->world->getRegion('East Death Mountain')->canEnter($locations, $items)
                     && (

@@ -30,11 +30,10 @@ class SwampPalace extends Region\Standard\SwampPalace
                 && $this->world->getRegion('Misery Mire')->canEnter($locations, $items);
         };
         
-        $hera = function ($locations, $items) use ($mire) {
+        $hera = function ($locations, $items) {
             return $this->world->config('canOneFrameClipUW', false)
                 && $this->world->getRegion('Tower of Hera')->canEnter($locations, $items)
-                && ($items->has('BigKeyP3')
-                    || ($mire($locations, $items) && $items->has('BigKeyD6')));
+                && $items->has('BigKeyP3');
         };
         
         $this->locations["Swamp Palace - Entrance"]->setFillRules(function ($item, $locations, $items) use ($mire) {
