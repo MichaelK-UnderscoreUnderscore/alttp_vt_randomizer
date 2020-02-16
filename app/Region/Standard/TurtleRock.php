@@ -96,7 +96,7 @@ class TurtleRock extends Region
     {
         return $this->enterMiddle($locations, $items)
             || ($this->enterTop($locations, $items)
-                && $items->has('KeyD7', $this->enterBottom($locations, $items) ? 4 : 2))
+                && $items->has('KeyD7', $this->enterBottom($locations, $items) ? 3 : 2))
             || ($this->enterBottom($locations, $items)
                 && $items->has('Lamp', $this->world->config('item.require.Lamp', 1))
                 && $items->has('CaneOfSomaria'));
@@ -204,7 +204,8 @@ class TurtleRock extends Region
                 && $items->has('KeyD7', 3))
                 || $items->has('KeyD7', 4));
         })->setAlwaysAllow(function ($item, $items) {
-            return $item == Item::get('KeyD7', $this->world);
+            return $this->world->config('accessibility') !== 'locations' 
+                && $item == Item::get('KeyD7', $this->world) && $items->has('KeyD7', 3);
         });
 
         $this->locations["Turtle Rock - Crystaroller Room"]->setRequirements(function ($locations, $items) {

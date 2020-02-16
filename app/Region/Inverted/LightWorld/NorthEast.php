@@ -100,11 +100,11 @@ class NorthEast extends Region\Standard\LightWorld\NorthEast
                     || ($this->world->config('canOWYBA', false) && $items->hasABottle()))
                 && ($this->world->config('canWaterWalk', false)
                     && (($this->world->config('canFakeFlipper', false)
-                        && $items->has('MoonPearl')) || $items->has('PegasusBoots')) 
+                        && $items->has('MoonPearl')) || $items->has('PegasusBoots'))
                     || $items->has('Flippers')
                     || ($this->world->getRegion('East Death Mountain')->canEnter($locations, $items)
                         && (($this->world->config('canBootsClip', false) && $items->has('PegasusBoots'))
-                            || ($this->world->config('canSuperSpeed', false) && $items->canSpinSpeed()) 
+                            || ($this->world->config('canSuperSpeed', false) && $items->canSpinSpeed())
                             || $this->world->config('canOneFrameClipOW', false))));
         });
 
@@ -114,11 +114,11 @@ class NorthEast extends Region\Standard\LightWorld\NorthEast
                     || ($this->world->config('canOWYBA', false) && $items->hasABottle()))
                 && ($this->world->config('canWaterWalk', false)
                     && (($this->world->config('canFakeFlipper', false)
-                        && $items->has('MoonPearl')) || $items->has('PegasusBoots')) 
+                        && $items->has('MoonPearl')) || $items->has('PegasusBoots'))
                     || $items->has('Flippers')
                     || ($this->world->getRegion('East Death Mountain')->canEnter($locations, $items)
                         && (($this->world->config('canBootsClip', false) && $items->has('PegasusBoots'))
-                            || ($this->world->config('canSuperSpeed', false) && $items->canSpinSpeed()) 
+                            || ($this->world->config('canSuperSpeed', false) && $items->canSpinSpeed())
                             || $this->world->config('canOneFrameClipOW', false))));
         });
 
