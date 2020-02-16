@@ -17,6 +17,7 @@ class TurtleRockTest extends TestCase
         $this->world = World::factory('standard', ['difficulty' => 'test_rules', 'logic' => 'NoGlitches']);
 
         $this->world->getLocation("Turtle Rock Medallion")->setItem(Item::get('Quake', $this->world));
+        $this->world->getLocation("Turtle Rock - Big Key Chest")->setItem(Item::get('BigKeyD7', $this->world));
         $this->addCollected(['RescueZelda']);
         $this->collected->setChecksForWorld($this->world->id);
     }
