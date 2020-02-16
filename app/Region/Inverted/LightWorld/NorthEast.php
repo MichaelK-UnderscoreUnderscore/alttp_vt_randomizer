@@ -98,13 +98,13 @@ class NorthEast extends Region\Standard\LightWorld\NorthEast
             return ($items->has('MoonPearl')
                     || ($this->world->config('canBunnyRevive', false) && $items->canBunnyRevive())
                     || ($this->world->config('canOWYBA', false) && $items->hasABottle()))
-                && ($this->world->config('canFakeFlipper', false)
-                    || ($this->world->config('canWaterWalk', false)
-                        && ($items->has('PegasusBoots') || $items->has('MoonPearl')))
+                && ($this->world->config('canWaterWalk', false)
+                    && (($this->world->config('canFakeFlipper', false)
+                        && $items->has('MoonPearl')) || $items->has('PegasusBoots')) 
                     || $items->has('Flippers')
                     || ($this->world->getRegion('East Death Mountain')->canEnter($locations, $items)
                         && (($this->world->config('canBootsClip', false) && $items->has('PegasusBoots'))
-                            || ($this->world->config('canSuperSpeed', false) && $items->canSpinSpeed())
+                            || ($this->world->config('canSuperSpeed', false) && $items->canSpinSpeed()) 
                             || $this->world->config('canOneFrameClipOW', false))));
         });
 
@@ -112,13 +112,13 @@ class NorthEast extends Region\Standard\LightWorld\NorthEast
             return ($items->has('MoonPearl')
                     || ($this->world->config('canBunnyRevive', false) && $items->canBunnyRevive())
                     || ($this->world->config('canOWYBA', false) && $items->hasABottle()))
-                && ($this->world->config('canFakeFlipper', false)
-                    || ($this->world->config('canWaterWalk', false)
-                        && ($items->has('PegasusBoots') || $items->has('MoonPearl')))
+                && ($this->world->config('canWaterWalk', false)
+                    && (($this->world->config('canFakeFlipper', false)
+                        && $items->has('MoonPearl')) || $items->has('PegasusBoots')) 
                     || $items->has('Flippers')
                     || ($this->world->getRegion('East Death Mountain')->canEnter($locations, $items)
                         && (($this->world->config('canBootsClip', false) && $items->has('PegasusBoots'))
-                            || ($this->world->config('canSuperSpeed', false) && $items->canSpinSpeed())
+                            || ($this->world->config('canSuperSpeed', false) && $items->canSpinSpeed()) 
                             || $this->world->config('canOneFrameClipOW', false))));
         });
 

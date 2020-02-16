@@ -25,7 +25,7 @@ class PalaceOfDarkness extends Region\Standard\PalaceOfDarkness
                         && $items->hasHealth(7) && $items->hasABottle()))
                 && ($this->world->getRegion('North East Dark World')->canEnter($locations, $items)
                     || ($this->world->config('canOneFrameClipOW', false)
-                        && $this->world->getRegion('West Death Mountain')));
+                        && $this->world->getRegion('West Death Mountain')->canEnter($locations, $items)));
         };
 
         return $this;

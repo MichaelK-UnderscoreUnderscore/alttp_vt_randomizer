@@ -15,17 +15,23 @@ class TurtleRock extends Region\Standard\TurtleRock
         return $items->has('CaneOfSomaria')
             && ($this->enterTop($locations, $items)
                 || ($this->enterMiddle($locations, $items)
-                    && $items->has('KeyD7', 4))
-                || ($this->enterBottom($locations, $items)
-                    && $items->has('Lamp', $this->world->config('item.require.Lamp', 1))
-                    && $items->has('KeyD7', 4)));
+                    && (($locations->itemInLocations(Item::get('BigKeyD7', $this->world), [
+                        "Turtle Rock - Roller Room - Right",
+                        "Turtle Rock - Roller Room - Left",
+                        "Turtle Rock - Compass Chest",
+                    ]) && !$this->enterBottom($locations, $items)
+                    && $items->has('KeyD7', 2))
+                || $items->has('KeyD7', 4)))
+            || ($this->enterBottom($locations, $items)
+                && $items->has('Lamp', $this->world->config('item.require.Lamp', 1))
+                && $items->has('KeyD7', 4)));
     }
 
     protected function canReachMiddle($locations, $items)
     {
         return $this->enterMiddle($locations, $items)
             || ($this->enterTop($locations, $items)
-                && $items->has('KeyD7', $this->accountForWastingKeyOnTrinexDoor(2, 3)))
+                && $items->has('KeyD7', $this->enterBottom($locations, $items) ? 4 : 2))
             || ($this->enterBottom($locations, $items)
                 && $items->has('Lamp', $this->world->config('item.require.Lamp', 1))
                 && $items->has('CaneOfSomaria'));
@@ -40,15 +46,6 @@ class TurtleRock extends Region\Standard\TurtleRock
                 && $items->has('CaneOfSomaria')
                 && $items->has('BigKeyD7')
                 && $items->has('KeyD7', 3));
-    }
-
-    // If it can be conclusively proven that bottom is not externally reachable
-    protected function accountForWastingKeyOnTrinexDoor($withoutWaste, $withWaste)
-    {
-        if ($this->world->config('turtlerock.wastekey', false)) {
-            return $withoutWaste;
-        }
-        return $withWaste;
     }
 
     protected function enterTop($locations, $items)
@@ -86,8 +83,8 @@ class TurtleRock extends Region\Standard\TurtleRock
         $this->locations["Turtle Rock - Chain Chomps"]->setRequirements(function ($locations, $items) {
             return ($this->enterTop($locations, $items)
                     && $items->has('CaneOfSomaria')
-                    && $items->has('KeyD7', $this->accountForWastingKeyOnTrinexDoor(1, 2)))
-                || $this->enterMiddle($locations, $items);
+                    && $items->has('KeyD7', ($this->enterBottom($locations, $items) ? 2 : 1)))
+                || $this->canReachMiddle($locations, $items);
         });
 
         $this->locations["Turtle Rock - Roller Room - Left"]->setRequirements(function ($locations, $items) {
@@ -114,10 +111,14 @@ class TurtleRock extends Region\Standard\TurtleRock
         });
 
         $this->locations["Turtle Rock - Big Key Chest"]->setRequirements(function ($locations, $items) {
-            // TODO: It only needs 2 keys if it has the big key and there is no possible external bottom access.
-            return $this->canReachMiddle($locations, $items)
-                && ($items->has('KeyD7', 4)
-                    || $this->locations["Turtle Rock - Big Key Chest"]->hasItem(Item::get('KeyD7', $this->world)));
+            return $this->canReachMiddle($locations, $items) 
+                && ((!$this->enterBottom($locations, $items) // To check that you can't waste a key by entering the bottom entrance
+                    && $locations["Turtle Rock - Big Key Chest"]->hasItem(Item::get('BigKeyD7', $this->world))
+                    && $items->has('KeyD7', 2))
+                || (($locations["Turtle Rock - Big Key Chest"]->hasItem(Item::get('BigKeyD7', $this->world))
+                    || $locations["Turtle Rock - Big Key Chest"]->hasItem(Item::get('KeyD7', $this->world)))
+                && $items->has('KeyD7', 3))
+                || $items->has('KeyD7', 4));
         })->setAlwaysAllow(function ($item, $items) {
             return $item == Item::get('KeyD7', $this->world);
         });
