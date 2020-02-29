@@ -115,12 +115,17 @@ class SkullWoodsTest extends TestCase
             ["Skull Woods - Boss", false, []],
             ["Skull Woods - Boss", false, [], ['FireRod']],
             ["Skull Woods - Boss", false, [], ['AnySword']],
-            ["Skull Woods - Boss", false, [], ['MoonPearl']],
+            ["Skull Woods - Boss", false, [], ['MoonPearl', 'AnyBottle']],
             ["Skull Woods - Boss", true, ['KeyD3', 'KeyD3', 'KeyD3', 'FireRod', 'MoonPearl', 'UncleSword']],
             ["Skull Woods - Boss", true, ['KeyD3', 'KeyD3', 'KeyD3', 'FireRod', 'MoonPearl', 'MasterSword']],
             ["Skull Woods - Boss", true, ['KeyD3', 'KeyD3', 'KeyD3', 'FireRod', 'MoonPearl', 'L3Sword']],
             ["Skull Woods - Boss", true, ['KeyD3', 'KeyD3', 'KeyD3', 'FireRod', 'MoonPearl', 'L4Sword']],
             ["Skull Woods - Boss", true, ['KeyD3', 'KeyD3', 'KeyD3', 'FireRod', 'MoonPearl', 'ProgressiveSword']],
+            ["Skull Woods - Boss", true, ['KeyD3', 'KeyD3', 'KeyD3', 'FireRod', 'Bottle', 'UncleSword']],
+            ["Skull Woods - Boss", true, ['KeyD3', 'KeyD3', 'KeyD3', 'FireRod', 'Bottle', 'MasterSword']],
+            ["Skull Woods - Boss", true, ['KeyD3', 'KeyD3', 'KeyD3', 'FireRod', 'Bottle', 'L3Sword']],
+            ["Skull Woods - Boss", true, ['KeyD3', 'KeyD3', 'KeyD3', 'FireRod', 'Bottle', 'L4Sword']],
+            ["Skull Woods - Boss", true, ['KeyD3', 'KeyD3', 'KeyD3', 'FireRod', 'Bottle', 'ProgressiveSword']],
         ];
     }
 }

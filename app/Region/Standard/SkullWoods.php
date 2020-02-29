@@ -122,7 +122,13 @@ class SkullWoods extends Region
 
         $this->locations["Skull Woods - Boss"]->setRequirements(function ($locations, $items) {
             return $this->canEnter($locations, $items)
-                && $items->has('MoonPearl')
+                && ($items->has('MoonPearl')
+                    || ($this->world->config('allowAdvancedGlitches', false)
+                        && $this->world->config('canDungeonRevive', false)
+                        && (($this->world->config('canOWYBA', false) && $items->hasABottle())
+                            || ($this->world->config('canBunnyRevive', false) && $items->canBunnyRevive()))
+                        && (($this->world->config('canBootsClip', false) && $items->has('PegasusBoots'))
+                            || $this->world->config('canOneFrameClipOW', false))))
                 && $items->has('FireRod')
                 && ($this->world->config('mode.weapons') == 'swordless' || $items->hasSword())
                 && $items->has('KeyD3', 3)

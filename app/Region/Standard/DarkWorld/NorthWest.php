@@ -124,7 +124,9 @@ class NorthWest extends Region
                     || (($this->world->config('canOWYBA', false) && $items->hasABottle())
                         && ($this->world->config('canOneFrameClipOW', false)
                             || ($this->world->config('canBootsClip', false) && $items->has('PegasusBoots')
-                                && ($items->has('MoonPearl') || $items->hasBottle(2))))));
+                                && ($items->has('MoonPearl') || $items->hasBottle(2)))))
+                    || ($this->world->config('allowAdvancedGlitches', false) 
+                        && $this->world->config('canMirrorClip', false) && $items->has('MagicMirror')));
         });
 
         $this->locations["Purple Chest"]->setRequirements(function ($locations, $items) {

@@ -107,6 +107,10 @@ class EastTest extends TestCase
             ["Hookshot Cave - Top Right", true, ['Hookshot', 'BottleWithBluePotion']],
             ["Hookshot Cave - Top Right", true, ['Hookshot', 'Bottle']],
             ["Hookshot Cave - Top Right", true, ['Hookshot', 'BottleWithGoldBee']],
+            
+            ["Mimic Cave", false, []],
+            ["Mimic Cave", false, [], ['Hammer']],
+            ["Mimic Cave", true, ['Hammer']],
         ];
     }
 }

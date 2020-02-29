@@ -78,8 +78,8 @@ class NorthWestTest extends TestCase
             ["Bumper Cave", true, []],
 
             ["Blacksmith", false, []],
-            ["Blacksmith", false, [], ['MoonPearl', 'AnyBottle']],
-            ["Blacksmith", false, [], ['Gloves', 'AnyBottle']],
+            ["Blacksmith", false, [], ['MoonPearl', 'AnyBottle', 'MagicMirror']],
+            ["Blacksmith", false, [], ['Gloves', 'AnyBottle', 'MagicMirror']],
             ["Blacksmith", true, ['MoonPearl', 'ProgressiveGlove', 'ProgressiveGlove']],
             ["Blacksmith", true, ['BottleWithBee']],
             ["Blacksmith", true, ['BottleWithFairy']],
@@ -89,10 +89,11 @@ class NorthWestTest extends TestCase
             ["Blacksmith", true, ['BottleWithBluePotion']],
             ["Blacksmith", true, ['Bottle']],
             ["Blacksmith", true, ['BottleWithGoldBee']],
+            ["Blacksmith", true, ['MagicMirror']],
 
             ["Purple Chest", false, []],
-            ["Purple Chest", false, [], ['MoonPearl', 'AnyBottle']],
-            ["Purple Chest", false, [], ['Gloves', 'AnyBottle']],
+            ["Purple Chest", false, [], ['MoonPearl', 'AnyBottle', 'MagicMirror']],
+            ["Purple Chest", false, [], ['Gloves', 'AnyBottle', 'MagicMirror']],
             ["Purple Chest", true, ['MoonPearl', 'ProgressiveGlove', 'ProgressiveGlove']],
             ["Purple Chest", true, ['BottleWithBee']],
             ["Purple Chest", true, ['BottleWithFairy']],
@@ -102,6 +103,7 @@ class NorthWestTest extends TestCase
             ["Purple Chest", true, ['BottleWithBluePotion']],
             ["Purple Chest", true, ['Bottle']],
             ["Purple Chest", true, ['BottleWithGoldBee']],
+            ["Purple Chest", true, ['MagicMirror']],
         ];
     }
 }

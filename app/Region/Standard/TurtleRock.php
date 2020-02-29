@@ -147,12 +147,18 @@ class TurtleRock extends Region
 
     protected function enterBottom($locations, $items)
     {
-        return $this->world->config('canMirrorWrap', false) && $items->has('MagicMirror')
+        return $items->canBombThings()
             && ($items->has('MoonPearl')
                 || ($this->world->config('canOWYBA', false) && $items->hasABottle()))
-            && (((($this->world->config('canBootsClip', false) && $items->has('PegasusBoots')) || $this->world->config('canOneFrameClipOW', false))
-                && $this->world->getRegion('West Death Mountain')->canEnter($locations, $items))
+            && (($this->world->config('canMirrorWrap', false) && $items->has('MagicMirror')
+                && (((($this->world->config('canBootsClip', false) && $items->has('PegasusBoots'))
+                    || $this->world->config('canOneFrameClipOW', false))
+                    && $this->world->getRegion('West Death Mountain')->canEnter($locations, $items))
                 || (($this->world->config('canSuperSpeed', false) && $items->canSpinSpeed())
+                    && $this->world->getRegion('East Dark World Death Mountain')->canEnter($locations, $items))))
+                || ($this->world->config('allowAdvancedGlitches', false)
+                    && (($this->world->config('canBootsClip', false) && $items->has('PegasusBoots')) 
+                        || $this->world->config('canOneFrameClipOW', false))
                     && $this->world->getRegion('East Dark World Death Mountain')->canEnter($locations, $items)));
     }
 

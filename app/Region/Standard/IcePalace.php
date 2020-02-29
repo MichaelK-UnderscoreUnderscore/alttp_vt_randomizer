@@ -143,7 +143,7 @@ class IcePalace extends Region
                         && (($this->world->config('canMirrorWrap', false) && $items->has('MagicMirror')
                             && (($this->world->config('canBootsClip', false) && $items->has('PegasusBoots'))
                                 || ($this->world->config('canSuperSpeed', false) && $items->canSpinSpeed())))
-                            || ($items->has('Flippers')
+                            || ($this->world->config('allowAdvancedGlitches', false) && $items->has('Flippers')
                                 && (($this->world->config('canBootsClip', false) && $items->has('PegasusBoots'))
                                     || $this->world->config('canOneFrameClipOW', false)))))
                         || ($this->world->config('canOneFrameClipOW', false)

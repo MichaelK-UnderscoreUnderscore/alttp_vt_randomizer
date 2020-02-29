@@ -63,13 +63,19 @@ class TurtleRock extends Region\Standard\TurtleRock
         return $this->world->getRegion('East Death Mountain')->canEnter($locations, $items)
                 && $items->has('MagicMirror')
             || ($this->world->getRegion('East Dark World Death Mountain')->canEnter($locations, $items)
-                && $this->world->config('canSuperSpeed', false) && $items->canSpinSpeed());
+                && (($this->world->config('canSuperSpeed', false) && $items->canSpinSpeed())
+                    || ($this->world->config('canBootsClip', false) && $items->has('PegasusBoots'))
+                    || $this->world->config('canOneFrameClipOW', false)));
     }
 
     protected function enterBottom($locations, $items)
     {
-        return $items->has('MagicMirror')
-            && $this->world->getRegion('East Death Mountain')->canEnter($locations, $items);
+        return ($items->has('MagicMirror')
+                && $this->world->getRegion('East Death Mountain')->canEnter($locations, $items))
+            || ($this->world->config('allowAdvancedGlitches', false)
+                && (($this->world->config('canBootsClip', false) && $items->has('PegasusBoots'))
+                || $this->world->config('canOneFrameClipOW', false))
+                && $this->world->getRegion('East Dark World Death Mountain')->canEnter($locations, $items));
     }
 
     /**

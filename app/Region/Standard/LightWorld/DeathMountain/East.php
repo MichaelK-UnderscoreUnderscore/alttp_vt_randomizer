@@ -66,14 +66,19 @@ class East extends Region
         });
 
         $this->locations["Mimic Cave"]->setRequirements(function ($locations, $items) {
-            return $items->has('Hammer') && $items->has('MagicMirror')
+            return $items->has('Hammer') && (($items->has('MagicMirror')
                 && ($this->world->config('canMirrorClip', false)
                     || ($this->world->config('canBootsClip', false) && $items->has('PegasusBoots')
                         && ($items->has('MoonPearl') || ($this->world->config('canOWYBA', false) && $items->has('Bottle'))))
                     || ($this->world->config('canSuperSpeed', false) && $items->canSpinSpeed() && $items->has('MoonPearl')
                         && $this->world->getRegion('East Dark World Death Mountain')->canEnter($locations, $items))
                     || $this->world->config('canOneFrameClipOW', false)
-                    || ($items->has('KeyD7', 2) && $this->world->getRegion('Turtle Rock')->canEnter($locations, $items)));
+                    || ($items->has('KeyD7', 2) && $this->world->getRegion('Turtle Rock')->canEnter($locations, $items))))
+                || ($this->world->config('allowAdvancedGlitches', false)
+                    && (($this->world->config('canBootsClip', false) && $items->has('PegasusBoots'))
+                        || $this->world->config('canOneFrameClipOW', false))
+                    && $this->world->getRegion('East Dark World Death Mountain')->canEnter($locations, $items)
+				));
         });
 
         $this->locations["Floating Island"]->setRequirements(function ($locations, $items) {

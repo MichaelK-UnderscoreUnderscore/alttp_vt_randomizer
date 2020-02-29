@@ -184,8 +184,13 @@ class LightWorldTest extends TestCase
 
             ["Magic Bat", false, []],
             ["Magic Bat", false, [], ['Powder']],
+            ["Magic Bat", false, [], ['Hammer']],
             ["Magic Bat", false, [], ['MoonPearl']],
-            ["Magic Bat", true, ['Powder', 'PegasusBoots', 'MoonPearl']],
+            ["Magic Bat", false, ['Powder', 'Hammer', 'MoonPearl']],
+            ["Magic Bat", true, ['Powder', 'Hammer', 'MoonPearl', 'DefeatAgahnim']],
+            ["Magic Bat", true, ['Powder', 'Hammer', 'MoonPearl', 'ProgressiveGlove']],
+            ["Magic Bat", true, ['Powder', 'Hammer', 'MoonPearl', 'PowerGlove']],
+            ["Magic Bat", true, ['Powder', 'Hammer', 'MoonPearl', 'TitansMitt']],
 
             ["Sick Kid", false, []],
             ["Sick Kid", false, [], ['AnyBottle']],

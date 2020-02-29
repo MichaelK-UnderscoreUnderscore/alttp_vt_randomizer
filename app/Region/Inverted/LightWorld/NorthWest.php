@@ -149,9 +149,10 @@ class NorthWest extends Region\Standard\LightWorld\NorthWest
                     || ($this->world->config('canOWYBA', false) && $items->hasABottle())
                     || ($this->world->config('canBunnyRevive', false) && $items->canBunnyRevive()))
                 && ($items->has('Hammer')
-                    || (($this->world->config('canBootsClip', false) && $items->has('PegasusBoots'))
-                        || $this->world->config('canOneFrameClipOW', false))
-                    && ($this->world->config('canFakeFlipper', false) || $items->has('Flippers')));
+                    || ($this->world->config('allowAdvancedGlitches', false)
+                        && (($this->world->config('canBootsClip', false) && $items->has('PegasusBoots'))
+                            || $this->world->config('canOneFrameClipOW', false))
+                        && ($this->world->config('canFakeFlipper', false) || $items->has('Flippers'))));
         });
 
         $this->locations["Sick Kid"]->setRequirements(function ($locations, $items) {
@@ -164,8 +165,9 @@ class NorthWest extends Region\Standard\LightWorld\NorthWest
                     && ($items->has('MoonPearl')
                         || ($this->world->config('canBunnyRevive', false) && $items->canBunnyRevive())
                         || ($this->world->config('canOWYBA', false) && $items->hasABottle()))
-                    || $this->world->config('canOneFrameClipOW', false)
-                    || ($this->world->config('canMirrorWrap', false) && $items->has('MagicMirror')));
+                    || ($this->world->config('allowAdvancedGlitches', false)
+                        && ($this->world->config('canOneFrameClipOW', false)
+                            || ($this->world->config('canMirrorWrap', false) && $items->has('MagicMirror')))));
         });
 
         $this->locations["Graveyard Ledge"]->setRequirements(function ($locations, $items) {

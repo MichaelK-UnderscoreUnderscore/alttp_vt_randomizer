@@ -147,9 +147,8 @@ class LightWorldTest extends TestCase
             ["Lost Woods Hideout", true, []],
 
             ["Lumberjack Tree", false, []],
-            ["Lumberjack Tree", false, [], ['PegasusBoots']],
             ["Lumberjack Tree", false, [], ['DefeatAgahnim']],
-            ["Lumberjack Tree", true, ['PegasusBoots', 'DefeatAgahnim']],
+            ["Lumberjack Tree", true, ['DefeatAgahnim']],
 
             ["Cave 45", true, []],
 

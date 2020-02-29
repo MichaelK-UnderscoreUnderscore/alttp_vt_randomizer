@@ -122,7 +122,9 @@ class LightWorldTest extends TestCase
 
             ["Magic Bat", false, []],
             ["Magic Bat", false, [], ['Powder']],
-            ["Magic Bat", true, ['Powder', 'PegasusBoots']],
+            ["Magic Bat", true, ['Powder', 'Hammer']],
+            ["Magic Bat", true, ['Powder', 'ProgressiveGlove', 'ProgressiveGlove', 'MoonPearl', 'MagicMirror']],
+            ["Magic Bat", true, ['Powder', 'TitansMitt', 'MoonPearl', 'MagicMirror']],
 
             ["Sick Kid", false, []],
             ["Sick Kid", false, [], ['AnyBottle']],

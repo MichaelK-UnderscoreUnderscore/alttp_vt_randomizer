@@ -109,9 +109,10 @@ class NorthWest extends Region
         $this->locations["Magic Bat"]->setRequirements(function ($locations, $items) {
             return $items->has('Powder')
                 && ($items->has('Hammer')
-                    || ((($this->world->config('canBootsClip', false) && $items->has('PegasusBoots'))
-                        || $this->world->config('canOneFrameClipOW', false))
-                        && ($this->world->config('canFakeFlipper', false) || $items->has('Flippers')))
+                    || ($this->world->config('allowAdvancedGlitches', false)
+                        && ($this->world->config('canFakeFlipper', false) || $items->has('Flippers'))
+                            && (($this->world->config('canBootsClip', false) && $items->has('PegasusBoots'))
+                            || $this->world->config('canOneFrameClipOW', false)))
                     || ($items->has('MagicMirror')
                         && (($this->world->config('canMirrorWrap', false) && $this->world->getRegion('North West Dark World')->canEnter($locations, $items))
                             || (($items->has('MoonPearl')
@@ -128,7 +129,12 @@ class NorthWest extends Region
         });
 
         $this->locations["Lumberjack Tree"]->setRequirements(function ($locations, $items) {
-            return $items->has('DefeatAgahnim') && $items->has('PegasusBoots');
+            return $items->has('DefeatAgahnim') 
+                && ($items->has('PegasusBoots')
+                    || ($this->world->config('allowAdvancedGlitches', false)     
+			            && ($this->world->config('canOneFrameClipOW', false)
+                            || ($this->world->config('canMirrorWrap', false) && $items->has('MagicMirror')
+                                && $this->world->getRegion('North East Dark World')->canEnter($locations, $items)))));
         });
 
         $this->locations["Graveyard Ledge"]->setRequirements(function ($locations, $items) {
