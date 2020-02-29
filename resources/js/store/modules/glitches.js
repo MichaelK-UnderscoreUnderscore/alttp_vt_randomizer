@@ -16,7 +16,8 @@ export default {
       canOWYBA: false,
       canSuperBunny: false,
       canSuperSpeed: false,
-      canWaterWalk: false
+      canWaterWalk: false,
+      allowAdvancedGlitches: false
     },
     initializing: true
   },

@@ -75,6 +75,10 @@ return [
             'title' => 'Water walk',
             'description' => 'One may be required to use boots to walk on top of water.',
         ],
+        'allowAdvancedGlitches' => [
+            'title' => 'Advanced Glitches',
+            'description' => 'When enabled, more difficult or complicated applications of enabled glitches may be required.',
+        ],
         'noLogic' => [
             'title' => 'Disable all logic checks',
             'description' => 'When this is selected all bets are off, and nothing below matters.',

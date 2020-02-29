@@ -113,7 +113,13 @@ class SkullWoods extends Region
         });
 
         $this->locations["Skull Woods - Bridge Room"]->setRequirements(function ($locations, $items) {
-            return $items->has('MoonPearl') && $items->has('FireRod');
+            return ($items->has('MoonPearl')
+                    || ($this->world->config('allowAdvancedGlitches', false)
+                        && $this->world->config('canDungeonRevive', false)
+                        && (($this->world->config('canOWYBA', false) && $items->hasABottle())
+                            || ($this->world->config('canBunnyRevive', false) && $items->canBunnyRevive()))
+                        && (($this->world->config('canBootsClip', false) && $items->has('PegasusBoots'))
+                            || $this->world->config('canOneFrameClipOW', false)))) && $items->has('FireRod');
         });
 
         $this->can_complete = function ($locations, $items) {

@@ -105,8 +105,9 @@ class SkullWoodsTest extends TestCase
 
             ["Skull Woods - Bridge Room", false, []],
             ["Skull Woods - Bridge Room", false, [], ['FireRod']],
-            ["Skull Woods - Bridge Room", false, [], ['MoonPearl']],
+            ["Skull Woods - Bridge Room", false, [], ['MoonPearl', 'AnyBottle']],
             ["Skull Woods - Bridge Room", true, ['FireRod', 'MoonPearl']],
+            ["Skull Woods - Bridge Room", true, ['FireRod', 'Bottle']],
 
             ["Skull Woods - Pot Prison", true, []],
 
