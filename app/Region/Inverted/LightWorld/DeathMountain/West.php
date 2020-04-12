@@ -42,8 +42,7 @@ class West extends Region\Standard\LightWorld\DeathMountain\West
                 || ($items->canLiftRocks()
                     && $items->has('Lamp', $this->world->config('item.require.Lamp', 1)))
                 || ($this->world->config('canBootsClip', false) && $items->has('PegasusBoots'))
-                || $this->world->config('canOneFrameClipOW', false)
-                || ($this->world->config('canOWYBA', false) && $items->hasABottle());
+                || $this->world->config('canOneFrameClipOW', false);
         };
 
         return $this;

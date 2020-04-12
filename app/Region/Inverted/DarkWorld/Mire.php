@@ -22,7 +22,6 @@ class Mire extends Region\Standard\DarkWorld\Mire
                 || ($items->has('MagicMirror')
                     && $this->world->getRegion('South Light World')->canEnter($locations, $items))
                 || ($this->world->config('canBootsClip', false) && $items->has('PegasusBoots'))
-                || ($this->world->config('canOWYBA', false) && $items->hasABottle())
                 || $this->world->config('canOneFrameClipOW', false);
         };
 

@@ -26,7 +26,7 @@ class HyruleCastleEscape extends Region\Open\HyruleCastleEscape
                         || ($this->world->config('canBunnyRevive', false) && $items->canBunnyRevive())
                         || ($this->world->config('canOWYBA', false) && $items->hasABottle())))
                 || ($items->has('Lamp', $this->world->config('item.require.Lamp', 1))
-                    && $items->has('KeyH2')
+                    && $items->has('KeyH2') && $items->canKillMostThings($this->world)
                     && ($this->world->config('canDungeonRevive', false)
                         || $items->hasSword()
                         || ($this->world->config('canBunnyRevive', false) && $items->canBunnyRevive())
@@ -40,7 +40,7 @@ class HyruleCastleEscape extends Region\Open\HyruleCastleEscape
                         || ($this->world->config('canBunnyRevive', false) && $items->canBunnyRevive())
                         || ($this->world->config('canOWYBA', false) && $items->hasABottle())))
                 || ($items->has('Lamp', $this->world->config('item.require.Lamp', 1))
-                    && $items->has('KeyH2')
+                    && $items->has('KeyH2') && $items->canKillMostThings($this->world)
                     && ($this->world->config('canDungeonRevive', false)
                         || $items->hasSword()
                         || ($this->world->config('canBunnyRevive', false) && $items->canBunnyRevive())
@@ -54,7 +54,7 @@ class HyruleCastleEscape extends Region\Open\HyruleCastleEscape
                         || ($this->world->config('canBunnyRevive', false) && $items->canBunnyRevive())
                         || ($this->world->config('canOWYBA', false) && $items->hasABottle())))
                 || ($items->has('Lamp', $this->world->config('item.require.Lamp', 1))
-                    && $items->has('KeyH2')
+                    && $items->has('KeyH2') && $items->canKillMostThings($this->world)
                     && ($this->world->config('canDungeonRevive', false)
                         || $items->hasSword()
                         || ($this->world->config('canBunnyRevive', false) && $items->canBunnyRevive())
@@ -63,7 +63,7 @@ class HyruleCastleEscape extends Region\Open\HyruleCastleEscape
         });
 
         $this->locations["Hyrule Castle - Boomerang Chest"]->setRequirements(function ($locations, $items) {
-            return $items->has('KeyH2')
+            return $items->has('KeyH2') && $items->canKillMostThings($this->world)
                 && ($this->world->config('canDungeonRevive', false)
                     || $items->hasSword()
                     || ($this->world->config('canBunnyRevive', false) && $items->canBunnyRevive())
@@ -72,7 +72,7 @@ class HyruleCastleEscape extends Region\Open\HyruleCastleEscape
         });
 
         $this->locations["Hyrule Castle - Zelda's Cell"]->setRequirements(function ($locations, $items) {
-            return $items->has('KeyH2')
+            return $items->has('KeyH2') && $items->canKillMostThings($this->world)
                 && ($this->world->config('canDungeonRevive', false)
                     || $items->hasSword()
                     || ($this->world->config('canBunnyRevive', false) && $items->canBunnyRevive())

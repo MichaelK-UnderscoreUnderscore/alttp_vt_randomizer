@@ -413,16 +413,29 @@ class ItemCollection extends Collection
      */
     public function canFly(World $world)
     {
-        return $this->has('OcarinaActive') || $this->has('OcarinaInactive') && $this->canActivateOcarina($world);
+        return $this->has('OcarinaActive') 
+            || ($this->has('OcarinaInactive') && $this->canActivateOcarina($world))
+            || ($world->config('canOWYBA', false) && $this->hasABottle());
     }
 
     private function canActivateOcarina(World $world)
     {
         if ($world instanceof World\Inverted) {
-            return $this->has('MoonPearl')
+            return ($this->has('MoonPearl')
+                    || ($world->config('canBunnyRevive', false) && $this->canBunnyRevive())
+                    || ($world->config('canOWYBA', false) && $this->hasABottle()))
                 && ($this->has('DefeatAgahnim')
-                    || ((($this->has('Hammer') && $this->canLiftRocks()) || $this->canLiftDarkRocks())));
-        }
+                    || ($this->has('Hammer') && $this->canLiftRocks()) || $this->canLiftDarkRocks()
+                    || ($world->config('canOWYBA', false) && ($this->hasABottle(2)
+                        || ($this->hasABottle() && $this->has('Lamp', $world->config('item.require.Lamp', 1))))
+                    || ((($this->canLiftRocks() && $this->has('Lamp', $world->config('item.require.Lamp', 1)))
+                        || ($world->config('canBootsClip', false) && $this->has('PegasusBoots'))
+                        || $world->config('canOneFrameClipOW', false))
+                    && ($this->has('MoonPearl') || $this->has('MagicMirror'))
+                    && (($world->config('canSuperSpeed', false) && $this->canSpinSpeed())
+                         || ($world->config('canBootsClip', false) && $this->has('PegasusBoots'))))
+                    || $world->config('canOneFrameClipOW', false)));
+            }
         return true;
     }
 
@@ -555,8 +568,12 @@ class ItemCollection extends Collection
     {
         return $this->hasSword()
             || $this->has('CaneOfSomaria')
-            || ($this->has('TenBombs') && $enemies < 6)
-            || ($this->has('CaneOfByrna') && ($enemies < 6 || $this->canExtendMagic()))
+            || ($this->canBombThings() && $enemies < 6
+                && $world->config('enemizer.enemyHealth', 'default') == 'default')
+            || ($this->has('CaneOfByrna') && ($enemies < 6 || $this->canExtendMagic())
+                && $world->config('enemizer.enemyHealth', 'default') == 'default')
+            || ($this->canBombThings() && $this->has('CaneOfByrna')
+                && $world->config('enemizer.enemyHealth', 'default') == 'default')
             || $this->canShootArrows($world)
             || $this->has('Hammer')
             || $this->has('FireRod');

@@ -44,7 +44,6 @@ class West extends Region\Standard\DarkWorld\DeathMountain\West
             return $items->canFly($this->world)
                 || ($items->canLiftRocks() && $items->has('Lamp', $this->world->config('item.require.Lamp', 1)))
                 || ($this->world->config('canBootsClip', false) && $items->has('PegasusBoots'))
-                || ($this->world->config('canOWYBA', false) && $items->hasABottle())
                 || $this->world->config('canOneFrameClipOW', false);
         };
 
