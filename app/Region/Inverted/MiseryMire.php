@@ -28,7 +28,8 @@ class MiseryMire extends Region\Standard\MiseryMire
                     || ($locations["Misery Mire Medallion"]->hasItem(Item::get('Ether', $this->world)) && $items->has('Ether'))
                     || ($locations["Misery Mire Medallion"]->hasItem(Item::get('Quake', $this->world)) && $items->has('Quake')))
                 && ($this->world->config('mode.weapons') == 'swordless' || $items->hasSword())
-                && ($items->has('PegasusBoots') || $items->has('Hookshot'))
+                && (($this->world->config('itemPlacement') !== 'basic' && $items->has('PegasusBoots'))
+                    || $items->has('Hookshot'))
                 && $items->canKillMostThings($this->world, 8)
                 && $this->world->getRegion('Mire')->canEnter($locations, $items);
         };

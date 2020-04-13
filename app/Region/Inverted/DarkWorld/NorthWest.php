@@ -41,6 +41,7 @@ class NorthWest extends Region\Standard\DarkWorld\NorthWest
                     && $items->has('Cape')
                     && $items->has('MoonPearl')
                     && $items->has('MagicMirror')
+                    && ($this->world->config('itemPlacement') !== 'basic' || $items->has('Hookshot'))
                     && $this->world->getRegion('North West Light World')->canEnter($locations, $items))
                 || ($this->world->config('canBootsClip', false) && $items->has('PegasusBoots'))
                 || $this->world->config('canOneFrameClipOW', false);

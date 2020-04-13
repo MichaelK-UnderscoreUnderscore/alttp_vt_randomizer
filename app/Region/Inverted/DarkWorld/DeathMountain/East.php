@@ -49,7 +49,8 @@ class East extends Region\Standard\DarkWorld\DeathMountain\East
 
         $this->locations["Hookshot Cave - Bottom Right"]->setRequirements(function ($locations, $items) {
             return ($items->has('Hookshot')
-                || $items->has('PegasusBoots')) && ($items->canLiftRocks()
+                    || ($this->world->config('itemPlacement') !== 'basic' && $items->has('PegasusBoots')))
+                && ($items->canLiftRocks()
                 || ($items->has('MagicMirror')
                     && $items->canBombThings()
                     && $this->world->getRegion('East Death Mountain')->canEnter($locations, $items))
