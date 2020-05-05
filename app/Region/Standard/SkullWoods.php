@@ -103,17 +103,15 @@ class SkullWoods extends Region
     public function initalize()
     {
         $this->locations["Skull Woods - Pinball Room"]->setFillRules(function ($item, $locations, $items) {
-            return !$this->world->config('region.forceSkullWoodsKey', false) || $item == Item::get('KeyD3', $this->world);
+            return true;
         });
 
         $this->locations["Skull Woods - Big Chest"]->setRequirements(function ($locations, $items) {
-            return $items->has('BigKeyD3');
-        })->setAlwaysAllow(function ($item, $items) {
-            return $this->world->config('accessibility') !== 'locations' && $item == Item::get('BigKeyD3', $this->world);
+            return true;
         });
 
         $this->locations["Skull Woods - Bridge Room"]->setRequirements(function ($locations, $items) {
-            return $items->has('MoonPearl') && $items->has('FireRod');
+            return true;
         });
 
         $this->can_complete = function ($locations, $items) {
@@ -121,37 +119,11 @@ class SkullWoods extends Region
         };
 
         $this->locations["Skull Woods - Boss"]->setRequirements(function ($locations, $items) {
-            return $this->canEnter($locations, $items)
-                && $items->has('MoonPearl')
-                && $items->has('FireRod')
-                && ($this->world->config('mode.weapons') == 'swordless' || $items->hasSword())
-                && $items->has('KeyD3', 3)
-                && $this->boss->canBeat($items, $locations)
-                && (!$this->world->config('region.wildCompasses', false) || $items->has('CompassD3') || $this->locations["Skull Woods - Boss"]->hasItem(Item::get('CompassD3', $this->world)))
-                && (!$this->world->config('region.wildMaps', false) || $items->has('MapD3') || $this->locations["Skull Woods - Boss"]->hasItem(Item::get('MapD3', $this->world)));
-        })->setFillRules(function ($item, $locations, $items) {
-            if (
-                !$this->world->config('region.bossNormalLocation', true)
-                && ($item instanceof Item\Key || $item instanceof Item\BigKey
-                    || $item instanceof Item\Map || $item instanceof Item\Compass)
-            ) {
-                return false;
-            }
-
-            return true;
-        })->setAlwaysAllow(function ($item, $items) {
-            return $this->world->config('region.bossNormalLocation', true)
-                && ($item == Item::get('CompassD3', $this->world) || $item == Item::get('MapD3', $this->world));
+            return $this->boss->canBeat($items, $locations);
         });
 
         $this->can_enter = function ($locations, $items) {
-            return $items->has('RescueZelda')
-                && ($this->world->config('itemPlacement') !== 'basic'
-                    || (($this->world->config('mode.weapons') === 'swordless' || $items->hasSword()) && $items->hasHealth(7) && $items->hasABottle()))
-                && ($this->world->config('canDungeonRevive', false) || $items->has('MoonPearl')
-                    || (($items->hasABottle() && $this->world->config('canOWYBA', false))
-                        || ($this->world->config('canBunnyRevive', false) && $items->canBunnyRevive())))
-                && $this->world->getRegion('North West Dark World')->canEnter($locations, $items);
+            return true;
         };
 
         $this->prize_location->setRequirements($this->can_complete);

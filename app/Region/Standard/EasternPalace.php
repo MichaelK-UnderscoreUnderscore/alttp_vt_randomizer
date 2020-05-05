@@ -69,11 +69,11 @@ class EasternPalace extends Region
     public function initalize()
     {
         $this->locations["Eastern Palace - Big Chest"]->setRequirements(function ($locations, $items) {
-            return $items->has('BigKeyP1');
+            return true;
         });
 
         $this->locations["Eastern Palace - Big Key Chest"]->setRequirements(function ($locations, $items) {
-            return $items->has('Lamp', $this->world->config('item.require.Lamp', 1));
+            return true;
         });
 
         $this->can_complete = function ($locations, $items) {
@@ -81,30 +81,11 @@ class EasternPalace extends Region
         };
 
         $this->locations["Eastern Palace - Boss"]->setRequirements(function ($locations, $items) {
-            return $items->canShootArrows($this->world)
-                && ($items->has('Lamp', $this->world->config('item.require.Lamp', 1))
-                    || ($this->world->config('itemPlacement') === 'advanced' && $items->has('FireRod')))
-                && $items->has('BigKeyP1')
-                && $this->boss->canBeat($items, $locations)
-                && (!$this->world->config('region.wildCompasses', false) || $items->has('CompassP1') || $this->locations["Eastern Palace - Boss"]->hasItem(Item::get('CompassP1', $this->world)))
-                && (!$this->world->config('region.wildMaps', false) || $items->has('MapP1') || $this->locations["Eastern Palace - Boss"]->hasItem(Item::get('MapP1', $this->world)));
-        })->setFillRules(function ($item, $locations, $items) {
-            if (
-                !$this->world->config('region.bossNormalLocation', true)
-                && ($item instanceof Item\Key || $item instanceof Item\BigKey
-                    || $item instanceof Item\Map || $item instanceof Item\Compass)
-            ) {
-                return false;
-            }
-
-            return true;
-        })->setAlwaysAllow(function ($item, $items) {
-            return $this->world->config('region.bossNormalLocation', true)
-                && ($item == Item::get('CompassP1', $this->world) || $item == Item::get('MapP1', $this->world));
+            return $this->boss->canBeat($items, $locations);
         });
 
         $this->can_enter = function ($locations, $items) {
-            return $items->has('RescueZelda');
+            return true;
         };
 
         $this->prize_location->setRequirements($this->can_complete);

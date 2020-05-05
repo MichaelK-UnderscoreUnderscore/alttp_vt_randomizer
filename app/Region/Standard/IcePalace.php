@@ -70,29 +70,15 @@ class IcePalace extends Region
     public function initalize()
     {
         $this->locations["Ice Palace - Big Key Chest"]->setRequirements(function ($locations, $items) {
-            return $items->has('Hammer') && $items->canLiftRocks()
-                && (!$this->world->config('region.cantTakeDamage', false)
-                    || $items->has('CaneOfByrna') || $items->has('Cape') || $items->has('Hookshot'))
-                && ($items->has('Hookshot') || $items->has('ShopKey')
-                    || ($items->has('KeyD5', 1) && (!$items->has('BigKeyD5') || $locations->itemInLocations(Item::get('BigKeyD5', $this->world), 
-                        ['Ice Palace - Map Chest','Ice Palace - Spike Room']))));
+            return true;
         });
 
         $this->locations["Ice Palace - Map Chest"]->setRequirements(function ($locations, $items) {
-            return $items->has('Hammer') && $items->canLiftRocks()
-                && (!$this->world->config('region.cantTakeDamage', false)
-                    || $items->has('CaneOfByrna') || $items->has('Cape') || $items->has('Hookshot'))
-                && ($items->has('Hookshot') || $items->has('ShopKey')
-                    || ($items->has('KeyD5', 1) && (!$items->has('BigKeyD5') || $locations->itemInLocations(Item::get('BigKeyD5', $this->world), 
-                        ['Ice Palace - Big Key Chest','Ice Palace - Spike Room']))));
+            return true;
         });
 
         $this->locations["Ice Palace - Spike Room"]->setRequirements(function ($locations, $items) {
-            return (!$this->world->config('region.cantTakeDamage', false)
-                    || $items->has('CaneOfByrna') || $items->has('Cape') || $items->has('Hookshot'))
-                && ($items->has('Hookshot') || $items->has('ShopKey')
-                    || ($items->has('KeyD5', 1) && (!$items->has('BigKeyD5') || $locations->itemInLocations(Item::get('BigKeyD5', $this->world), 
-                        ['Ice Palace - Big Key Chest','Ice Palace - Map Chest']))));
+            return true;
         });
 
         $this->locations["Ice Palace - Freezor Chest"]->setRequirements(function ($locations, $items) {
@@ -108,49 +94,11 @@ class IcePalace extends Region
         };
 
         $this->locations["Ice Palace - Boss"]->setRequirements(function ($locations, $items) {
-            return $this->canEnter($locations, $items)
-                && $items->has('Hammer') && $items->canLiftRocks()
-                && $this->boss->canBeat($items, $locations)
-                && $items->has('BigKeyD5') && (
-                    ($this->world->config('itemPlacement') !== 'basic' && ($items->has('CaneOfSomaria') && $items->has('KeyD5')
-                        || $items->has('KeyD5', 2)))
-                    || ($this->world->config('itemPlacement') === 'basic' && $items->has('KeyD5', 2)))
-                && (!$this->world->config('region.wildCompasses', false) || $items->has('CompassD5') || $this->locations["Ice Palace - Boss"]->hasItem(Item::get('CompassD5', $this->world)))
-                && (!$this->world->config('region.wildMaps', false) || $items->has('MapD5') || $this->locations["Ice Palace - Boss"]->hasItem(Item::get('MapD5', $this->world)));
-        })->setFillRules(function ($item, $locations, $items) {
-            if (
-                !$this->world->config('region.bossNormalLocation', true)
-                && (is_a($item, Item\Key::class) || is_a($item, Item\BigKey::class)
-                    || is_a($item, Item\Map::class) || is_a($item, Item\Compass::class))
-            ) {
-                return false;
-            }
-            return true;
-        })->setAlwaysAllow(function ($item, $items) {
-            return $this->world->config('region.bossNormalLocation', true)
-                && ($item == Item::get('CompassD5', $this->world) || $item == Item::get('MapD5', $this->world));
+            return $this->boss->canBeat($items, $locations);
         });
 
         $this->can_enter = function ($locations, $items) {
-            return $items->has('RescueZelda')
-                && ($this->world->config('itemPlacement') !== 'basic'
-                    || (($this->world->config('mode.weapons') === 'swordless' || $items->hasSword(2)) && $items->hasHealth(12) && ($items->hasBottle(2) || $items->hasArmor())))
-                && ($items->canMeltThings($this->world) || $this->world->config('canOneFrameClipUW', false))
-                && ((($items->has('MoonPearl') || $this->world->config('canDungeonRevive', false))
-                    && ($items->has('Flippers') || $this->world->config('canFakeFlipper', false))
-                    && $items->canLiftDarkRocks())
-                    || ($this->world->getRegion('South Dark World')->canEnter($locations, $items)
-                        && ((($items->has('MoonPearl')
-                            || ($items->hasABottle() && $this->world->config('canOWYBA', false))
-                            || ($this->world->config('canBunnyRevive', false) && $items->canBunnyRevive()))
-                        && (($this->world->config('canMirrorWrap', false) && $items->has('MagicMirror')
-                            && (($this->world->config('canBootsClip', false) && $items->has('PegasusBoots'))
-                                || ($this->world->config('canSuperSpeed', false) && $items->canSpinSpeed())))
-                            || ($items->has('Flippers')
-                                && (($this->world->config('canBootsClip', false) && $items->has('PegasusBoots'))
-                                    || $this->world->config('canOneFrameClipOW', false)))))
-                        || ($this->world->config('canOneFrameClipOW', false)
-                            && $this->world->config('canMirrorWrap', false) && $items->has('MagicMirror')))));
+            return true;
         };
 
         $this->prize_location->setRequirements($this->can_complete);

@@ -44,29 +44,19 @@ class West extends Region
     public function initalize()
     {
         $this->locations["Old Man"]->setRequirements(function ($locations, $items) {
-            return $items->has('Lamp', $this->world->config('item.require.Lamp', 1));
+            return true;
         });
 
         $this->locations["Ether Tablet"]->setRequirements(function ($locations, $items) {
-            return $items->has('BookOfMudora') && ($items->hasSword(2)
-                || ($this->world->config('mode.weapons') == 'swordless' && $items->has('Hammer')))
-                && $this->world->getRegion('Tower of Hera')->canEnter($locations, $items);
+            return true;
         });
 
         $this->locations["Spectacle Rock"]->setRequirements(function ($locations, $items) {
-            return $items->has('MagicMirror')
-                || ($this->world->config('canBootsClip', false) && $items->has('PegasusBoots'))
-                || $this->world->config('canOneFrameClipOW', false);
+            return true;
         });
 
         $this->can_enter = function ($locations, $items) {
-            return $items->has('RescueZelda')
-                && ($items->canFly($this->world)
-                    || $this->world->config('canOneFrameClipOW', false)
-                    || ($this->world->config('canOWYBA', false) &&  $items->hasABottle())
-                    || ($this->world->config('canBootsClip', false) && $items->has('PegasusBoots'))
-                    || ($this->world->config('canSuperSpeed', false) && $items->canSpinSpeed())
-                    || ($items->canLiftRocks() && $items->has('Lamp', $this->world->config('item.require.Lamp', 1))));
+            return true;
         };
 
         return $this;

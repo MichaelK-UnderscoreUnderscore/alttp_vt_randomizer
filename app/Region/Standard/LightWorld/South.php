@@ -84,102 +84,83 @@ class South extends Region
     public function initalize()
     {
         $this->shops["20 Rupee Cave"]->setRequirements(function ($locations, $items) {
-            return $items->canLiftRocks();
+            return true;
         });
 
         $this->shops["50 Rupee Cave"]->setRequirements(function ($locations, $items) {
-            return $items->canLiftRocks();
+            return true;
         });
 
         $this->shops["Bonk Fairy (Light)"]->setRequirements(function ($locations, $items) {
-            return $items->has('PegasusBoots');
+            return true;
         });
 
         $this->shops["Light Hype Fairy"]->setRequirements(function ($locations, $items) {
-            return $items->canBombThings();
+            return true;
         });
 
         $this->shops["Capacity Upgrade"]->setRequirements(function ($locations, $items) {
-            return ($this->world->config('canWaterWalk', false) && $items->has('PegasusBoots'))
-                || $this->world->config('canFakeFlipper', false) || $items->has('Flippers');
+            return true;
         });
 
         $this->locations["Aginah's Cave"]->setRequirements(function ($locations, $items) {
-            return $items->canBombThings();
+            return true;
         });
         
         $this->locations["Mini Moldorm Cave - Far Left"]->setRequirements(function ($locations, $items) {
-            return $items->canBombThings() && $items->canKillMostThings($this->world);
+            return true;
         });
         
         $this->locations["Mini Moldorm Cave - Left"]->setRequirements(function ($locations, $items) {
-            return $items->canBombThings() && $items->canKillMostThings($this->world);
+            return true;
         });
 
         $this->locations["Mini Moldorm Cave - Right"]->setRequirements(function ($locations, $items) {
-            return $items->canBombThings() && $items->canKillMostThings($this->world);
+            return true;
         });
 
         $this->locations["Mini Moldorm Cave - Far Right"]->setRequirements(function ($locations, $items) {
-            return $items->canBombThings() && $items->canKillMostThings($this->world);
+            return true;
         });
 
         $this->locations["Mini Moldorm Cave - NPC"]->setRequirements(function ($locations, $items) {
-            return $items->canBombThings() && $items->canKillMostThings($this->world);
+            return true;
         });
 
         $this->locations["Hobo"]->setRequirements(function ($locations, $items) {
-            return ($this->world->config('canWaterWalk', false) && $items->has('PegasusBoots'))
-                || $this->world->config('canFakeFlipper', false) || $items->has('Flippers');
+            return true;
         });
 
         $this->locations["Bombos Tablet"]->setRequirements(function ($locations, $items) {
-            return $items->has('BookOfMudora') && ($items->hasSword(2)
-                || ($this->world->config('mode.weapons') == 'swordless' && $items->has('Hammer')))
-                && ($this->world->config('canOneFrameClipOW', false)
-                    || ($this->world->config('canBootsClip', false) && $items->has('PegasusBoots'))
-                    || ($items->has('MagicMirror') && $this->world->getRegion('South Dark World')->canEnter($locations, $items)));
+            return true;
         });
 
         $this->locations["Cave 45"]->setRequirements(function ($locations, $items) {
-            return $this->world->config('canOneFrameClipOW', false)
-                || ($this->world->config('canBootsClip', false) && $items->has('PegasusBoots'))
-                || ($items->has('MagicMirror') && $this->world->getRegion('South Dark World')->canEnter($locations, $items));
+            return true;
         });
 
         $this->locations["Checkerboard Cave"]->setRequirements(function ($locations, $items) {
-            return $items->canLiftRocks()
-                && ($this->world->config('canOneFrameClipOW', false)
-                    || ($this->world->config('canBootsClip', false) && $items->has('PegasusBoots'))
-                    || ($items->has('MagicMirror') && $this->world->getRegion('Mire')->canEnter($locations, $items)));
+            return true;
         });
 
         $this->locations["Library"]->setRequirements(function ($locations, $items) {
-            return $items->has('PegasusBoots');
+            return true;
         });
 
         $this->locations["Desert Ledge"]->setRequirements(function ($locations, $items) {
-            return $this->world->getRegion('Desert Palace')->canEnter($locations, $items);
+            return true;
         });
 
         $this->locations["Lake Hylia Island"]->setRequirements(function ($locations, $items) {
-            return $this->world->config('canOneFrameClipOW', false)
-                || ($this->world->config('canBootsClip', false) && $items->has('PegasusBoots'))
-                || ($items->has('MagicMirror') && $this->world->config('canWaterWalk', false) && $items->has('PegasusBoots')
-                    && ($items->has('MoonPearl') || ($this->world->config('canOWYBA', false) && $items->hasABottle()))
-                    && $this->world->getRegion('North West Dark World')->canEnter($locations, $items))
-                || ($items->has('Flippers') && $items->has('MagicMirror')
-                    && ($this->world->config('canBunnySurf', false)
-                        || $items->has('MoonPearl') || ($this->world->config('canOWYBA', false) && $items->hasABottle()))
-                    && $this->world->getRegion('North East Dark World')->canEnter($locations, $items));
+            return true;
         });
 
         $this->locations["Flute Spot"]->setRequirements(function ($locations, $items) {
-            return $items->has('Shovel');
+            return true;
         });
 
         $this->can_enter = function ($locations, $items) {
-            return $items->has('RescueZelda');
+            return true;
         };
 
         return $this;

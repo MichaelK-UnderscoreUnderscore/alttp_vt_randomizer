@@ -72,19 +72,19 @@ class DesertPalace extends Region
     public function initalize()
     {
         $this->locations["Desert Palace - Big Chest"]->setRequirements(function ($locations, $items) {
-            return $items->has('BigKeyP2');
+            return true;
         });
 
         $this->locations["Desert Palace - Big Key Chest"]->setRequirements(function ($locations, $items) {
-            return $items->has('KeyP2') && $items->canKillMostThings($this->world);
+            return true;
         });
 
         $this->locations["Desert Palace - Compass Chest"]->setRequirements(function ($locations, $items) {
-            return $items->has('KeyP2');
+            return true;
         });
 
         $this->locations["Desert Palace - Torch"]->setRequirements(function ($locations, $items) {
-            return $items->has('PegasusBoots');
+            return true;
         });
 
         $this->can_complete = function ($locations, $items) {
@@ -92,37 +92,11 @@ class DesertPalace extends Region
         };
 
         $this->locations["Desert Palace - Boss"]->setRequirements(function ($locations, $items) {
-            return $this->canEnter($locations, $items)
-                && ($items->canLiftRocks()
-                    || ($this->world->config('canBootsClip', false) && $items->has('PegasusBoots'))
-                    || ($this->world->config('canSuperSpeed', false) && $items->canSpinSpeed())
-                    || $this->world->config('canOneFrameClipOW', false)
-                    || ($items->has('MagicMirror') && $this->world->getRegion('Mire')->canEnter($locations, $items)))
-                && $items->canLightTorches()
-                && $items->has('BigKeyP2') && $items->has('KeyP2')
-                && $this->boss->canBeat($items, $locations)
-                && (!$this->world->config('region.wildCompasses', false) || $items->has('CompassP2') || $this->locations["Desert Palace - Boss"]->hasItem(Item::get('CompassP2', $this->world)))
-                && (!$this->world->config('region.wildMaps', false) || $items->has('MapP2') || $this->locations["Desert Palace - Boss"]->hasItem(Item::get('MapP2', $this->world)));
-        })->setFillRules(function ($item, $locations, $items) {
-            if (
-                !$this->world->config('region.bossNormalLocation', true)
-                && ($item instanceof Item\Key || $item instanceof Item\BigKey
-                    || $item instanceof Item\Map || $item instanceof Item\Compass)
-            ) {
-                return false;
-            }
-            return !in_array($item, [Item::get('KeyP2', $this->world), Item::get('BigKeyP2', $this->world)]);
-        })->setAlwaysAllow(function ($item, $items) {
-            return $this->world->config('region.bossNormalLocation', true)
-                && ($item == Item::get('CompassP2', $this->world) || $item == Item::get('MapP2', $this->world));
+            return $this->boss->canBeat($items, $locations);
         });
 
         $this->can_enter = function ($locations, $items) {
-            return $items->has('RescueZelda')
-                && ($items->has('BookOfMudora')
-                    || ($this->world->config('canBootsClip', false) && $items->has('PegasusBoots'))
-                    || $this->world->config('canOneFrameClipOW', false)
-                    || ($items->has('MagicMirror') && $this->world->getRegion('Mire')->canEnter($locations, $items)));
+            return true;
         };
 
         $this->prize_location->setRequirements($this->can_complete);

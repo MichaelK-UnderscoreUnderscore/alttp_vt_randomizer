@@ -99,69 +99,28 @@ class TowerOfHera extends Region
      */
     public function initalize()
     {
-        $main = function ($locations, $items) {
-            return (($items->has('PegasusBoots') && $this->world->config('canBootsClip', false))
-                || ($this->world->config('canSuperSpeed', false) && $items->canSpinSpeed()))
-                || $this->world->config('canOneFrameClipOW', false)
-                || (($items->has('MagicMirror') || ($items->has('Hookshot') && $items->has('Hammer')))
-                    && $this->world->getRegion('West Death Mountain')->canEnter($locations, $items));
-        };
-
-        $mire = function ($locations, $items) {
-            return $this->world->config('canOneFrameClipUW', false)
-                && (($locations->itemInLocations(Item::get('BigKeyD6', $this->world), [
-                    "Misery Mire - Compass Chest",
-                    "Misery Mire - Big Key Chest",
-                ]) && $items->has('KeyD6', 2))
-                    || $items->has('KeyD6', 3))
-                && $this->world->getRegion('Misery Mire')->canEnter($locations, $items);
-        };
-
         $this->locations["Tower of Hera - Big Key Chest"]->setRequirements(function ($locations, $items) {
-            return $items->canLightTorches() && $items->has('KeyP3');
-        })->setAlwaysAllow(function ($item, $items) {
-            return $this->world->config('accessibility') !== 'locations' && $item == Item::get('KeyP3', $this->world);
+            return true;
         });
 
-        $this->locations["Tower of Hera - Compass Chest"]->setRequirements(function ($locations, $items) use ($main, $mire) {
-            return ($main($locations, $items) && $items->has('BigKeyP3'))
-                || $mire($locations, $items);
+        $this->locations["Tower of Hera - Compass Chest"]->setRequirements(function ($locations, $items) {
+            return true;
         });
 
-        $this->locations["Tower of Hera - Big Chest"]->setRequirements(function ($locations, $items) use ($main, $mire) {
-            return ($main($locations, $items) && $items->has('BigKeyP3'))
-                || ($mire($locations, $items) && ($items->has('BigKeyP3') || $items->has('BigKeyD6')));
+        $this->locations["Tower of Hera - Big Chest"]->setRequirements(function ($locations, $items) {
+            return true;
         });
 
         $this->can_complete = function ($locations, $items) {
             return $this->locations["Tower of Hera - Boss"]->canAccess($items);
         };
 
-        $this->locations["Tower of Hera - Boss"]->setRequirements(function ($locations, $items) use ($main, $mire) {
-            return $main($locations, $items)
-                && $this->boss->canBeat($items, $locations)
-                && ($items->has('BigKeyP3') || ($mire($locations, $items) && $items->has('BigKeyD6')))
-                && (!$this->world->config('region.wildCompasses', false) || $items->has('CompassP3') || $this->locations["Tower of Hera - Boss"]->hasItem(Item::get('CompassP3', $this->world)))
-                && (!$this->world->config('region.wildMaps', false) || $items->has('MapP3') || $this->locations["Tower of Hera - Boss"]->hasItem(Item::get('MapP3', $this->world)));
-        })->setFillRules(function ($item, $locations, $items) {
-            if (
-                !$this->world->config('region.bossNormalLocation', true)
-                && ($item instanceof Item\Key || $item instanceof Item\BigKey
-                    || $item instanceof Item\Map || $item instanceof Item\Compass)
-            ) {
-                return false;
-            }
-
-            return true;
-        })->setAlwaysAllow(function ($item, $items) {
-            return $this->world->config('region.bossNormalLocation', true)
-                && ($item == Item::get('CompassP3', $this->world) || $item == Item::get('MapP3', $this->world));
+        $this->locations["Tower of Hera - Boss"]->setRequirements(function ($locations, $items) {
+            return $this->boss->canBeat($items, $locations);
         });
 
-        $this->can_enter = function ($locations, $items) use ($main, $mire) {
-            return $items->has('RescueZelda')
-                && ($main($locations, $items)
-                    || $mire($locations, $items));
+        $this->can_enter = function ($locations, $items) {
+            return true;
         };
 
         $this->prize_location->setRequirements($this->can_complete);

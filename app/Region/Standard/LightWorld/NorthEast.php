@@ -57,45 +57,31 @@ class NorthEast extends Region
     public function initalize()
     {
         $this->locations["Sahasrahla"]->setRequirements(function ($locations, $items) {
-            return $items->has('PendantOfCourage');
+            return true;
         });
 
         $this->locations["King Zora"]->setRequirements(function ($locations, $items) {
-            return $this->world->config('canFakeFlipper', false)
-                || (($this->world->config('canWaterWalk', false) || $this->world->config('canBootsClip', false))
-                    && $items->has('PegasusBoots'))
-                || $this->world->config('canOneFrameClipOW', false)
-                || $items->canLiftRocks() || $items->has('Flippers');
+            return true;
         });
 
         $this->locations["Potion Shop"]->setRequirements(function ($locations, $items) {
-            return $items->has('Mushroom');
+            return true;
         });
 
         $this->locations["Zora's Ledge"]->setRequirements(function ($locations, $items) {
-            return  $items->has('Flippers')
-                || ($items->has('PegasusBoots')
-                    && ($this->world->config('canWaterWalk', false)
-                        && ($this->world->config('canFakeFlipper', false)
-                            || ($this->world->config('canSuperSpeed', false) && $items->canSpinSpeed())
-                            || $this->world->config('canBootsClip', false)
-                            || $this->world->config('canOneFrameClipOW', false))));
+            return true;
         });
 
         $this->locations["Waterfall Fairy - Left"]->setRequirements(function ($locations, $items) {
-            return $items->has('Flippers')
-                || ($this->world->config('canWaterWalk', false) && ($items->has('PegasusBoots')
-                    || ($items->has('MoonPearl') && $this->world->config('canFakeFlipper', false))));
+            return true;
         });
 
         $this->locations["Waterfall Fairy - Right"]->setRequirements(function ($locations, $items) {
-            return $items->has('Flippers')
-                || ($this->world->config('canWaterWalk', false) && ($items->has('PegasusBoots')
-                    || ($items->has('MoonPearl') && $this->world->config('canFakeFlipper', false))));
+            return true;
         });
 
         $this->can_enter = function ($locations, $items) {
-            return $items->has('RescueZelda');
+            return true;
         };
 
         return $this;
