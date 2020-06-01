@@ -57,7 +57,7 @@ class NorthEast extends Region
     public function initalize()
     {
         $this->locations["Sahasrahla"]->setRequirements(function ($locations, $items) {
-            return true;
+            return $items->has('PendantOfCourage');
         });
 
         $this->locations["King Zora"]->setRequirements(function ($locations, $items) {
@@ -65,7 +65,7 @@ class NorthEast extends Region
         });
 
         $this->locations["Potion Shop"]->setRequirements(function ($locations, $items) {
-            return true;
+            return $items->has('Mushroom');
         });
 
         $this->locations["Zora's Ledge"]->setRequirements(function ($locations, $items) {

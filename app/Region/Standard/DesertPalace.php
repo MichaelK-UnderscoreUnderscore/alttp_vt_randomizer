@@ -84,7 +84,7 @@ class DesertPalace extends Region
         });
 
         $this->locations["Desert Palace - Torch"]->setRequirements(function ($locations, $items) {
-            return true;
+            return $items->has('PegasusBoots');
         });
 
         $this->can_complete = function ($locations, $items) {

@@ -84,7 +84,9 @@ class NorthWest extends Region
         });
 
         $this->locations["Master Sword Pedestal"]->setRequirements(function ($locations, $items) {
-            return true;
+            return $items->has('PendantOfPower')
+                && $items->has('PendantOfWisdom')
+                && $items->has('PendantOfCourage');
         });
 
         $this->locations["King's Tomb"]->setRequirements(function ($locations, $items) {
@@ -100,11 +102,11 @@ class NorthWest extends Region
         });
 
         $this->locations["Sick Kid"]->setRequirements(function ($locations, $items) {
-            return true;
+            return $items->hasABottle();
         });
 
         $this->locations["Lumberjack Tree"]->setRequirements(function ($locations, $items) {
-            return true;
+            return $items->has('DefeatAgahnim');
         });
 
         $this->locations["Graveyard Ledge"]->setRequirements(function ($locations, $items) {

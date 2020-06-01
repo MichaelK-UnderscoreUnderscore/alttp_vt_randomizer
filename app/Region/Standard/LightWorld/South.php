@@ -132,7 +132,8 @@ class South extends Region
         });
 
         $this->locations["Bombos Tablet"]->setRequirements(function ($locations, $items) {
-            return true;
+            return $items->has('BookOfMudora') && ($items->hasSword(2)
+                || ($this->world->config('mode.weapons') == 'swordless' && $items->has('Hammer')));
         });
 
         $this->locations["Cave 45"]->setRequirements(function ($locations, $items) {
@@ -144,7 +145,7 @@ class South extends Region
         });
 
         $this->locations["Library"]->setRequirements(function ($locations, $items) {
-            return true;
+            return $items->has('PegasusBoots');
         });
 
         $this->locations["Desert Ledge"]->setRequirements(function ($locations, $items) {
@@ -156,7 +157,7 @@ class South extends Region
         });
 
         $this->locations["Flute Spot"]->setRequirements(function ($locations, $items) {
-            return true;
+            return $items->has('Shovel');;
         });
 
         $this->can_enter = function ($locations, $items) {

@@ -192,7 +192,7 @@ class GanonsTower extends Region
     public function initalize()
     {
         $this->locations["Ganon's Tower - Bob's Torch"]->setRequirements(function ($locations, $items) {
-            return true;
+            return $items->has('PegasusBoots');
         });
 
         $this->locations["Ganon's Tower - DMs Room - Top Left"]->setRequirements(function ($locations, $items) {
